@@ -1,0 +1,87 @@
+\documentclass{article}
+\title{Chapter 11 Notes - MC} % title - chapter number
+\author{John Yang}
+\usepackage{amsmath}
+\usepackage[margin=1in, letterpaper]{geometry}
+\usepackage{outlines}
+\setcounter{section}{+10} % chapter number minus 1
+\usepackage{mathtools}
+\DeclarePairedDelimiter\set\{\}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \section{Infinite Sequences and Series} % chapter title
+    \subsection{Sequences} % section topic
+    \begin{outline}
+        \1 sequence - a list of numbers written in a definite order: \[a_1, a_2, a_3, a_4, \cdots, a_n, \cdots \]
+        \1 $a_1$ - first term; $a_2$ - second term; $a_n$ - nth term 
+        \1 For infinite series, every term $a_n$ has a successor $a_{n+1}$
+        \1 Notation - the sequence \(\{a_1, a_2, a_3, \cdots\}\) can also be written as \[\{a_n\}\text{ or }\{a_n\}^\infty_{n=1}\] 
+        \1 Definition 1: limits of sequences: \[\lim_{n\to\infty}a_n=L\]
+            \2 This means: as $n$ becomes very large, the terms of the sequence $\{a_n\}$ approach $L$. 
+        \1 can also be written as \[a_n\to L \text{ as } n\to\infty\]
+        \1 If the limit at infinity exists, the sequence is convergent/converges. Otherwise, it is divergent/diverges. 
+        \1 Definition 2: A more precise definition of the limit of a sequence: \[\lim_{n\to\infty}a_n=L\] if for every \(\varepsilon>0\) there is a corresponding integer $N$ such that \[\text{if }n>N\text{ then }|a_n-L|<\varepsilon\]
+        \1 Theorem 3: If \(\lim_{x\to\infty}f(x)=L\) and \(f(n)=a_n\) when $n$ is an integer, then \(\lim_{n\to\infty}a_n=L\). 
+        \1 Equation 4: \[\lim_{n\to\infty}\dfrac{1}{n^r}=0\text{    if }r>0\]
+        \1 Definition 5: \(\lim_{n\to\infty}a_n=\infty\) means that for every positive number M there is an integer $N$ such that \[\text{if }n>N\text{ then }a_n>M\]
+        \1 Limit laws for sequences: If \(\{a_n\}\text{ and }\{b_n\}\) are convergent sequences and $c$ is a constant, then: \[\lim_{n\to\infty}(a_n+b_n)=\lim_{n\to\infty}a_n+\lim_{n\to\infty}b_n\]\[\lim_{n\to\infty}(a_n-b_n)=\lim_{n\to\infty}a_n-\lim_{n\to\infty}b_n\]\[\lim_{n\to\infty}ca_n=c\lim_{n\to\infty}a_n\text{    }\lim_{n\to\infty}c=c\]\[\lim_{n\to\infty}(a_nb_n)=\lim_{n\to\infty}a_n\cdot\lim_{n\to\infty}b_n\]\[\lim_{n\to\infty}\dfrac{a_n}{b_n}=\dfrac{\lim_{n\to\infty}a_n}{\lim_{n\to\infty}b_n}\text{ if }\lim_{n\to\infty}b_n\neq0\]\[\lim_{n\to\infty}a_n^p=\left[\lim_{n\to\infty}a_n\right]^p\text{ if }p>0\text{ and }a_n>0\]
+        \1 Squeeze Theorem can be adapted for sequences: \[\text{If }a_n\leq b_n\leq c_n\text{ for }n\geq n_0\text{ and }\lim_{n\to\infty}a_n=\lim_{n\to\infty}c_n=L\text{, then }\lim_{n\to\infty}b_n=L\]
+        \1 Theorem 6: \(\text{If }\lim_{n\to\infty}|a_n|=0\text{, then }\lim_{n\to\infty}a_n=0\)
+        \1 Theorem 7: If \(\lim_{n\to\infty}a_n=L\) and the function f is continuous at $L$, then \[\lim_{n\to\infty}f(a_n)=f(L)\]
+        \1 Equation 8 (example 10): \[a_n=\dfrac{n!}{n^n}=\dfrac{1\cdot2\cdot3\cdot\cdots\cdot n}{n\cdot n\cdot n\cdot\cdots\cdot n}\] (ex. 10)
+        \1 Equation 9 (example 11): The sequence \(\{r^n\}\) is convergent if \(-1<r\leq 1\) and divergent for all other values of $r$. \[\lim_{n\to\infty}r^n=\begin{cases} 0 & \mbox{if } -1<r<1 \\ 1 & \mbox{if }r=1 \end{cases}\]
+        \1 Definition 10: A sequence \(\{a_n\}\) is called \textbf{increasing} if \(a_n<a_{n+1}\) for all \(n\geq 1\), that is, \(a_1<a_2<a_3<\cdots\). It is called \textbf{decreasing} if \(a_n>a_{n+1}\) for all \(n\geq 1\). A sequence is \textbf{monotonic} if it is either increasing or decreasing. 
+        \1 Definition 11: A sequence \(\{a_n\}\) is \textbf{bounded above} if there is a number $M$ such that \[a_n\leq M\mbox{    for all }n\geq 1\] It is bounded below if there is a number $m$ such that \[m\leq a_n\text{    for all }n\geq 1\] If it is bounded above and below, then \(\{a_n\}\) is a \textbf{bounded sequence}
+        \1 Theorem 12: Monotonic Sequence Theorem: Every bounded, monotonic sequence is convergent. 
+        \1 Proof of theorem 12: Suppose \(\{a_n\}\) is an increasing sequence. Since \(\{a_n\}\) is bounded, the set \(S=\{a_n|n\geq 1\}\) has an upper bound. By the Completeness Axiom it has a least upper bound $L$. Given \(\varepsilon>0\), \(L-\varepsilon\) is \textit{not} an upper bound for $S$ (since $L$ is the \textit{least} upper bound). Therefore \[a_N>L-\varepsilon\] For some integer $N$. But the sequence is increasing so \(a_n\geq a_N\) for every \(n>N\). Thus if \(n>N\), we have \[a_n>L-\varepsilon\] so \[0\leq L-a_n<\varepsilon\] since \(a_n\leq L\). Thus, \[|L-a_n|<\varepsilon\text{     whenever }n>N \] so \(\lim_{n\to\infty}a_n=L\). A similar proof can be applied if \(\{a_n\}\) is decreasing. 
+    \end{outline}
+    \subsection{Series}
+    \begin{outline}
+        
+    \end{outline}
+    \subsection{The Integral Test and Estimates of Sums}
+    \begin{outline}
+        
+    \end{outline}
+    \subsection{The Comparison Tests}
+    \begin{outline}
+        
+    \end{outline}
+    \subsection{Alternating Series}
+    \begin{outline}
+        
+    \end{outline}
+    \subsection{Absolute Convergence and the Ratio and Root Tests}
+    \begin{outline}
+        
+    \end{outline}
+    \subsection{Strategy for Testing Series}
+    \begin{outline}
+        
+    \end{outline}
+    \subsection{Power Series}
+    \begin{outline}
+        
+    \end{outline}
+    \subsection{Representations of Functions an Power Series}
+    \begin{outline}
+        
+    \end{outline}
+    \subsection{Taylor and Maclaurin Series}
+    \begin{outline}
+        
+    \end{outline}
+    \subsection{Applications of Taylor Polynomials}
+    \begin{outline}
+        
+    \end{outline}
+\end{document}
