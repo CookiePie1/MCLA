@@ -65,11 +65,19 @@
             \2 Note: The converse of this theorem is not always true!
         \1 Equation 7: Nth term test: If \(\lim_{n\to\infty}a_n\) does not exist or if \(\lim_{n\to\infty}a_n\neq0\), then the series \(\sum_{n=1}^\infty a_n\) is divergent. 
         \1 Theorem 8: If \(\Sigma a_n\) and \(\Sigma b_n\) are convergent series, then so are the series \(\Sigma ca_n\) (where $c$ is a constant), \(\Sigma\left(a_n+b_n\right)\), and \(\Sigma\left(a_n-b_n\right)\), and \[\sum^\infty_{n=1}ca_n=c\sum^\infty_{n=1}a_n\]\[\sum^\infty_{n=1}\left(a_n+b_n\right)=\sum^\infty_{n=1}a_n+\sum^\infty_{n=1}b_n\]\[\sum^\infty_{n=1}\left(a_n-b_n\right)=\sum^\infty_{n=1}a_n-\sum^\infty_{n=1}b_n\]
-        
+
     \end{outline}
     \subsection{The Integral Test and Estimates of Sums}
     \begin{outline}
-        
+        \1 The Integral Test: Suppose $f$ is a continuous, positive, decreasing function on \([1,\infty)\) and let \(a_n=f(n)\). Then the series \(\sum^\infty_{n=1}a_n\) is convergent IFF the proper integral \(\int^\infty_1f(x)dx\) is convergent. 
+            \2 CONDITIONS: continuous, positive, decreasing function 
+            \2 The integral from $1$ to $\infty$ of the function must be convergent for the series to be convergent. 
+        \1 Equation 1: P-series test: The $p$-series \(\sum^\infty_{n=1}\dfrac{1}{n^p}\) is convergent if \(p>1\) and divergent if \(p\leq1\)
+        \1 Equation 2: Remainder Estimate for the Integral Test: Suppose \(f(k)=a_k\), where $f$ is a continuous, positive, decreasing function for \(x\geq n\) and \(\Sigma a_n\) is convergent. If \(R_n=s-s_n\), then \[\int^\infty_{n+1}f(x)dx\leq R_n\leq\int^\infty_n f(x)dx\]
+        \1 Equation 3 (example 5): \[s_n+\int^\infty_{n+1}f(x)dx\leq s\leq s_n+\int^\infty_nf(x)dx\]
+        \1 Equation 4: \[a_2+a_3+\cdots+a_n\leq\int^n_1f(x)dx\]
+        \1 Equation 5: \[\int^n_1f(x)dx\leq a_1+a_2+\cdots+a_{n-1}\]
+            \2 Both eqns 4 and 5 depend on the fact that $f$ is decreasing and positive. 
     \end{outline}
     \subsection{The Comparison Tests}
     \begin{outline}
