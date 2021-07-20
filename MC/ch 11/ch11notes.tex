@@ -94,26 +94,89 @@
     \end{outline}
     \subsection{Absolute Convergence and the Ratio and Root Tests}
     \begin{outline}
-        
+        \1 Definition 1: A series \(\Sigma a_n\) is called absolutely convergent if the series of absolute values \(\Sigma|a_n|\) is convergent. 
+        \1 Definition 2: A series \(\Sigma a_n\) is called conditionally convergent if it is convergent but not absolutely convergent. 
+        \1 Theorem 3: If a series \(\Sigma a_n\) is absolutely convergent, then it is convergent. 
+        \1 The ratio test: 
+            \2 If \(\lim_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|=L<1\), then the series \(\sum^\infty_{n=1}a_n\) is absolutely convergent (and therefore convergent). 
+            \2 If \(\lim_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|=L>1\) or \(\lim_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|=\infty\), then the series \(\sum^\infty_{n=1}a_n\) is divergent. 
+            \2 If \(\lim_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|=1\), the Ratio Test is inconclusive; that is, no conclusion can be drawn about the convergence or divergence of \(\Sigma a_n\)
+        \1 The Root Test: 
+            \2 If \(\lim_{n\to\infty}\sqrt[n]{|a_n|}=L<1\), then the series \(\sum^\infty_{n=1}a_n\) is absolutely convergent (and therefore convergent). 
+            \2 If \(\lim_{n\to\infty}\sqrt[n]{|a_n}=L>1\) or \(\lim_{n\to\infty}\sqrt[n]{|a_n|}=\infty\), then the series \(\sum^\infty_{n=1}a_n\) is divergent. 
+            \2 if \(\lim_{n\to\infty}\sqrt[n]{|a_n|}=1\), the root test is inconclusive. 
     \end{outline}
     \subsection{Strategy for Testing Series}
     \begin{outline}
-        
+        \1 Classify series according to form in order to determine convergence or divergence. 
+        \1 If the series is of the form \(\Sigma 1/n^p\), it is a p-series, which we know to be convergent if \(p>1\) and divergent if \(p\leq 1\).
+        \1 Geometric series: \(\Sigma ar^n\); converges if \(|r|<1\) and diverges if \(|r|\geq 1\)
+        \1 Series similar to geo or p-series: use a comparison test to determine. 
+        \1 If the limit at infinity is immediately obvious not to be 0, use the nth term test. 
+        \1 If the series contains \((-1)^n\), use the alternating series test. 
+        \1 Series with factorials or other products: use the ratio test. 
+        \1 If the series is in the form of \((b_n)^n\), use the root test. 
+        \1 If \(a_n=f(n)\) and \(\int^\infty_1f(x)dx\) is easily evaluated, use the integral test as long as the function is continuous, positive, and decreasing. 
+
     \end{outline}
     \subsection{Power Series}
     \begin{outline}
-        
+        \1 (Equation 1) Power series is a series of the form \[\sum^\infty_{n=0}c_nx^n=c_0+c_1x+c_2x^2+c_3x^3+\cdots\] where $x$ is the variable and the $c_n$s are the coefficients of the series. 
+        \1 (Equation 2): Power series with all coefficients as 1. \[\sum^\infty_{n=0}x^n=1+x+x^2+\cdots+x^n+\cdots\]
+        \1 Equation 3: power series centered about $a$ \[\sum^\infty_{n=0}c_n(x-a)^n=c_0+c_1(x-a)+c_2(x-a)^2+\cdots\]
+        \1 Theorem 4: For a given power series \(\sum^\infty_{n=0}c_n(x-a)^n\), there are only three possibilities: 
+            \2 The series converges only when \(x=a\)
+            \2 The series converges for all $x$
+            \2 There is a positive number $R$ such that the series converges if \(|x-a|<R\) and diverges if \(|x-a|>R\)
+        \1 $R$ is the radius of convergence of the power series. Interval of convergence is the interval that contains all $x$ for which the series converges. 
+        \1 Check endpoint convergence!
+
     \end{outline}
     \subsection{Representations of Functions an Power Series}
     \begin{outline}
-        
+        \1 Equation 1: geometric series with \(a=1\) and \(r=x\): \[\dfrac{1}{1-x}=1+x+x^2+x^3+\cdots=\sum^\infty_{n=0}x^n\mbox{ for }|x|<1\]
+        \1 Theorem 2: If the power series \(\Sigma c_n(x-a)^n\) has radius of convergence \(R>0\), then the function $f$ defined by \[f(x)=c_0+C_1(x-a)+c_2(x-a)^2+\cdots=\sum_{n=0}^\infty c_n(x-a)^n\] is differentiable (and therefore continuous) on the interval \((a-R, a+R)\) and \[\text{(i) }f'(x)=c_1+2c_2(x-a)+3c_3(x-a)^2+\cdots=\sum^\infty_{n=1}nc_n(x-a)^{n-1}\]\[\text{(ii) }\int f(x)dx=C+c_0(x-a)+c_1\dfrac{(x-a)^2}{2}+c_2\dfrac{(x-a)^3}{3}+\cdots=C+\sum^\infty_{n=0}=c_n\dfrac{(x-a)^{n+1}}{n+1}\] The radii of convergence of the power series in Equations (i) and (ii) are both $R$. 
+
     \end{outline}
     \subsection{Taylor and Maclaurin Series}
     \begin{outline}
-        
+        \1 Equations 1-4: derivation of the taylor series
+        \1 Theorem 5: If $f$ has a power series representation/expansion at $a$, that is if \[f(x)=\sum^\infty_{n=0}c_n(x-a)^n \text{ for } |x-a|<R\] then its coefficients are given by: \[c_n=\dfrac{f^{(n)}(a)}{n!}\]
+        \1 Equation 6: Taylor series about $a$: \[f(x)=\sum^\infty_{n=0}\dfrac{f^{(n)}(a)}{n!}(x-a)^n=f(a)+\dfrac{f'(a)}{1!}(x-a)+\dfrac{f''(a)}{2!}(x-a)^2+\dfrac{f'''(a)}{3!}(x-a)^3+\cdots\]
+        \1 Equation 7: Maclaurin series, which is a taylor series about $a=0$. \[f(x)=\sum^\infty_{n=0}\dfrac{f^{(n)}(0)}{n!}x^n=f(0)+\dfrac{f'(0)}{1!}x+\dfrac{f''(0)}{2!}x^2+\cdots\]
+        \1 Theorem 8: If \(f(x)=T_n(x)+R_n(x)\), where $T_n$ is the $n$th degree Taylor polynomial of $f$ at $a$ and \[\lim_{n\to\infty}R_n(x)=0\] for \(|x-a|<R\), then $f$ is equal to the sum of its Taylor series on the interval \(|x-a|<R\). 
+        \1 Equation 9: Taylor's Inequality: If \(|f^{(n+1)}(x)|\leq M\) for \(|x-a|\leq d\), then the remainder \(R_n(x)\) of the Taylor series satisfies the inequality \[|R_n(x)\leq\dfrac{M}{(n+1)!}|x-a|^{n+1}\mbox{ for }|x-a|\leq d\]
+        \1 Equation 10: \[\lim_{n\to\infty}\dfrac{x^n}{n!}=0\mbox{ for every real number }x\]
+        \1 Equation 11: \[e^x=\sum^\infty_{n=0}\dfrac{x^n}{n!}\mbox{ for all }x\]
+        \1 Equation 12: the number $e$ is a sum of the infinite series: \[e=\sum^\infty_{n=0}\dfrac{1}{n!}=1+\dfrac{1}{1!}+\dfrac{1}{2!}+\dfrac{1}{3!}+\cdots\]
+        \1 Equation 15: power series of \(\sin x\)\[\sin x=x-\dfrac{x^3}{3!}+\dfrac{x^5}{5!}-\dfrac{x^7}{7!}+\cdots=\sum^\infty_{n=0}(-1)^n\dfrac{x^{2n+1}}{(2n+1)!}\mbox{ for all }x\]
+        \1 Equation 16: power series of \(\cos x\)\[\cos x=1-\dfrac{x^2}{2!}+\dfrac{x^4}{4!}-\dfrac{x^6}{6!}+\cdots=\sum^\infty_{n=0}(-1)^n\dfrac{x^2n}{(2n)!}\text{ for all }x\]
+        \1 Equation 17: The binomial series: If $k$ is any real number and \(|x|<1\), then \[(1+x)^k=\sum^\infty_{n=0}\begin{pmatrix}k\\n\end{pmatrix}x^n=1+kx+\dfrac{k(k-1)}{2!}x^2+\dfrac{k(k-1)(k-2)}{3!}x^3+\cdots\]
+        \1 Table 1: Important Maclaurin series and their radii of convergence
     \end{outline}
+    $$\begin{array}{ | l | c | }
+        \hline
+        \text{Series} & \text{Radius} \\
+        \hline
+        \dfrac{1}{1-x}=\sum^\infty_{n=0}x^n=1+x+x^2+x^3+\cdots & R=1 \\
+        \hline
+        e^x= \sum^\infty_{n=0}\dfrac{x^n}{n!}=1+\dfrac{x}{1!}+\dfrac{x^2}{2!}+\dfrac{x^3}{3!}+\cdots & R=\infty \\
+        \hline
+        \sin x=\sum^\infty_{n=0}(-1)^n\dfrac{x^{2n+1}}{(2n+1)!}=x-\dfrac{x^3}{3!}+\dfrac{x^5}{5!}-\dfrac{x^7}{7!}+\cdots  & R=\infty \\
+        \hline
+        \cos x=\sum^\infty_{n=0}(-1)^n\dfrac{x^{2n}}{(2n)!}=1-\dfrac{x^2}{2!}+\dfrac{x^4}{4!}-\dfrac{x^6}{6!}+\cdots  & R=\infty \\
+        \hline
+        \tan^{-1}x=\sum^\infty_{n=0}(-1)^n\dfrac{x^{2n+1}}{2n+1}=x-\dfrac{x^3}{3}+\dfrac{x^5}{5}-\dfrac{x^7}{7}+\cdots  & R=1 \\
+        \hline
+        \ln(1+x)=\sum^\infty_{n=1}(-1)^{n-1}\dfrac{x^n}{n}=x-\dfrac{x^2}{2}+\dfrac{x^3}{3}-\dfrac{x^4}{4}+\cdots  & R=1 \\ 
+        \hline
+        (1+x)^k=\sum^\infty_{n=0}\begin{pmatrix}k\\n\end{pmatrix}x^n=1+kx+\dfrac{k(k-1)}{2!}x^2+\dfrac{k(k-1)(k-2)}{3!}x^3+\cdots  & R=1 \\ 
+        \hline     
+    \end{array}$$
     \subsection{Applications of Taylor Polynomials}
     \begin{outline}
-        
+        \1 Two main ways taylor polynomials are applied: 
+            \2 1: Approximation - computers often use taylor polynomials to approximate values of functions because it's a simpler algorithm and the error can be brought very small. 
+            \2 2: Physics: Taylor polynomials can be used to simply visualize/predict how a complicated function will behave. Also helpful in optics and other applications of small angle approximation. 
     \end{outline}
 \end{document}
