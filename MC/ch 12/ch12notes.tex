@@ -24,29 +24,159 @@
 \begin{document}
     \maketitle
     \tableofcontents
-    \section{Vectors and the Geometry of Space} % chapter title
-    \subsection{Three-Dimensional Coordinate Systems} % section topic
+    \section{Infinite Sequences and Series} % chapter title
+    \subsection{Sequences} % section topic
     \begin{outline}
-        
+        \1 sequence - a list of numbers written in a definite order: \[a_1, a_2, a_3, a_4, \cdots, a_n, \cdots \]
+        \1 $a_1$ - first term; $a_2$ - second term; $a_n$ - nth term 
+        \1 For infinite series, every term $a_n$ has a successor $a_{n+1}$
+        \1 Notation - the sequence \(\{a_1, a_2, a_3, \cdots\}\) can also be written as \[\{a_n\}\text{ or }\{a_n\}^\infty_{n=1}\] 
+        \1 Definition 1: limits of sequences: \[\lim_{n\to\infty}a_n=L\]
+            \2 This means: as $n$ becomes very large, the terms of the sequence $\{a_n\}$ approach $L$. 
+        \1 can also be written as \[a_n\to L \text{ as } n\to\infty\]
+        \1 If the limit at infinity exists, the sequence is convergent/converges. Otherwise, it is divergent/diverges. 
+        \1 Definition 2: A more precise definition of the limit of a sequence: \[\lim_{n\to\infty}a_n=L\] if for every \(\varepsilon>0\) there is a corresponding integer $N$ such that \[\text{if }n>N\text{ then }|a_n-L|<\varepsilon\]
+        \1 Theorem 3: If \(\lim_{x\to\infty}f(x)=L\) and \(f(n)=a_n\) when $n$ is an integer, then \(\lim_{n\to\infty}a_n=L\). 
+        \1 Equation 4: \[\lim_{n\to\infty}\dfrac{1}{n^r}=0\text{    if }r>0\]
+        \1 Definition 5: \(\lim_{n\to\infty}a_n=\infty\) means that for every positive number M there is an integer $N$ such that \[\text{if }n>N\text{ then }a_n>M\]
+        \1 Limit laws for sequences: If \(\{a_n\}\text{ and }\{b_n\}\) are convergent sequences and $c$ is a constant, then: \[\lim_{n\to\infty}(a_n+b_n)=\lim_{n\to\infty}a_n+\lim_{n\to\infty}b_n\]\[\lim_{n\to\infty}(a_n-b_n)=\lim_{n\to\infty}a_n-\lim_{n\to\infty}b_n\]\[\lim_{n\to\infty}ca_n=c\lim_{n\to\infty}a_n\text{    }\lim_{n\to\infty}c=c\]\[\lim_{n\to\infty}(a_nb_n)=\lim_{n\to\infty}a_n\cdot\lim_{n\to\infty}b_n\]\[\lim_{n\to\infty}\dfrac{a_n}{b_n}=\dfrac{\lim_{n\to\infty}a_n}{\lim_{n\to\infty}b_n}\text{ if }\lim_{n\to\infty}b_n\neq0\]\[\lim_{n\to\infty}a_n^p=\left[\lim_{n\to\infty}a_n\right]^p\text{ if }p>0\text{ and }a_n>0\]
+        \1 Squeeze Theorem can be adapted for sequences: \[\text{If }a_n\leq b_n\leq c_n\text{ for }n\geq n_0\text{ and }\lim_{n\to\infty}a_n=\lim_{n\to\infty}c_n=L\text{, then }\lim_{n\to\infty}b_n=L\]
+        \1 Theorem 6: \(\text{If }\lim_{n\to\infty}|a_n|=0\text{, then }\lim_{n\to\infty}a_n=0\)
+        \1 Theorem 7: If \(\lim_{n\to\infty}a_n=L\) and the function f is continuous at $L$, then \[\lim_{n\to\infty}f(a_n)=f(L)\]
+        \1 Equation 8 (example 10): \[a_n=\dfrac{n!}{n^n}=\dfrac{1\cdot2\cdot3\cdot\cdots\cdot n}{n\cdot n\cdot n\cdot\cdots\cdot n}\] (ex. 10)
+        \1 Equation 9 (example 11): The sequence \(\{r^n\}\) is convergent if \(-1<r\leq 1\) and divergent for all other values of $r$. \[\lim_{n\to\infty}r^n=\begin{cases} 0 & \mbox{if } -1<r<1 \\ 1 & \mbox{if }r=1 \end{cases}\]
+        \1 Definition 10: A sequence \(\{a_n\}\) is called \textbf{increasing} if \(a_n<a_{n+1}\) for all \(n\geq 1\), that is, \(a_1<a_2<a_3<\cdots\). It is called \textbf{decreasing} if \(a_n>a_{n+1}\) for all \(n\geq 1\). A sequence is \textbf{monotonic} if it is either increasing or decreasing. 
+        \1 Definition 11: A sequence \(\{a_n\}\) is \textbf{bounded above} if there is a number $M$ such that \[a_n\leq M\mbox{    for all }n\geq 1\] It is bounded below if there is a number $m$ such that \[m\leq a_n\text{    for all }n\geq 1\] If it is bounded above and below, then \(\{a_n\}\) is a \textbf{bounded sequence}
+        \1 Theorem 12: Monotonic Sequence Theorem: Every bounded, monotonic sequence is convergent. 
+        \1 Proof of theorem 12: Suppose \(\{a_n\}\) is an increasing sequence. Since \(\{a_n\}\) is bounded, the set \(S=\{a_n|n\geq 1\}\) has an upper bound. By the Completeness Axiom it has a least upper bound $L$. Given \(\varepsilon>0\), \(L-\varepsilon\) is \textit{not} an upper bound for $S$ (since $L$ is the \textit{least} upper bound). Therefore \[a_N>L-\varepsilon\] For some integer $N$. But the sequence is increasing so \(a_n\geq a_N\) for every \(n>N\). Thus if \(n>N\), we have \[a_n>L-\varepsilon\] so \[0\leq L-a_n<\varepsilon\] since \(a_n\leq L\). Thus, \[|L-a_n|<\varepsilon\text{     whenever }n>N \] so \(\lim_{n\to\infty}a_n=L\). A similar proof can be applied if \(\{a_n\}\) is decreasing. 
     \end{outline}
-    \subsection{Vectors}
+    \subsection{Series}
     \begin{outline}
-        
+        \1 Equation 1: infinite series/series can be written as: \[a_1+a_2+a_3+\cdots+a_n+\cdots\]
+        \1 Partial sums: \[s_n=a_1+a_2+a_3+\cdots+a_n=\sum^n_{i=1}a_i\] e.g. \[s_1=a_1\]\[s_2=a_1+a_2\]\[s_3=a_1+a_2+a_3\]\[s_4=a_1+a_2+a_3+a_4\]
+        \1 Def 2: given a series \(\sum^\infty_{n=1}a_n=a_1+a_2+a_3+\cdots\), its $n$th partial sum is denoted as above.
+            \2 If the sequence \(\{s_n\}\) is convergent and \(\lim_{n\to\infty}s_n=s\) exists as a real number, then the series \(\sum a_n\) is called convergent and we write \[a_1+a_2+\cdots+a_n+\cdots=s\mbox{ or }\sum^\infty_{n=1}a_n=s\]
+            \2 The number $s$ is called the sum of the series. If the sequence \(\{s_n\}\) is divergent, then the series is divergent. 
+        \1 Geometric series: \[a+ar+ar^2+ar^3+\cdots+ar^{n-1}+\cdots=\sum^\infty_{n=1}ar^{n-1}\mbox{ where }a\neq0\]
+        \1 Equation 3: sum of a geometric series \[s_n=\dfrac{a\left(1-r^n\right)}{1-r}\]
+        \1 Equation 4 (example 2): The geometric series \[\sum^\infty_{n=1}ar^{n-1}=a+ar+ar^2+\cdots\] is convergent if \(|r|<1\) and its sum is \[\sum^\infty_{n=1}ar^{n-1}=\dfrac{a}{1-r}\mbox{ where }|r|<1\] If \(|r|\geq1\), the geometric series is divergent. 
+        \1 Equation 5 (example 7): \[\sum^\infty_{n=0}x^n=\dfrac{1}{1-x}\]
+        \1 Theorem 6: If the series \(\sum^\infty_{n=1}a_n\) is convergent, then \(\lim_{n\to\infty}a_n=0\)
+            \2 Note: The converse of this theorem is not always true!
+        \1 Equation 7: Nth term test: If \(\lim_{n\to\infty}a_n\) does not exist or if \(\lim_{n\to\infty}a_n\neq0\), then the series \(\sum_{n=1}^\infty a_n\) is divergent. 
+        \1 Theorem 8: If \(\Sigma a_n\) and \(\Sigma b_n\) are convergent series, then so are the series \(\Sigma ca_n\) (where $c$ is a constant), \(\Sigma\left(a_n+b_n\right)\), and \(\Sigma\left(a_n-b_n\right)\), and \[\sum^\infty_{n=1}ca_n=c\sum^\infty_{n=1}a_n\]\[\sum^\infty_{n=1}\left(a_n+b_n\right)=\sum^\infty_{n=1}a_n+\sum^\infty_{n=1}b_n\]\[\sum^\infty_{n=1}\left(a_n-b_n\right)=\sum^\infty_{n=1}a_n-\sum^\infty_{n=1}b_n\]
+
     \end{outline}
-    \subsection{The Dot Product}
+    \subsection{The Integral Test and Estimates of Sums}
     \begin{outline}
-        
+        \1 The Integral Test: Suppose $f$ is a continuous, positive, decreasing function on \([1,\infty)\) and let \(a_n=f(n)\). Then the series \(\sum^\infty_{n=1}a_n\) is convergent IFF the proper integral \(\int^\infty_1f(x)dx\) is convergent. 
+            \2 CONDITIONS: continuous, positive, decreasing function 
+            \2 The integral from $1$ to $\infty$ of the function must be convergent for the series to be convergent. 
+        \1 Equation 1: P-series test: The $p$-series \(\sum^\infty_{n=1}\dfrac{1}{n^p}\) is convergent if \(p>1\) and divergent if \(p\leq1\)
+        \1 Equation 2: Remainder Estimate for the Integral Test: Suppose \(f(k)=a_k\), where $f$ is a continuous, positive, decreasing function for \(x\geq n\) and \(\Sigma a_n\) is convergent. If \(R_n=s-s_n\), then \[\int^\infty_{n+1}f(x)dx\leq R_n\leq\int^\infty_n f(x)dx\]
+        \1 Equation 3 (example 5): \[s_n+\int^\infty_{n+1}f(x)dx\leq s\leq s_n+\int^\infty_nf(x)dx\]
+        \1 Equation 4: \[a_2+a_3+\cdots+a_n\leq\int^n_1f(x)dx\]
+        \1 Equation 5: \[\int^n_1f(x)dx\leq a_1+a_2+\cdots+a_{n-1}\]
+            \2 Both eqns 4 and 5 depend on the fact that $f$ is decreasing and positive. 
     \end{outline}
-    \subsection{The Cross Product}
+    \subsection{The Comparison Tests}
     \begin{outline}
-        
+        \1 The comparison test: Suppose that \(\Sigma a_n\) and \(\Sigma b_n\) are series with positive terms. 
+            \2 If \(\Sigma b_n\) is convergent and \(a_n\leq b_n\) for all $n$, then \(\Sigma a_n\) is also convergent. 
+            \2 If \(\Sigma b_n\) is divergent and \(a_n\geq b_n\) for all $n$, then \(\Sigma a_n\) is also divergent. 
+        \1 The Limit comparison test: Suppose that \(\Sigma a_n\) and \(\Sigma b_n\) are series with positive terms. If \[\lim_{n\to\infty}\dfrac{a_n}{b_n}=c\] where $c$ is a finite number and \(c>0\), then either both series converge or both series diverge. 
+
     \end{outline}
-    \subsection{Equations of Lines and Planes}
+    \subsection{Alternating Series}
     \begin{outline}
-        
+        \1 The alternating series test: If the alternating series \[\sum^\infty_{n=1}(-1)^{n-1}b_n=b_1-b_2+b_3-b_4+b_5-b_6+\cdots \mbox{ where } b_n>0\] satisfies \[\mbox{(i) }b_{n+1}\leq b_n\mbox{ for all }n\]\[\mbox{(ii) }\lim_{n\to\infty}=0\] then the series is convergent. 
+        \1 Alternating series Estimation Theorem: If \(s=\Sigma (-1)^{n-1}b_n\), where \(b_n>0\), is the sum of an alternating series that satisfies \[b_{n+1}\leq b_n\mbox{ and }\lim_{n\to\infty}=0\] then \[|R_n|=|s-s_n|\leq b_{n+1}\]
     \end{outline}
-    \subsection{Cylinders and Quadric Surfaces}
+    \subsection{Absolute Convergence and the Ratio and Root Tests}
     \begin{outline}
-        
+        \1 Definition 1: A series \(\Sigma a_n\) is called absolutely convergent if the series of absolute values \(\Sigma|a_n|\) is convergent. 
+        \1 Definition 2: A series \(\Sigma a_n\) is called conditionally convergent if it is convergent but not absolutely convergent. 
+        \1 Theorem 3: If a series \(\Sigma a_n\) is absolutely convergent, then it is convergent. 
+        \1 The ratio test: 
+            \2 If \(\lim_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|=L<1\), then the series \(\sum^\infty_{n=1}a_n\) is absolutely convergent (and therefore convergent). 
+            \2 If \(\lim_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|=L>1\) or \(\lim_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|=\infty\), then the series \(\sum^\infty_{n=1}a_n\) is divergent. 
+            \2 If \(\lim_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|=1\), the Ratio Test is inconclusive; that is, no conclusion can be drawn about the convergence or divergence of \(\Sigma a_n\)
+        \1 The Root Test: 
+            \2 If \(\lim_{n\to\infty}\sqrt[n]{|a_n|}=L<1\), then the series \(\sum^\infty_{n=1}a_n\) is absolutely convergent (and therefore convergent). 
+            \2 If \(\lim_{n\to\infty}\sqrt[n]{|a_n}=L>1\) or \(\lim_{n\to\infty}\sqrt[n]{|a_n|}=\infty\), then the series \(\sum^\infty_{n=1}a_n\) is divergent. 
+            \2 if \(\lim_{n\to\infty}\sqrt[n]{|a_n|}=1\), the root test is inconclusive. 
+    \end{outline}
+    \subsection{Strategy for Testing Series}
+    \begin{outline}
+        \1 Classify series according to form in order to determine convergence or divergence. 
+        \1 If the series is of the form \(\Sigma 1/n^p\), it is a p-series, which we know to be convergent if \(p>1\) and divergent if \(p\leq 1\).
+        \1 Geometric series: \(\Sigma ar^n\); converges if \(|r|<1\) and diverges if \(|r|\geq 1\)
+        \1 Series similar to geo or p-series: use a comparison test to determine. 
+        \1 If the limit at infinity is immediately obvious not to be 0, use the nth term test. 
+        \1 If the series contains \((-1)^n\), use the alternating series test. 
+        \1 Series with factorials or other products: use the ratio test. 
+        \1 If the series is in the form of \((b_n)^n\), use the root test. 
+        \1 If \(a_n=f(n)\) and \(\int^\infty_1f(x)dx\) is easily evaluated, use the integral test as long as the function is continuous, positive, and decreasing. 
+
+    \end{outline}
+    \subsection{Power Series}
+    \begin{outline}
+        \1 (Equation 1) Power series is a series of the form \[\sum^\infty_{n=0}c_nx^n=c_0+c_1x+c_2x^2+c_3x^3+\cdots\] where $x$ is the variable and the $c_n$s are the coefficients of the series. 
+        \1 (Equation 2): Power series with all coefficients as 1. \[\sum^\infty_{n=0}x^n=1+x+x^2+\cdots+x^n+\cdots\]
+        \1 Equation 3: power series centered about $a$ \[\sum^\infty_{n=0}c_n(x-a)^n=c_0+c_1(x-a)+c_2(x-a)^2+\cdots\]
+        \1 Theorem 4: For a given power series \(\sum^\infty_{n=0}c_n(x-a)^n\), there are only three possibilities: 
+            \2 The series converges only when \(x=a\)
+            \2 The series converges for all $x$
+            \2 There is a positive number $R$ such that the series converges if \(|x-a|<R\) and diverges if \(|x-a|>R\)
+        \1 $R$ is the radius of convergence of the power series. Interval of convergence is the interval that contains all $x$ for which the series converges. 
+        \1 Check endpoint convergence!
+
+    \end{outline}
+    \subsection{Representations of Functions an Power Series}
+    \begin{outline}
+        \1 Equation 1: geometric series with \(a=1\) and \(r=x\): \[\dfrac{1}{1-x}=1+x+x^2+x^3+\cdots=\sum^\infty_{n=0}x^n\mbox{ for }|x|<1\]
+        \1 Theorem 2: If the power series \(\Sigma c_n(x-a)^n\) has radius of convergence \(R>0\), then the function $f$ defined by \[f(x)=c_0+C_1(x-a)+c_2(x-a)^2+\cdots=\sum_{n=0}^\infty c_n(x-a)^n\] is differentiable (and therefore continuous) on the interval \((a-R, a+R)\) and \[\text{(i) }f'(x)=c_1+2c_2(x-a)+3c_3(x-a)^2+\cdots=\sum^\infty_{n=1}nc_n(x-a)^{n-1}\]\[\text{(ii) }\int f(x)dx=C+c_0(x-a)+c_1\dfrac{(x-a)^2}{2}+c_2\dfrac{(x-a)^3}{3}+\cdots=C+\sum^\infty_{n=0}=c_n\dfrac{(x-a)^{n+1}}{n+1}\] The radii of convergence of the power series in Equations (i) and (ii) are both $R$. 
+
+    \end{outline}
+    \subsection{Taylor and Maclaurin Series}
+    \begin{outline}
+        \1 Equations 1-4: derivation of the taylor series
+        \1 Theorem 5: If $f$ has a power series representation/expansion at $a$, that is if \[f(x)=\sum^\infty_{n=0}c_n(x-a)^n \text{ for } |x-a|<R\] then its coefficients are given by: \[c_n=\dfrac{f^{(n)}(a)}{n!}\]
+        \1 Equation 6: Taylor series about $a$: \[f(x)=\sum^\infty_{n=0}\dfrac{f^{(n)}(a)}{n!}(x-a)^n=f(a)+\dfrac{f'(a)}{1!}(x-a)+\dfrac{f''(a)}{2!}(x-a)^2+\dfrac{f'''(a)}{3!}(x-a)^3+\cdots\]
+        \1 Equation 7: Maclaurin series, which is a taylor series about $a=0$. \[f(x)=\sum^\infty_{n=0}\dfrac{f^{(n)}(0)}{n!}x^n=f(0)+\dfrac{f'(0)}{1!}x+\dfrac{f''(0)}{2!}x^2+\cdots\]
+        \1 Theorem 8: If \(f(x)=T_n(x)+R_n(x)\), where $T_n$ is the $n$th degree Taylor polynomial of $f$ at $a$ and \[\lim_{n\to\infty}R_n(x)=0\] for \(|x-a|<R\), then $f$ is equal to the sum of its Taylor series on the interval \(|x-a|<R\). 
+        \1 Equation 9: Taylor's Inequality: If \(|f^{(n+1)}(x)|\leq M\) for \(|x-a|\leq d\), then the remainder \(R_n(x)\) of the Taylor series satisfies the inequality \[|R_n(x)\leq\dfrac{M}{(n+1)!}|x-a|^{n+1}\mbox{ for }|x-a|\leq d\]
+        \1 Equation 10: \[\lim_{n\to\infty}\dfrac{x^n}{n!}=0\mbox{ for every real number }x\]
+        \1 Equation 11: \[e^x=\sum^\infty_{n=0}\dfrac{x^n}{n!}\mbox{ for all }x\]
+        \1 Equation 12: the number $e$ is a sum of the infinite series: \[e=\sum^\infty_{n=0}\dfrac{1}{n!}=1+\dfrac{1}{1!}+\dfrac{1}{2!}+\dfrac{1}{3!}+\cdots\]
+        \1 Equation 15: power series of \(\sin x\)\[\sin x=x-\dfrac{x^3}{3!}+\dfrac{x^5}{5!}-\dfrac{x^7}{7!}+\cdots=\sum^\infty_{n=0}(-1)^n\dfrac{x^{2n+1}}{(2n+1)!}\mbox{ for all }x\]
+        \1 Equation 16: power series of \(\cos x\)\[\cos x=1-\dfrac{x^2}{2!}+\dfrac{x^4}{4!}-\dfrac{x^6}{6!}+\cdots=\sum^\infty_{n=0}(-1)^n\dfrac{x^2n}{(2n)!}\text{ for all }x\]
+        \1 Equation 17: The binomial series: If $k$ is any real number and \(|x|<1\), then \[(1+x)^k=\sum^\infty_{n=0}\begin{pmatrix}k\\n\end{pmatrix}x^n=1+kx+\dfrac{k(k-1)}{2!}x^2+\dfrac{k(k-1)(k-2)}{3!}x^3+\cdots\]
+        \1 Table 1: Important Maclaurin series and their radii of convergence
+    \end{outline}
+    $$\begin{array}{ | l | c | }
+        \hline
+        \text{Series} & \text{Radius} \\
+        \hline
+        \dfrac{1}{1-x}=\sum^\infty_{n=0}x^n=1+x+x^2+x^3+\cdots & R=1 \\
+        \hline
+        e^x= \sum^\infty_{n=0}\dfrac{x^n}{n!}=1+\dfrac{x}{1!}+\dfrac{x^2}{2!}+\dfrac{x^3}{3!}+\cdots & R=\infty \\
+        \hline
+        \sin x=\sum^\infty_{n=0}(-1)^n\dfrac{x^{2n+1}}{(2n+1)!}=x-\dfrac{x^3}{3!}+\dfrac{x^5}{5!}-\dfrac{x^7}{7!}+\cdots  & R=\infty \\
+        \hline
+        \cos x=\sum^\infty_{n=0}(-1)^n\dfrac{x^{2n}}{(2n)!}=1-\dfrac{x^2}{2!}+\dfrac{x^4}{4!}-\dfrac{x^6}{6!}+\cdots  & R=\infty \\
+        \hline
+        \tan^{-1}x=\sum^\infty_{n=0}(-1)^n\dfrac{x^{2n+1}}{2n+1}=x-\dfrac{x^3}{3}+\dfrac{x^5}{5}-\dfrac{x^7}{7}+\cdots  & R=1 \\
+        \hline
+        \ln(1+x)=\sum^\infty_{n=1}(-1)^{n-1}\dfrac{x^n}{n}=x-\dfrac{x^2}{2}+\dfrac{x^3}{3}-\dfrac{x^4}{4}+\cdots  & R=1 \\ 
+        \hline
+        (1+x)^k=\sum^\infty_{n=0}\begin{pmatrix}k\\n\end{pmatrix}x^n=1+kx+\dfrac{k(k-1)}{2!}x^2+\dfrac{k(k-1)(k-2)}{3!}x^3+\cdots  & R=1 \\ 
+        \hline     
+    \end{array}$$
+    \subsection{Applications of Taylor Polynomials}
+    \begin{outline}
+        \1 Two main ways taylor polynomials are applied: 
+            \2 1: Approximation - computers often use taylor polynomials to approximate values of functions because it's a simpler algorithm and the error can be brought very small. 
+            \2 2: Physics: Taylor polynomials can be used to simply visualize/predict how a complicated function will behave. Also helpful in optics and other applications of small angle approximation. 
     \end{outline}
 \end{document}
