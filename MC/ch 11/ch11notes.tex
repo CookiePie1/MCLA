@@ -2,6 +2,7 @@
 \title{Chapter 11 Notes - MC} % title - chapter number
 \author{John Yang}
 \usepackage{amsmath} 
+\usepackage{amssymb}
 \usepackage[margin=1in, letterpaper]{geometry}
 \usepackage{outlines}
 \setcounter{section}{+10} % chapter number minus 1
@@ -27,27 +28,58 @@
     \section{Parametric Equations and Polar Coordinates} % chapter title
     \subsection{Curves Defined by Parametric Equations} % section topic
     \begin{outline}
-        \1 
+        \1 Parameter - 3rd variable that $x$ and $y$ are both a function of: \[x=f(t)\text{ and }y=g(t)\]
+        \1 Points along the curve \((x,y)=(f(t),g(t))\)
+        \1 Graphing calculators can be used to produce parametric curves that you wouldn't be able to make by hand. 
+        \1 Equation 1: parametric equations for a cycloid: \[x=r(\theta-\sin\theta) \qquad y=r(1-\cos\theta) \qquad \theta\in\mathbb{R}\]
     \end{outline}
     \subsection{Calculus with Parametric Curves}
     \begin{outline}
-        \1 
+        \1 Equation 1: first derivative of a parametric equation: \[\dfrac{dy}{dx}=\dfrac{\dfrac{dy}{dt}}{\dfrac{dx}{dt}}\qquad\qquad\text{if}\quad\dfrac{dx}{dt}\neq0\]
+        \1 Second derivative of a parametric equation: \[\dfrac{d^2y}{dx^2}=\dfrac{d}{dx}\left(\dfrac{dy}{dx}\right)=\dfrac{\dfrac{d}{dt}\left(\dfrac{dy}{dx}\right)}{\dfrac{dx}{dt}}\neq\dfrac{\dfrac{d^2}{dt^2}}{\dfrac{d^2x}{dt^2}}\]
+        \1 Equation 2: arc length of a curve: \[L=\int^b_a\sqrt{1+\left(\dfrac{dy}{dx}\right)^2}dx\]
+        \1 Equation 3/Theorem 5: arc length of a parametric curve: \[L=\int^\beta_\alpha\sqrt{\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2}dt\]
+        \1 Equation 6: surface area of a rotated parametric curve about the $x$ axis: \[S=\int^\beta_\alpha2\pi y\sqrt{\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2}dt\]
+
     \end{outline}
     \subsection{Polar Coordinates}
     \begin{outline}
-        \1 
+        \1 polar coordinates - \((r,\theta)\)
+        \1 Theta is always ccw 
+        \1 Equations 1 and 2: polar coordinates: \[x=r\cos\theta\qquad\qquad y=r\sin\theta\]\[r^2=x^2+y^2\qquad\qquad\tan\theta=\dfrac{y}{x}\]
+        \1 Derivative of a polar curve: \[\dfrac{dy}{dx}=\dfrac{\dfrac{dy}{d\theta}}{\dfrac{dx}{d\theta}}=\dfrac{\dfrac{dr}{d\theta}\sin\theta+r\cos\theta}{\dfrac{dr}{d\theta}\cos\theta-r\sin\theta}\]
     \end{outline}
     \subsection{Areas and Lengths in Polar Coordinates}
     \begin{outline}
-        \1 
+        \1 Equation 1: area of a sector of a circle: \(A=\frac{1}{2}r^2\theta\)
+        \1 Equations 3 and 4: polar area: \[A=\int^b_a\frac{1}{2}[f(\theta)]^2d\theta=\int^b_a\frac{1}{2}r^2d\theta\]
+        \1 Equation 5: polar arc length: \[L=\int^b_a\sqrt{r^2+\left(\dfrac{dr}{d\theta}\right)^2}d\theta\]
     \end{outline}
     \subsection{Conic Sections}
     \begin{outline}
-        \1 
+        \1 Equation 1: vertical parabola with focus \((0,p)\) and directrix \(y=-p\): \[x^2=4py\]
+        \1 Equation 2: horizontal parabola with focus \((p,0)\) and directrix \(x=-p\): \[y^2=4px\]
+        \1 Equation 3: general form of an ellipse: \[\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\]
+        \1 Equation 4: horizontal ellipse with foci \((\pm c,0)\), verticies \((\pm a,0)\), where \(c^2=a^2-b^2\) \[\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\qquad a\geq b>0\]
+        \1 Equation 5: vertical ellipse with foci \((0,\pm c)\), verticies \((0,\pm a)\), where \(c^2=a^2-b^2\) \[\dfrac{x^2}{b^2}+\dfrac{y^2}{a^2}=1\qquad a\geq b>0\]
+        \1 Equation 6: general form of a hyperbola: \[\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1\]
+        \1 Equation 7: hyperbola with horizontal transverse axis, with foci \((\pm c,0)\), verticies \((\pm a,0)\), asymptotes \(y=\pm\dfrac{b}{a}x\), where \(c^2=a^2+b^2\): \[\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1\]
+        \1 Equation 8: hyperbola with vertical transverse axis, foci \((0,\pm c)\), verticies \((0,\pm a)\), asymptotes \(y=\pm\dfrac{a}{b}x\), where \(c^2=a^2+b^2\): \[\dfrac{y^2}{a^2}-\dfrac{x^2}{b^2}=1\]
+
     \end{outline}
     \subsection{Conic Sections in Polar Coordinates}
     \begin{outline}
-        \1 
+        \1 Theorem 1: Let $F$ be a fixed point (called the focus) and $l$ be a fixed line (called the directrix) in a plane. Let $e$ be a fixed positive number (called the eccentricity). The set of all points $P$ in the plane such that \[\dfrac{|PF|}{|Pl|}=e\] is a conic section. (That is, the ratio of the distance from $F$ to the distance from $l$ is the constant $e$). The conic is: 
+            \2 (a) an ellipse if \(e<1\)
+            \2 a parabola if \(e=1\)
+            \2 a hyperbola if \(e>1\)
+        \1 Theorem 6: A polar equation of the form \[r=\dfrac{ed}{1\pm e\cos\theta}\qquad\text{or}\qquad r=\dfrac{ed}{1\pm e\sin\theta}\] represents a conic section with eccentricity $e$. The conic is an ellipse if \(e<1\), parabola if \(e=1\), or a hyperbola if \(e>1\)
+        \1 Kepler's laws: 
+            \2 1 - A planet revolves around the sun in an elliptical orbit with the sun at one focus. 
+            \2 2 - The line joining the sun to a planet sweeps out equal areas in equal times. 
+            \2 3 - The square of the period of revolution of a planet is proportional to the cube of the length of the major axis of its orbit. 
+        \1 Equation 7: The polar equation of an ellpise with focus at the origin, semimajor axis $a$, eccentricity $e$, and directirx \(x=d\) can be written in the form: \[r=\dfrac{a(1-e^2)}{1+e\cos\theta}\]
+        \1 Equation 8: The perihelion distance from a planet to the sun is \(a(1-e)\) and the aphelion distance is \(a(1+e)\)
     \end{outline}
 
 \end{document}
