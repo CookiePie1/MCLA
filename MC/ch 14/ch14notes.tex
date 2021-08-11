@@ -20,17 +20,22 @@
 \renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
 \renewcommand\cftsecdotsep{\cftdot}
 \renewcommand\cftsubsecdotsep{\cftdot}
-
+ 
 \begin{document}
     \maketitle
     \tableofcontents
     \section{Vector Functions} % chapter title
     \subsection{Vector Functions and Space Curves} % section topic
     \begin{outline}
-        
+        \1 vector-valued functions/vector functions - a function whose domain is a set of real numbers and whose range is a set of vectors. Written in terms of its components as a parametric equation: \[\mathbf r(t)=\langle f(t),g(t),h(t)\rangle=f(t)\mathbf i+g(t)\mathbf j+h(t)\mathbf k\]
+        \1 Limits of a vector function: If \(\mathbf r(t)=\langle f(t),g(t),h(t)\rangle\), then \[\lim_{t\to a}\mathbf r(t)=\left\langle\lim_{t\to a}f(t),\lim_{t\to a}g(t),\lim_{t\to a}h(t)\right\rangle\] provided the limits of the component functions exist. 
+        \1 Space curves: suppose that $f$, $g$, and $h$ are continuous real-valued functions on an interval $I$. Then the space curve is the set $C$ of all points \((x,y,z)\) in space, where \[x=f(t)\qquad y=g(t)\qquad z=h(t)\] and $t$ varies throughout the interval $I$. 
     \end{outline}
     \subsection{Derivatives and Integrals of Vector Functions}
     \begin{outline}
+        \1 derivative of a vector-valued function: \[\dfrac{d\mathbf r}{dt}=\mathbf r'(t)=\lim_{h\to 0}\dfrac{\mathbf r(t+h)-\mathbf r(t)}{h}\] if the limit exists. 
+        \1 Theorem 2: If \(\mathbf r(t)=\langle f(t),g(t),h(t)\rangle=f(t)\mathbf i+g(t)\mathbf j+h(t)\mathbf k\), where $f$, $g$, and $h$ are differentiable functions, then \[\mathbf r'(t)=\langle f'(t),g'(t),h'(t)\rangle =f'(t)\mathbf i+g'(t)\mathbf j+h'(t)\mathbf k\]
+        \1 Theorem 3: Suppose $\mathbf u$ and $\mathbf v$ are differentiable vector functions, $c$ is a scalar, and $f$ is a real valued function. Then: % pg 898 WIP
         
     \end{outline}
     \subsection{Arc Length and Curvature}
