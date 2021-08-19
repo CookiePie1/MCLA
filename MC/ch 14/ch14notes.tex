@@ -35,15 +35,34 @@
     \begin{outline}
         \1 derivative of a vector-valued function: \[\dfrac{d\mathbf r}{dt}=\mathbf r'(t)=\lim_{h\to 0}\dfrac{\mathbf r(t+h)-\mathbf r(t)}{h}\] if the limit exists. 
         \1 Theorem 2: If \(\mathbf r(t)=\langle f(t),g(t),h(t)\rangle=f(t)\mathbf i+g(t)\mathbf j+h(t)\mathbf k\), where $f$, $g$, and $h$ are differentiable functions, then \[\mathbf r'(t)=\langle f'(t),g'(t),h'(t)\rangle =f'(t)\mathbf i+g'(t)\mathbf j+h'(t)\mathbf k\]
-        \1 Theorem 3: Suppose $\mathbf u$ and $\mathbf v$ are differentiable vector functions, $c$ is a scalar, and $f$ is a real valued function. Then: % pg 898 WIP
+        \1 Theorem 3: Suppose $\mathbf u$ and $\mathbf v$ are differentiable vector functions, $c$ is a scalar, and $f$ is a real valued function. Then: 
+            \2 \[\dfrac{d}{dt}[\mathbf u(t)+\mathbf v(t)]=\mathbf u'(t)+\mathbf v'(t)\]
+            \2 \[\dfrac{d}{dt}[c\mathbf u(t)]=c\mathbf u'(t)\]
+            \2 \[\dfrac{d}{dt}[f(t)\mathbf u(t)]=f'(t)\mathbf u(t)+f(t)\mathbf u'(t)\]
+            \2 \[\dfrac{d}{dt}[\mathbf u(t)\cdot\mathbf v(t)]=\mathbf u'(t)\cdot\mathbf v(t)+\mathbf u(t)\cdot\mathbf v'(t)\]
+            \2 \[\dfrac{d}{dt}[\mathbf u(t)\times\mathbf v(t)]=\mathbf u'(t)\times\mathbf v(t)+\mathbf u(t)\times\mathbf v'(t)\]
+            \2 \[\dfrac{d}{dt}[\mathbf u(f(t))]=f'(t)\mathbf u'(f(t))\] (chain rule)
+        \1 Integral of a vector function: \[\int^b_a\mathbf r(t)dt=\left(\int^b_af(t)dt\right)\mathbf i+\left(\int^b_ag(t)dt\right)\mathbf j\left(\int^b_ah(t)dt\right)\mathbf k\]
         
     \end{outline}
     \subsection{Arc Length and Curvature}
     \begin{outline}
-        
+        \1 Length of a curve in 3D space: \[L=\int^b_a\sqrt{[f'(t)]^2+[g'(t)]^2+[h'(t)]^2}dt=\int^b_a\sqrt{\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2+\left(\dfrac{dx}{dt}\right)^2}dt=\int^b_a|\mathbf r'(t)|dt\]
+        \1 curvature of a curve is defined as: \[\kappa=\left|\dfrac{d\mathbf T}{ds}\right|\] where $\mathbf T$ is the unit tangent vector. 
+        \1 \[\kappa(t)=\dfrac{|\mathbf T'(t)|}{|\mathbf r'(t)|}\]
+        \1 Theorem 10: The curvature of the curve given by the vector function $\mathbf r$ is \[\kappa(t)=\dfrac{|\mathbf r'(t)\times\mathbf r''(t)|}{|\mathbf r'(t)|^3}\]
+        \1 Equations for unit tangent, unit normal and binormal vectors, and curvature: \[\mathbf T(t)=\dfrac{\mathbf r'(t)}{|\mathbf r'(t)|}\qquad \mathbf N(t)=\dfrac{\mathbf T'(t)}{|\mathbf T'(t)|}\qquad \mathbf B(t)=\mathbf T(t)\times\mathbf N(t)\]\[\kappa=\left|\dfrac{d\mathbf T}{ds}\right|=\dfrac{|\mathbf T'(t)|}{|\mathbf r'(t)|}=\dfrac{|\mathbf r'(t)\times r''(t)|}{|\mathbf r'(t)|^3}\]
+
     \end{outline}
     \subsection{Motion in Space: Velocity and Acceleration}
     \begin{outline}
-        
+        \1 Velocity: \[\mathbf v(t)=\mathbf r'(t)\]
+        \1 speed is the magnitude of velocity. 
+        \1 Parametric equations of trajectory: \[x=(v_0\cos\alpha)t\qquad y=(v_0\sin\alpha)t-\frac{1}{2}gt^2\]
+        \1 Tangential and normal components of acceleration: \[\mathbf a=v'(\mathbf T)+\kappa v^2\mathbf N\]
+        \1 Kepler's laws: 
+            \2 A planet revolves around the sun in an elliptical orbit with the sun at one focus. 
+            \2 The line joining the sun to a planet sweeps out equal areas in equal times. 
+            \2 The square of the period of revolution of a planet is proportional to the cube of the length of the major axis of orbit. 
     \end{outline}
 \end{document}

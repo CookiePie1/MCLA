@@ -2,6 +2,7 @@
 \title{Chapter 1 Notes - LA} % title - chapter number
 \author{John Yang}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage[margin=1in, letterpaper]{geometry}
 \usepackage{outlines}
 \setcounter{section}{+0} % chapter number minus 1
@@ -25,18 +26,46 @@
     \maketitle
     \tableofcontents
     \section{Vectors} % chapter title
-    \setcounter{subsection}{-1}
-    \subsection{Introduction: The Racetrack Game} % section topic
-    \begin{outline}
-        
-    \end{outline}
     \subsection{The Geometry and Algebra of Vectors}
     \begin{outline}
-        
+        \1 A vector is a directed line segment that corresponds to a displacement from one point A to another point B. 
+        \1 Column vectors and row vectors are different ways to express the same thing: \[[3,2]=\begin{bmatrix}3 \\ 2\end{bmatrix}\]
+        \1 The point is that components of vectors are ordered. 
+        \1 Two vectors are equal if they have the same magnitude and direction. Two vectors can still be equal if they have different initial and terminal points. 
+        \1 Standard position of a vector - when the initial point is at the origin. 
+        \1 Sum \(\mathbf u+\mathbf v=[u_1+v_1,u_2+v_2]\)
+        \1 Place vectors from head to tail. 
+        \1 Scalar multiples: \(c\mathbf v=[cv_1,cv_2]\) aka scaling a vector
+        \1 Subtraction is just adding the negative. 
+        \1 Properties of vectors in \(\mathbb{R}^n\): let \(\mathbf u\), \(\mathbf v\), and \(\mathbf w\) be vectors in \(\mathbb{R}^n\) and let $c$ and $d$ be scalars. Then: 
+            \2 \(\mathbf u+\mathbf v=\mathbf v+\mathbf u\)
+            \2 \((\mathbf u+\mathbf v)+\mathbf w=\mathbf u+(\mathbf v+\mathbf w)\)
+            \2 \(\mathbf u+\mathbf 0=\mathbf u\)
+            \2 \(\mathbf u+(-\mathbf u)=0\)
+            \2 \(c(\mathbf u+\mathbf v)=c\mathbf u+c\mathbf v\)
+            \2 \((c+d)\mathbf u=c\mathbf u+d\mathbf u\)
+            \2 \(c(d\mathbf u)=(cd)\mathbf u\)
+            \2 \(1\mathbf u=\mathbf u\)
+        \1 A vector $\mathbf v$ is a linear combination of vectors \(\mathbf v_1,\mathbf v_2,\cdots,\mathbf v_k\) if there are scalars \(c_1,c_2,\cdots,c_k\) such that \(\mathbf v=c_1\mathbf v_1+c_2\mathbf v_2+\cdots+c_k\mathbf v_k\). Those scalars are called the coefficients of the linear combination. 
+        \1 Binary vectors - the components are either 0 or 1. 
+        \1 Modulus function - divide by a given number and you're left with the remainder. 
+
     \end{outline}
     \subsection{Length and Angle: the Dot Product}
     \begin{outline}
+        \1 dot product: If \[\mathbf u=\begin{bmatrix}u_1\\u_2\\\vdots\\u_n\end{bmatrix}\quad\text{and}\quad\mathbf v=\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}\] then the dot product of \(\mathbf u\cdot\mathbf v\) of \(\mathbf u\) and \(\mathbf v\) is defined by \[\mathbf u\cdot\mathbf v=u_1v_1+u_2v_2+\cdots+u_nv_n\]
+        \1 properties of dot product: let \(\mathbf u\), \(\mathbf v\), and \(\mathbf w\) be vectors in \(\mathbb R^n\) and let $c$ be a scalar. Then: 
+            \2 \(\mathbf{u\cdot v}=\mathbf{v\cdot u}\)
+            \2 \(\mathbf{u\cdot}(\mathbf{v+w})=\mathbf{u\cdot v+u\cdot w}\)
+            \2 \((c\mathbf u)\mathbf{\cdot v}=c(\mathbf{u\cdot v})\)
+            \2 \(\mathbf{u\cdot u\geq 0}\) and \(\mathbf{u\cdot u}=0\) IFF \(\mathbf u=\mathbf 0\)
+            \2 Length or norm of a vector \(\mathbf v=\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}\) in \(\mathbb R^n\) is the nonnegative scalar \(||\mathbf v||\) defined by \[||\mathbf v||=\sqrt{\mathbf{v\cdot v}}=\sqrt{v_1^2+v_2^2+\cdots+v_n^2}\]
+        \1 Normalizing a vector means finding the unit vector. 
+        \1 Cauchy-Schwarz Inequality: For all vectors \(\mathbf u\) and \(\mathbf v\) in \(\mathbb R^n\), \[|\mathbf{u\cdot v}|\leq ||\mathbf u||||\mathbf v||\]
+        \1 Triangle inequality: for all vectors \(\mathbf u\) and \(\mathbf v\) and \(\mathbb R^n\), \[||\mathbf u+\mathbf v||\leq||\mathbf u||+||\mathbf v||\]
+        \1 Distance between two vectors is defined by \[d(\mathbf u,\mathbf v)=||\mathbf u-\mathbf v||\]
         
+
     \end{outline}
     \subsection{Lines and Planes}
     \begin{outline}
