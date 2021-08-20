@@ -3,6 +3,8 @@
 \author{John Yang}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
 \usepackage[margin=1in, letterpaper]{geometry}
 \usepackage{outlines}
 \setcounter{section}{+0} % chapter number minus 1
@@ -64,15 +66,52 @@
         \1 Cauchy-Schwarz Inequality: For all vectors \(\mathbf u\) and \(\mathbf v\) in \(\mathbb R^n\), \[|\mathbf{u\cdot v}|\leq ||\mathbf u||||\mathbf v||\]
         \1 Triangle inequality: for all vectors \(\mathbf u\) and \(\mathbf v\) and \(\mathbb R^n\), \[||\mathbf u+\mathbf v||\leq||\mathbf u||+||\mathbf v||\]
         \1 Distance between two vectors is defined by \[d(\mathbf u,\mathbf v)=||\mathbf u-\mathbf v||\]
-        
+        \1 Two vectors are orthogonal if \(\mathbf u\cdot\mathbf v=0\)
+        \1 For all vectors \(\mathbf u\) and \(\mathbf v\) in \(\mathbb R^n\), \(||\mathbf u+\mathbf v||^2=||\mathbf u||^2+||\mathbf v||^2\) IFF \(\mathbf u\) and \(\mathbf v\) are orthogonal. 
+        \1 If \(\mathbf u\) and \(\mathbf v\) are vectors in \(\mathbb R^n\) and \(\mathbf u\neq\mathbf 0\), then the projection of \(\mathbf v\) onto \(\mathbf u\) is the vector defined by \[\text{proj}_{\mathbf u}(\mathbf v)=\left(\dfrac{\mathbf{u\cdot v}}{\mathbf{u\cdot u}}\right)\mathbf u\]
 
     \end{outline}
     \subsection{Lines and Planes}
     \begin{outline}
-        
+        \1 Normal form of the equation of a 2D line: \[\mathbf{n\cdot(x-p)=0}\qquad\text{or}\qquad\mathbf{n\cdot x=n\cdot p}\] where \(\mathbf p\) is a specific point on the line and \(\mathbf{n\neq 0}\) is a normal vector for the line. 
+        \1 The general form of the equation of the line is \(ax+by=c\) where \(\mathbf n=\begin{bmatrix}a\\b\end{bmatrix}\) is a normal vector for the line. 
+        \1 The vector form of the equation of a 2D or 3D line is \[\mathbf{x=p}+t\mathbf{d}\] where \(\mathbf p\) is a specific point on the line and \(\mathbf{d\neq 0}\) is a direction vector for the line. The equations corresponding to the components of the vector form of the equations are called parametric equations of the line. 
+        \1 Normal form of the equation of a plane \(\mathscr{P}\) in \(\mathbb R^3\) is \[\mathbf{n\cdot(x-p)}=0\qquad\text{or}\qquad\mathbf{n\cdot x=n\cdot p}\] where \(\mathbf p\) is a specific point on \(\mathscr P\) and \(\mathbf{n\neq 0}\) is a normal vector for \(\mathscr P\). 
+        \1 The general form of the equation of \(\mathscr P\) is \(ax+by+cz=d\), where \(\mathbf n=\begin{bmatrix}a\\b\\c\end{bmatrix}\) is a normal vector for \(\mathscr P\). 
+        \1 The vector form of the equation of a plane \(\mathscr P\) in \(\mathbb R^3\) is \[\mathbf{x=p}+s\mathbf u+t\mathbf v\] where \(\mathbf p\) is a point on \(\mathscr P\) and \(\mathbf u\) and \(\mathbf v\) are direction vectors for \(\mathscr P\) (\(\mathbf u\) and \(\mathbf v\) are nonzero and parallel to \(\mathscr P\), but not parallel to each other). The equations corresponding to the components of the vector form of the equation are called parametric equations of \(\mathscr P\). 
+        \1 Summary of equations of 2D lines:
+            \2 Normal form: \(\mathbf{n\cdot x=n\cdot p}\)
+            \2 General form: \(ax+by=c\)
+            \2 Vector form: \(\mathbf{x=p}+t\mathbf{d}\)
+            \2 Parametric form: \[\begin{cases}x=p_1+td_1\\y=p_2+td_2\end{cases}\]
+        \1 Summary of equations of 3D lines:
+            \2 Normal form: \[\begin{cases}
+                \mathbf{n_1\cdot x=n_1\cdot p_1} \\
+                \mathbf{n_2\cdot x=n_2\cdot p_2}
+            \end{cases}\]
+            \2 General form: \[\begin{cases}
+                a_1x+b_1y+c_1z=d_1\\
+                a_2x+b_2y+c_2z=d_2
+            \end{cases}\]
+            \2 Vector form: \(\mathbf{x=p}+t\mathbf d\)
+            \2 Parametric form: \[\begin{cases}
+                x=p_1+td_1\\
+                y=p_2+td_2\\
+                z=p_3+td_3
+            \end{cases}\]
+        \1 Summary of equations of 3D planes: 
+            \2 Normal form: \(\mathbf{n\cdot x=n\cdot p}\)
+            \2 General form: \(ax+by+cz=d\)
+            \2 Vector form: \(\mathbf{x=p}+s\mathbf u+t\mathbf v\)
+            \2 Parametric form: \[\begin{cases}
+                x=p_1+su_1+tv_1\\
+                y=p_2+su_2+tv_2\\
+                z=p_3+su_3+tv_3
+            \end{cases}\]
     \end{outline}
     \subsection{Applications}
     \begin{outline}
-        
+        \1 Force vectors: if the resultant net force is zero, the system is in equilibrium. 
+        \1 Resolve into components to work with the vectors. 
     \end{outline}
 \end{document}
