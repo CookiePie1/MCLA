@@ -2,6 +2,7 @@
 \title{Chapter 2 Notes - LA} % title - chapter number
 \author{John Yang}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage[margin=1in, letterpaper]{geometry}
 \usepackage{outlines}
 \setcounter{section}{+1} % chapter number minus 1
@@ -25,30 +26,71 @@
     \maketitle
     \tableofcontents
     \section{Systems of Linear Equations} % chapter title
-    \setcounter{subsection}{-1}
-    \subsection{Introduction: Triviality} % section topic
-    \begin{outline}
-        
-    \end{outline}
     \subsection{Introduction to Systems of Linear Equations}
     \begin{outline}
-        
+        \1 A linear equation in the $n$ variables \(x_1,x_2,x_3,\cdots,x_n\) is an equation that can be written in the form \[a_1x_1+a_2x_2+\cdots+a_nx_n=b\] where the coefficients \(a_1,a_2,\cdots,a_n\) and the constant term $b$ are constants. 
+        \1 A solution of a linear equation \(a_1x_1+a_2x_2+\cdots+a_nx_n=b\) is a vector \([s_1,s_2,\cdots,s_n]\) whose components satisfy the equation when we substitute \(x_1=s_1,x_2=s_2,\cdots,x_n=s_n\). 
+        \1 A system of linear equations is a finite set of linear equations, each with the same variables. A solution of a system of linear equations is a vector that is simultaneously a solution of each equation in the system. The solution set of a system of linear equations is the set of all solutions of the system. 
+        \1 A system of linear equations is called consistent if it has at least one solution. A system with no solutions is inconsistent. 
+        \1 Two linear systems are called equivalent if they have the same solution sets. 
+        \1 Solving a matrix with a CAS may not always be the best choice. 
     \end{outline}
     \subsection{Direct Methods for Solving Linear Systems}
     \begin{outline}
+        \1 The coefficient matrix contains the coefficients of the variables, and the augmented matrix is the coefficient matrix augmented by an extra column containing the constant terms. 
+        \1 A matrix is in row echelon form if it satisfies the following properties: 
+            \2 Any rows consisting entirely of zeroes are at the bottom
+            \2 In each nonzero row, the first nonzero entry (called the leading entry) is in a column to the left of any leading entries below it. 
+        \1 Elementary row operations: 
+            \2 Interchange two rows
+            \2 Multiply a row by a nonzero constant
+            \2 Add a multiple of a row to another row 
+        \1 Matrices $A$ and $B$ are row equivalent if there is a sequence of elementary row operations that converts $A$ into $B$. 
+        \1 Matrices $A$ and $B$ are row equivalent IFF they can be reduced to the same row echelon form. 
+        \1 Gaussian elimination: 
+            \2 Write the augmented matrix of the system of linear equations. 
+            \2 Use elementary row operations to reduce the augmented matrix to row echelon form. 
+            \2 Using back substitution, solve the equivalent system that corresponds to the row-reduced matrix. 
+        \1 The rank of a matrix is the number of nonzero rows in its row echelon form. 
+        \1 The rank theorem: let $A$ be the coefficient matrix of a system of linear equations with $n$ variables. If the system is consistent, then \[\text{number of free variables}=n-\text{rank}(A)\]
+        \1 A matrix is in reduced row echelon form if it satisfies the following:
+            \2 It is in row echelon form. 
+            \2 The leading entry in each nonzero row is a 1 (called a leading 1)
+            \2 Each column containing a leading 1 haas zeroes everywhere else. 
+        \1 Steps for Gauss-Jordan Elimination: 
+            \2 Write the augmented matrix of the system of linear equations. 
+            \2 Use elementary row operations to reduce the augmented matrix to RREF
+            \2 If the resulting system is consistent, solve for the leading variables in terms of any remaining free variables. 
+        \1 A system of linear equations is called homogeneous if the constant term in each equation is zero. 
+        \1 Theorem: If \([A|\mathbf 0]\) is a homogeneous system of $m$ linear equations with $n$ variables, where \(m<n\), then the system has infinitely many solutions. 
         
     \end{outline}
     \subsection{Spanning Sets and Linear Independence}
     \begin{outline}
-        
+        \1 Theorem: A system of linear equations with the augmented matrix \([A|\mathbf b]\) is consistent IFF \(\mathbf b\) is a linear combination of the columns of \(A\). 
+        \1 Definition: If \(S=\{\mathbf v_1,\mathbf v_2,\cdots,\mathbf v_k\}\) is a set of vectors in \(\mathbb R^n\), then the set of all linear combinations of \(\mathbf v_1,\mathbf v_2,\cdots,\mathbf v_k\) is called the span of \(\mathbf v_1,\mathbf v_2,\cdots,\mathbf v_k\) and is denoted by \(\text{span}(\mathbf v_1,\mathbf v_2,\cdots,\mathbf v_k)\) or \(\text{span}(S)\). If \(\text{span}(S)=\mathbb R^n\), then $S$ is called a spanning set for \(\mathbb R^n\). 
+        \1 Definition: A set of vectors \(\mathbf v_1,\mathbf v_2,\cdots,\mathbf v_k\) is linearly dependent if there are scalars \(c_1,c_2,\cdots,c_k\), \textit{at least one of which is not zero}, such that \[c_1\mathbf v_1+c_2\mathbf v_2+\cdots+c_k\mathbf v_k=\mathbf 0\] A set of vectors that is not linearly dependent is called linearly independent. 
+        \1 Theorem: Vectors \(\mathbf v_1,\mathbf v_2,\cdots,\mathbf v_m\) in \(\mathbb R^n\) are linearly dependent IFF at least one of the vectors can be expressed as a linear combination of the others. 
+        \1 Theorem: Let \(\mathbf v_1,\mathbf v_2,\cdots,\mathbf v_m\) be (column) vectors in \(\mathbb{R}^n\) and let $A$ be the \(n\times m\) matrix \([\mathbf\:v_1\mathbf v_2\:\cdots\:\mathbf v_m]\) with these vectors as its columns. Then \(\mathbf v_1,\mathbf v_2,\cdots,\mathbf v_m\) are linearly dependent IFF the homogeneous linear system with augmented matrix \([A|\mathbf o]\) has a nontrivial solution. 
+        \1 Theorem: Let \(\mathbf v_1,\mathbf v_2,\cdots,\mathbf v_m\) be (row) vectors in \(\mathbb R^n\) and let \(m\times n\) matrix $\begin{bmatrix}
+            \mathbf v_1\\\mathbf v_2\\\vdots\\\mathbf v_m
+        \end{bmatrix}$ with these vectors is its rows. Then \(\mathbf v_1,\mathbf v_2,\cdots,\mathbf v_m\) are linearly dependent IFF \(\text{rank}(A)<m\). 
+        \1 Theorem: Any set of $m$ vectors in \(\mathbb R^n\) is linearly dependent if \(m>n\). 
+
     \end{outline}
     \subsection{Applications}
     \begin{outline}
-        
+        \1 Applications include: 
+            \2 Allocation of resources
+            \2 Balancing chemical equations 
+            \2 Network analysis in transportation, economics, electricity and magnetism
     \end{outline}
     \subsection{Iterative Methods for Solving Linear Systems}
     \begin{outline}
-        
+        \1 Two iterative methods: Jacobi's method and Gauss-Seidel method 
+        \1 Theorem: If a set of $n$ linear equations in $n$ variables has a strictly diagonally dominant coefficient matrix, then it has a unique solution and both the Jacobi and Gauss-Seidel method converge to it. 
+        \1 Theorem: If the Jacobi or the Gauss-Seidel method converges for a system of $n$ linear equations in $n$ varibales, then it must converge to the solution of the system. 
+
     \end{outline}
 
 \end{document}
