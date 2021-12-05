@@ -1,0 +1,120 @@
+\documentclass{article}
+\title{} % title - chapter number
+\author{John Yang}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in, letterpaper]{geometry}
+\usepackage{outlines}
+\setcounter{section}{+15} % chapter number minus 1
+\usepackage{mathtools}
+\usepackage{physics}
+\DeclarePairedDelimiter\set\{\}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+\usepackage{tocloft}
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand\cftsecpagefont{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand\cftsecdotsep{\cftdot}
+\renewcommand\cftsubsecdotsep{\cftdot}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \section{Multiple Integrals} % chapter title
+    \subsection{Double Integrals over Rectangles} % section topic
+    \begin{outline}
+        \1 The double integral of $f$ over the rectangle $R$ is \[\iint_Rf(x,y)dA=\lim_{m,n\to\infty}\sum^m_{i=1}\sum^n_{j=1}f(x_{ij}^*,y_{ij}^*)\Delta A\] if this limit exists. 
+        \1 If \(f(x,y)\geq 0\), then the volume $V$ of the solid that lies above the rectangle $R$ and below the surface \(z=f(x,y)\) is \[V=\iint_Rf(x,y)dA\]
+        \1 Midpoint rule for double integrals: \[\iint_Rf(x,y)dA\approx\sum^m_{i=1}\sum^n_{j=1}f(\bar x_i,\bar y_j)\Delta A\] where \(\bar x_i\) is the midpoint of \([x_{i-1},x_i]\) and \(\bar y_j\) is the midpoint of \([y_{j-1},y_j]\). 
+        \1 Fubini's Theorem: If $f$ is continuous on the rectangle \(R=\{(x,y)\;|\;a\leq x\leq b,c\leq y\leq d\}\), then \[\iint_Rf(x,y)dA=\int^b_a\int^d_cf(x,y)dydx=\int^d_c\int^b_af(x,y)dxdy\] More generally, this is true if we assume that $f$ is bounded on $R$, $f$ is discontinuous only on a finite number of smooth curves, and the iterated integrals exist. 
+        \1 \[\iint_Rg(x)h(y)dA=\int^b_ag(x)dx\int^d_ch(y)dy\qquad\text{where }R=[a,b]\times[c,d]\]
+
+    \end{outline}
+    \subsection{Double Integrals over General Regions}
+    \begin{outline}
+        \1 If $F$ is integrable over $R$, then we define the double integral of $f$ over $D$ by \[\iint_Df(x,y)dA=\iint_RF(x,y)dA\qquad\text{where }F\text{ is given by Equation 1}\]
+        \1 If $f$ is continuous on a type I region $D$ such that \[D=\{(x,y)\;|\;a\leq x\leq b, g_1(x)\leq y\leq g_2(x)\}\] then \[\iint_Df(x,y)dA=\int^b_a\int^{g_2(x)}_{g_1(x)}f(x,y)dydx\]
+        \1 Type II plane regions: \[D=\{(x,y)\;|\;c\leq y\leq d, h_1(y)\leq x\leq h_2(y)\}\]
+        \1 If $D$ is a type II region, \[\iint_Df(x,y)dA=\int^d_c\int^{h_2(y)}_{h_1(y)}f(x,y)dxdy\]
+        \1 Properties of double integrals 
+            \2 \[\iint_D[f(x,y)+g(x,y)]dA=\iint_Df(x,y)dA+\iint_Dg(x,y)dA\]
+            \2 \[\iint_Dcf(x,y)dA=c\iint_Df(x,y)dA\] where $c$ is a constant
+            \2 If \(f(x,y)\geq g(x,y)\) for all \((x,y)\) in $D$, then \[\iint_Df(x,y)dA\geq\iint_Dg(x,y)dA\]
+        \1 If \(D=D_1\cup D_2\), where $D_1$ and $D_2$ don't overlap except perhaps on their boundaries, then \[\iint_Df(x,y)dA=\iint_{D_1}f(x,y)dA+\iint_{D_2}f(x,y)dA\]
+        \1 \[\iint_D1dA=A(D)\]
+        \1 If \(m\leq f(x,y)\leq M\) for all \((x,y)\) in $D$, then \[mA(D)\leq\iint_Df(x,y)dA\leq MA(D)\]
+    \end{outline}
+    \subsection{Double Integrals in Polar Coordinates}
+    \begin{outline}
+        \1 Recall: \[r^2=x^2+y^2\qquad\qquad x=r\cos\theta\qquad\qquad y=r\sin\theta\]
+        \1 Change to polar coordinates in a double integral: If $f$ is continuous on a polar rectangle $R$ given by \(0\leq a\leq r\leq b,\alpha\leq\theta\leq\beta\), where \(0\leq\beta-\alpha\leq2\pi\), then \[\iint_Rf(x,y)dA=\int^\beta_\alpha\int^b_af(r\cos\theta,r\sin\theta)rdrd\theta\]
+        \1 If $f$ is continuous on a polar region of the form \[D=\{(r,\theta)\;|\;\alpha\leq\theta\leq\beta,h_1(\theta)\leq r\leq h_2(\theta)\}\] then \[\iint_Df(x,y)dA=\int^\beta_\alpha\int^{h_2(\theta)}_{h_1(\theta)}f(r\cos\theta,r\sin\theta)rdrd\theta\]
+    \end{outline}
+    \subsection{Applications of Double Integrals}
+    \begin{outline}
+        \1 mass of a lamina: \[m=\lim_{k,l\to\infty}\sum^k_{i=1}\sum^l_{j=1}\rho(x^*_{ij},y^*_{ij})\Delta A=\iint_D\rho(x,y)dA\]
+        \1 Total charge in a given area: \[Q=\iint_D\sigma(x,y)dA\]
+        \1 Moment of a lamina about the $x$ axis: \[M_x=\lim_{m,n\to\infty}\sum^m_{i=1}\sum^n_{j=1}y^*_{ij}\rho(x^*_{ij},y^*_{ij})\Delta A=\iint_D\rho(x,y)dA\]
+        \1 About the $y$ axis: \[M_y=\lim_{m,n\to\infty}\sum^m_{i=1}\sum^n_{j=1}x^*_{ij}\rho(x^*_{ij},y^*_{ij})\Delta A=\iint_Dx\rho(x,y)dA\]
+        \1 The coordinates \((\bar x,\bar y)\) of the center of mass of a lamina occupying the region $D$ and having density function \(\rho(x,y)\) are \[\bar x=\dfrac{M_y}{m}=\dfrac{1}{m}\iint_Dx\rho(x,y)dA\qquad\qquad\bar y=\dfrac{M_x}{m}=\dfrac{1}{m}\iint_Dy\rho(x,y)dA\] where the mass $m$ is given by \[m=\iint_D\rho(x,y)dA\]
+        \1 Moment of intertia about $x$ axis: \[I_x=\lim_{m,n\to\infty}\sum^m_{i=1}\sum^n_{j=1}(y^*_{ij})^2\rho(x^*_{ij},y^*_{ij})\Delta A=\iint_Dy^2\rho(x,y)dA\]
+        \1 About the $y$ axis: \[I_y=\lim_{m,n\to\infty}\sum^m_{i=1}\sum^n_{j=1}(x^*_{ij})^2\rho(x^*_{ij},y^*_{ij})\Delta A=\iint_Dx^2\rho(x,y)dA\]
+        \1 Moment of inertia about the origin, or polar moment of intertia: \[I_0=\lim_{m,n\to\infty}\sum^m_{i=1}\sum^n_{j=1}\left[(x^*_{ij})^2+(y^*_{ij})^2\right]\rho(x^*_{ij},y^*_{ij})\Delta A=\iint_D(x^2+y^2)\rho(x,y)dA\] where \(I_0=I_x+I_y\)
+        \1 Radius of gyration of a lamina about an axis is the number $R$ such that \[mR^2=I\]
+        \1 Radius of gyration \(\overline{\overline{y}}\) with respect to $x$ axis and radius of gyration \(\overline{\overline{x}}\) with respect to the $y$ axis are given by \[m\overline{\overline{y}}^2=I_x\qquad\qquad m\overline{\overline{x}}^2=I_y\]
+
+
+    \end{outline}
+    \subsection{Surface Area}
+    \begin{outline}
+        \1 The surface area of a surface $S$ is \[A(S)=\lim_{m,n\to\infty}\sum^m_{i=1}\sum^n_{j=1}\Delta T_{ij}\]
+        \1 The area of the surface with equation \(z=f(x,y),(x,y)\in D\), where \(f_x\) and \(f_y\) are continuous, is \[A(S)=\iint_D\sqrt{[f_x(x,y)]^2+[f_y(x,y)]^2+1}dA\] which is also \[A(S)=\iint_D\sqrt{1+\left(\pdv{z}{x}\right)^2+\left(\pdv{z}{y}\right)^2}dA\]
+
+    \end{outline}
+    \subsection{Triple Integrals}
+    \begin{outline}
+        \1 The triple integral of $f$ over the box $B$ is \[\iiint_Bf(x,y,z)dV=\lim_{l,m,n\to\infty}\sum^l_{i=1}\sum^m_{j=1}\sum^n_{k=1}f(x^*_{ijk},y^*_{ijk},z^*_{ijk})dV\] if this limit exists. 
+        \1 If we choose the sample point to be \((x_i,y_j,z_k)\), we get \[\iiint_Bf(x,y,z)dV=\lim_{l,m,n\to\infty}\sum^l_{i=1}\sum^m_{j=1}\sum^n_{k=1}f(x_i,y_j,z_k)\Delta V\]
+        \1 Fubini's theorem for triple integrals: If $f$ is continuous on the rectangular box \(B=[a,b]\times[c,d]\times[r,s]\),  then \[\iiint_Bf(x,y,z)dV=\int^s_r\int^d_c\int^b_af(x,y,z)dxdydz\]
+        \1 A solid region $E$ is said to be of type 1 if it lies between the graphs of two continuous functions of $x$ and $y$, that is, \[E=\{(x,y,z)\;|\;(x,y)\in D, u_1(x,y)\leq z\leq u_2(x,y)\}\]
+        \1 If $E$ is a type 1 region: \[\iiint_Ef(x,y,z)dV=\iint_D\left[\int^{u_2(x,y)}_{u_1(x,y)}f(x,y,z)dz\right]dA\]
+        \1 If the projection of $D$ of $E$ onto the $xy$ plane is a type I plane region, then \[E=\{(x,y,z)\;|\;a\leq x\leq b, g_1(x)\leq y\leq g_2(x), u_1(x,y)\leq z\leq u_2(x,y)\}\], and \[\iiint_Ef(x,y,z)dV=\int^b_a\int^{g_2(x)}_{g_1(x)}\int^{u_2(x,y)}_{u_1(x,y)}f(x,y,z)dzdydx\]
+        \1 If $D$ is a type II plane region, then \[E=\{(x,y,z)\;|\;c\leq y\leq d, h_1(y)\leq x \leq h_2(y),u_1(x,y)\leq z\leq u_2(x,y)\}\], and \[\iiint_Ef(x,y,z)dV=\int_c^d\int_{h_1(y)}^{h_2(y)}\int_{u_1(x,y)}^{u_2(x,y)}f(x,y,z)dzdxdy\]
+        \1 A solid region $E$ is of type 2 if: \[E=\{(x,y,z)\;|\;(y,z)\in D,u_1(y,z)\leq x\leq u_2(y,z)\}\] where $D$ is the projection of $E$ onto the $yz$ plane. The back surface is \(x=u_1(y,z)\) and the front surface is \(x=u_2(y,z)\), and \[\iiint_Ef(x,y,z)dV=\iint_D\left[\int_{u_1(y,z)}^{u_2(y,z)}f(x,y,z)dx\right]dA\]
+        \1 A type 3 region is of the form: \[E=\{(x,y,z)\;|\;(x,z)\in D, u_1(x,z)\leq y\leq u_2(x,z)\}\] where $D$ is the projection of $E$ onto the $xz$ plane, \(y=u_1(x,z)\) is the left surface, and \(y=u_2(x,z)\) is the right surface. Thus, \[\iiint_Ef(x,y,z)dV=\iint_D\left[\int_{u_1(x,z)}^{u_2(x,z)}f(x,y,z)dy\right]dA\]
+        \1 If \(f(x,y,z)=1\) for all points in $E$, then: \[V(E)=\iiint_EdV\]
+    \end{outline}
+    \subsection{Triple Integrals in Cylindrical Coordinates}
+    \begin{outline}
+        \1 Recall: \[r^2=x^2+y^2\qquad\qquad x=r\cos\theta\qquad\qquad y=r\sin\theta\qquad\qquad z=z\qquad\qquad\tan\theta=\dfrac{y}{x}\]
+        \1 Triple integration in cylindrical coordinates: \[\iiint_Ef(x,y,z)dV=\int_\alpha^\beta\int_{h_1(\theta)}^{h_2(\theta)}\int_{u_1(r\cos\theta,r\sin\theta)}^{u_2(r\cos\theta,r\sin\theta)}f(r\cos\theta,r\sin\theta,z)rdzdrd\theta\]
+
+    \end{outline}
+    \subsection{Triple Integrals in Spherical Coordinates}
+    \begin{outline}
+        \1 Recall: \[x=\rho\sin\phi\cos\theta\qquad\qquad y=\rho\sin\phi\sin\theta\qquad\qquad z=\rho\cos\phi \qquad\qquad\rho^2=x^2+y^2+z^2\]
+        \1 Triple integral in spherical coordinates: \[\iiint_Ef(x,y,z)dV=\int^d_c\int^\beta_\alpha\int^b_af(\rho\sin\phi\cos\theta,\rho\sin\phi\sin\theta,\rho\cos\phi)\rho^2\sin\phi d\rho d\theta d\phi\] where $E$ is a spherical wedge given by \[E=\{(\rho,\theta,\phi)\;|\; a\leq\rho\leq b,\alpha\leq\theta\leq\beta, c\leq\phi\leq d\}\]
+
+    \end{outline}
+    \subsection{Change of Variables in Multiple Integrals}
+    \begin{outline}
+        \1 We can write the substitution rule as: \[\int_a^bf(x)dx=\int_c^df(g(u))g'(u)du\] where \(x=g(u)\) and \(a=g(c),b=g(d)\) which is also \[\int_a^bf(x)dx=\int_c^df(x(u))\dfrac{dx}{du}du\]
+        \1 The Jacobian of the transformation $T$ given by \(x=g(u,v)\) and \(y=h(u,v)\) is \[\pdv{(x,y)}{(u,v)}=\begin{vmatrix}
+            \pdv{x}{u} & \pdv{x}{v} \\\\ \pdv{y}{u} & \pdv{y}{v}
+        \end{vmatrix} = \pdv{x}{u}\pdv{y}{v}-\pdv{x}{v}\pdv{y}{u}\]
+        \1 Approximation to the area \(\Delta A\) of $R$: \[\Delta A\approx\left|\pdv{(x,y)}{(u,v)}\right|\Delta u\Delta v\] where the Jacobian is evaluated at \((u_0,v_0)\)
+        \1 Change of variables in a double integral: Suppose that $T$ is a \(C^1\) transformation whole Jacobian is nonzero and that $T$ maps a region $S$ in the \(uv\) plane onto a region $R$ in the \(xy\) plane. Suppose that $f$ is continuous on $R$ and that $R$ and $S$ are type I or type II plane regions. Suppose also that $T$ is one-to-one, except perhaps on the boundary of $S$. Then: \[\iint_Rf(x,y)dA=\iint_Sf(x(u,v)y(u,v))\left|\pdv{(x,y)}{(u,v)}\right|dudv\]
+        \1 If: \[x=g(u,v,w)\qquad\qquad y=h(u,v,w)\qquad\qquad z=k(u,v,w)\] then the Jacobian of $T$ is given by: \[\pdv{(x,y,z)}{{u,v,w}}=\begin{vmatrix}
+            \pdv{x}{u} & \pdv{x}{v} & \pdv{x}{w} \\\\ \pdv{y}{u} & \pdv{y}{v} & \pdv{y}{w} \\\\ \pdv{z}{u} & \pdv{z}{v} & \pdv{z}{w}
+        \end{vmatrix}\]
+        \1 Change of variables for triple integrals: \[\iiint_Rf(x,y,z)dV=\iiint_Sf(x(u,v,w),y(u,v,w),z(u,v,w))\left|\pdv{(x,y,z)}{(u,v,w)}\right| dudvdw\]
+        
+    \end{outline}
+
+\end{document}
