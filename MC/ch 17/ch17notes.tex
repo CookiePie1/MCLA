@@ -1,0 +1,115 @@
+\documentclass{article}
+\title{Chapter 17 Notes} % title - chapter number
+\author{John Yang}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in, letterpaper]{geometry}
+\usepackage{outlines}
+\setcounter{section}{+16} % chapter number minus 1
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{stackrel}
+\DeclarePairedDelimiter\set\{\}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+\usepackage{tocloft}
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand\cftsecpagefont{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand\cftsecdotsep{\cftdot}
+\renewcommand\cftsubsecdotsep{\cftdot}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \section{Vector Calculus} % chapter title
+    \subsection{Vector Fields} % section topic
+    \begin{outline}
+        \1 Def: Let $D$ be a set in \(\mathbb R^2\) (a plane region). A vector field on \(\mathbb R^2\) is a function \(\vb F\) that assigns to each point \((x,y)\) in $D$ a two-dimensional vector \(\vb F(x,y)\)
+        \1 Def: Let $E$ be a subset of \(\mathbb R^3\). A vector field on \(\mathbb R^3\) is a function \(\vb F\) that assigns to each point \((x,y,z)\) in $E$ a three-dimensional vector \(\vb F(x,y,z)\)
+        \1 Recall that the gradient of a scalar function $f$ of two variables \(\grad f\) is defined by \[\grad f(x,y)=\pdv{f}{x}\vb i+\pdv{f}{y}\vb j\] Therefore \(\grad f\) is really a vector field on \(\mathbb R^2\) and is called a gradient vector field. Likewise, if $f$ is a scalar function of 3 variables, its gradient is a vector field on \(\mathbb R^3\) given by \[\grad f(x,y,z)=f_x(x,y,z)\vb i+f_y(x,y,z)\vb j+f_z(x,y,z)\vb k\]
+        
+    \end{outline}
+    \subsection{Line Integrals}
+    \begin{outline}
+        \1 Def: if $f$ is defined on a smooth curve $C$ given by \[x=x(t)\qquad\qquad y=y(t)\qquad\qquad a\leq t\leq b\] then the line integral of $f$ along $C$ is \[\int_Cf(x,y)ds=\lim_{n\to\infty}\sum^n_{i=1}f(x^*_i,y^*_i)\Delta s_i\] if this limit exists. 
+        \1 If $f$ is a continuous function, then the limit always exists and the line integral is given by: \[\int_Cf(x,y)ds=\int^b_af(x(t),y(t))\sqrt{\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2}dt\] The value of the line integral does not depend on the parameterization of the curve, provided that the curve is traversed exactly once as $t$ increases from $a$ to $b$. 
+        \1 Line integrals of $f$ along $C$ with respect to $x$ and $y$: \[\int_Cf(x,y)dx=\lim_{n\to\infty}\sum^n_{i=1}f(x^*_i,y^*_i)\Delta x_i=\int_a^bf(x(t),y(t))x'(t)dt\] \[\int_Cf(x,y)dy=\lim_{n\to\infty}\sum^n_{i=1}f(x^*_i,y^*_i)\Delta y_i=\int_a^bf(x(t),y(t))y'(t)dt\]
+        \1 Recall that the vector representation of the line segment that starts at \(\vb r_0\) and ends at \(\vb r_1\) is given by \[\vb r(t)=(1-t)\vb r_0+t\vb r_1\qquad\qquad 0\leq t\leq 1\]
+        \1 For line integrals in space, where $C$ is a curve given by \[x=x(t)\qquad\qquad y=y(t)\qquad\qquad z=z(t)\qquad\qquad a\leq t\leq b\] or \[\vb r(t)=x(t)\vb i+y(t)\vb j+z(t)\vb k\] then the line integral of $f$ along $C$ is given by \[\int_Cf(x,y,z)ds=\lim_{n\to\infty}\sum^n_{i=1}f(x^*_i,y^*_i,z^*_i)\Delta s_i=\int_a^bf(x(t),y(t),z(t))\sqrt{\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2+\left(\dfrac{dz}{dt}\right)^2}dt\]
+        \1 We evaluate integrals of the form \[\int_CP(x,y,z)dx+Q(x,y,z)dy+R(x,y,z)dz\] by expressing everything \((x,y,z,dx,dy,dz)\) in terms of the parameter $t$. 
+        \1 Def: Let \(\vb F\) be a continuous vector field defined on a smooth curve $C$ given by a vector function \(\vb r(t),a\leq t\leq b\). Then the line integral of $\vb F$ along $C$ is \[\int_C\vb F\cdot d\vb r=\int_a^b\vb F(\vb r(t))\cdot\vb r'(t)dt=\int_C\vb F\cdot\vb Tds\]
+        \1 We have: \[\int_C\vb F\cdot d\vb r=\int_CPdx+Qdy+Rdz\qquad\qquad\text{where}\quad\vb F=P\vb i+Q\vb j+R\vb k\]
+
+    \end{outline}
+    \subsection{The Fundamental Theorem for Line Integrals}
+    \begin{outline}
+        \1 Theorem: Let $C$ be a smooth curve given by the vector function \(\vb r(t),a\leq t\leq b\). Let $f$ be a differentiable function of two or three variables whos gradient vector \(\grad f\) is continuous on $C$. Then \[\int_C\grad f\cdot d\vb r=f(\vb r(b))-f(\vb r(a))\]
+        \1 Theorem: \(\int_C\vb F\cdot d\vb r\) is an independent path in $D$ IFF \(\int_C\vb F\cdot d\vb r=0\) for every closed path $C$ in $D$. 
+        \1 Theorem: Suppose \(\vb F\) is a vector field that is continuous on an open connected region $D$. If \(\int_C\vb F\cdot d\vb r\) is independent of path in $D$, then \(\vb F\) is a conservative vector field on $D$; that is, there exists a function $f$ such that \(\grad f=\vb F\)
+        \1 Theorem: If \(\vb F(x,y)=P(x,y)\vb i+Q(x,y)\vb j\) is a conservative vector field, where $P$ and $Q$ have continuous first-order partial derivatives on a domain $D$, then throughout $D$ we have \[\pdv{P}{y}=\pdv{Q}{x}\]
+        \1 Theorem: Let \(\vb F=P\vb i+Q\vb j\) be a vector field on an open simply-connected region $D$. Suppose that \(P\) and $Q$ have continuous first-order partial derivatives and \[\pdv{P}{y}=\pdv{Q}{x}\qquad\qquad\text{throughout }D\]
+    \end{outline}
+    \subsection{Green's Theorem}
+    \begin{outline}
+        \1 Green's Theorem gives the relationship b/w a line integral around a simple closed curve $C$ and a double integral over the plane region $D$ bounded by $C$. 
+        \1 We use the convention that the positive orientation of $C$ means traversing $C$ once counterclockwise. 
+        \1 Green's Theorem: Let $C$ be a positively oriented, piecewise-smooth, simple closed curve in the plane and let $D$ be the region bounded by $C$. If $P$ and $Q$ have continuous partial derivatives on an open region that contains $D$, then \[\int_CPdx+Qdy=\iint\limits_D\left(\pdv{Q}{x}-\pdv{P}{y}\right)dA\]
+            \2 Note: the notation \(\oint_CPdx+Qdy\) is sometimes used to show that it is a closed path integral. 
+        \1 To find the area of $D$: \[A=\oint_Cxdy=-\oint_Cydx=\dfrac{1}{2}\oint_Cxdy-ydx\]
+
+    \end{outline}
+    \subsection{Curl and Divergence}
+    \begin{outline}
+        \1 If \(\vb F-P\vb i+Q\vb j+R\vb k\) is a vector field on \(\mathbb R^3\) and the partial derivatives of $P$, $Q$, and $R$ all exist, then the curl of $F$ is the vector field on \(\mathbb R^3\) defined by \[\text{curl }\vb F=\left(\pdv{R}{y}-\pdv{Q}{z}\right)\vb i+\left(\pdv{P}{z}-\pdv{R}{x}\right)\vb j+\left(\pdv{Q}{x}-\pdv{P}{y}\right)\vb k\] 
+        \1 \[\text{curl }\vb F=\curl\vb F\]
+        \1 Theorem: If $f$ is a function of three variables that has continuous second-order partial derivatives, then \[\text{curl}(\grad f)=\vb 0\]
+        \1 Theorem: If \(\vb F\) is a vector field defined on all of \(\mathbb R^3\) whose component functions have continuous partial derivatives and curl \(\vb F=\vb 0\), then \(\vb F\) is a conservative vector field. 
+        \1 Divergence: if \(\vb F=P\vb i+Q\vb j+R\vb k\) is a vector field on \(\mathbb R^3\) and \(\pdv{P}{x}\), \(\pdv{Q}{y}\), and \(\pdv{R}{z}\) exist, then the divergence of \(\vb F\) is the function of three variables defined by \[\text{div }\vb F=\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z}\] It can also be written as \[\text{div }\vb F=\div \vb F\]
+        \1 Theorem: If \(\vb F=P\vb i+Q\vb j+R\vb k\) is a vector field on \(\mathbb R^3\) and \(P\),\(Q\), and \(R\) have continuous second-order partial derivatives, then \[\text{div curl }\vb F=0\]
+        \1 Vector form of Green's Theorem: \[\oint_C\vb F\cdot d\vb r=\iint\limits D(\text{curl }\vb F)\cdot\vb kdA\]
+        \1 Which is also \[\oint_C\vb F\cdot\vb nds=\iint\limits D\text{div }\vb F(x,y)dA\]
+
+    \end{outline}
+    \subsection{Parametric Surfaces and Their Areas}
+    \begin{outline}
+        \1 Given the vector function \[\vb r(u,v)=x(u,v)\vb i+y(u,v)\vb j+z(u,v)\vb k\] The set of all points \((x,y,z)\) in \(\mathbb R^3\) such that \[x=x(u,v)\qquad\qquad y=y(u,v)\qquad\qquad z=z(u,v)\] and \((u,v)\) varies throughout $D$ is called a parametric surface $S$
+        \1 A surface of revolution can be represented parametrically with \[x=x\qquad\qquad y=f(x)\cos\theta\qquad\qquad z=f(x)\sin\theta\]
+        \1 Given a parametric surface $S$, if \(u\) is kept constant by \(u=u_0\), then \(\vb r(u_0,v)\) defines the grid curve \(C_1\) on \(S\). The tangent vector to \(C_1\) at a point \(P_0\) is given by \[\vb r_v=\pdv{x}{v}(u_0,v_0)\vb i+\pdv{y}{v}(u_0,v_0)\vb j+\pdv{z}{v}(u_0,v_0)\vb k\] If $v$ is kept constant by \(v=v_0\), the grid curve \(C_2\) given by \(\vb r(u,v_0)\) lies on $S$ and its tangent vector at \(P_0\) is given by \[\vb r_u=\pdv{x}{u}(u_0,v_0)\vb i+\pdv{y}{u}(u_0,v_0)\vb j+\pdv{z}{u}(u_0,v_0)\vb k\] If \(\vb r_u\times\vb r_v\neq\vb 0\) then the surface $S$ is called smooth. For a smooth surface, \(\vb r_u\times\vb r_v\) is a normal vector to the tangent plane. 
+        \1 Def: If a smooth parametric surface $S$ is given by the equation \[\vb r(u,v)=x(u,v)\vb i+y(u,v)\vb j+z(u,v)\vb k\qquad(u,v)\in D\] and $S$ is covered just once as \((u,v)\) ranges throughout the parameter domain $D$, then the surface area of $S$ is \[A(S)=\iint\limits D|\vb r_u\times\vb r_v|dA\] where \[\vb r_u=\pdv{x}{u}\vb i+\pdv{y}{u}\vb j+\pdv{z}{u}\vb k\qquad\qquad r_v=\pdv{x}{v}\vb i+\pdv{y}{v}\vb j+\pdv{z}{v}\vb k\]
+        \1 Special case, where \(z=f(x,y)\) where \((x,y)\in D\) and \(f\) has continuous partial derivatives, we have the parametric equations \[x=x\qquad\qquad y=y\qquad\qquad z=f(x,y)\] so \[\vb r_x=\vb i+\left(\pdv{f}{x}\right)\vb k\qquad\qquad\vb r_y=\vb j+\left(\pdv{f}{y}\right)\vb k\] and \[\vb r_x\times\vb r_y=\begin{vmatrix}\vb i & \vb j & \vb k \\ 1 & 0 & \pdv{f}{x} \\ 0 & 1 & \pdv{f}{y}\end{vmatrix}=-\pdv{f}{x}\vb i-\pdv{f}{y}\vb j+\vb k\] which gives \[|\vb r_x\times\vb r_y|=\sqrt{\left(\pdv{f}{x}\right)^2+\left(\pdv{f}{y}\right)^2+1}=\sqrt{1+\left(\pdv{z}{x}\right)^2+\left(\pdv{z}{y}\right)^2}\] and the surface area is \[A(S)=\iint\limits D\sqrt{1+\left(\pdv{z}{x}\right)^2+\left(\pdv{z}{y}\right)^2}dA\]
+
+    \end{outline}
+    \subsection{Surface Integrals}
+    \begin{outline}
+        \1 The surface integral of $f$ over the surface $S$ is given by \[\iint\limits Sf(x,y,z)dS=\lim_{m,n\to\infty}\sum^m_{i=1}\sum^n_{j=1}f(P^*_{ij})\Delta S_{ij}=\iint\limits Df(\vb r(u,v))|\vb r_u\times\vb r_v|dA\]
+        \1 for a surface $S$ with \(z=g(x,y)\) the surface integral becomes \[\iint\limits Sf(x,y,z)dS=\iint\limits Df(x,y,g(x,y))\sqrt{\left(\pdv{z}{x}\right)^2+\left(\pdv{z}{y}\right)^2+1}dA\]
+        \1 Def: If $F$ is a continuous vector field defined on an oriented surface $S$ with unit normal vector $\vb n$, then the surface integral of \(\vb F\) over $S$ is given by \[\iint\limits S\vb F\cdot d\vb S=\iint\limits S\vb F\cdot\vb ndS=\iint\limits D\vb F\cdot(\vb r_u\times\vb r_v)dA=\iint\limits D\left(-P\pdv{g}{x}-Q\pdv{g}{y}+R\right)dA\] which is also called the flux of \(\vb F\) across $S$. 
+
+    \end{outline}
+    \subsection{Stokes' Theorem}
+    \begin{outline}
+        \1 Stokes' Theorem: Let $S$ be an oriented piecewise-smooth surface that is bounded by a simple, closed, piecewise-smooth boundary curve $C$ with positive orientation. Let \(\vb F\) be a vector field whose components have continuous partial derivatives on an open region in \(\mathbb R^3\) that contains $S$. Then \[\int_C\vb F\cdot d\vb r=\iint\limits S\text{curl }\vb F\cdot d\vb S\]
+
+    \end{outline}
+    \subsection{The Divergence Theorem}
+    \begin{outline}
+        \1 Divergence Theorem: Let $E$ be a simple solid region and let $S$ be the boundary surface of $E$, given with positive (outward) orientation. Let \(\vb F\) be a vector field whose component functions have continuous partial derivatives on an open region that contains $E$. Then \[\iint\limits S\vb F\cdot d\vb S=\iiint\limits E\text{div }\vb FdV\]
+
+    \end{outline}
+    \subsection{Summary of Chapter 17}
+    \begin{outline}
+        \1 All main results of Chapter 17 are higher-order versions of the Fundamental Theorem of calculus. 
+        \1 Fundamental Theorem of Calculus: \[\int^b_aF'(x)dx=F(b)-F(a)\]
+        \1 Fundamental Theorem for Line Integrals: \[\int_C\grad f\cdot d\vb r=f(\vb r(b)) - f(\vb r(a))\]
+        \1 Green's Theorem: \[\iint\limits D\left(\pdv{Q}{x}-\pdv{P}{y}\right)dA=\int_CPdx+Qdy\]
+        \1 Stokes' Theorem: \[\iint\limits S\text{curl }\vb F\cdot d\vb S=\int_C\vb F\cdot d\vb r\]
+        \1 Divergence Theorem: \[\iiint\limits E\text{div }\vb FdV=\iint\limits S\vb F\cdot d\vb S\]
+    \end{outline}
+
+\end{document}

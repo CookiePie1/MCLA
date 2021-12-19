@@ -1,0 +1,67 @@
+\documentclass{article}
+\title{Ch 18 Notes} % title - chapter number
+\author{John Yang}
+\usepackage{amsmath}
+\usepackage[margin=1in, letterpaper]{geometry}
+\usepackage{outlines}
+\setcounter{section}{+17} % chapter number minus 1
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{stackrel}
+\DeclarePairedDelimiter\set\{\}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+\usepackage{tocloft}
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand\cftsecpagefont{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand\cftsecdotsep{\cftdot}
+\renewcommand\cftsubsecdotsep{\cftdot}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \section{Second-Order Differential Equations} % chapter title
+    \subsection{Second-Order Linear Equations}
+    \begin{outline}
+        \1 A second-order linear differential equation has the form \[P(x)\dfrac{d^2y}{dx^2}+Q(x)\dfrac{dy}{dx}+R(x)y=G(x)\] where \(P\), \(Q\), \(R\), and \(G\) are continuouos function. 
+        \1 Homogeneous linear equations are where \(G(x)=0\): \[P(x)\dfrac{d^2y}{dx^2}+Q(x)\dfrac{dy}{dx}+R(x)y=0\] The equation is nonhomogeneous if \(G(x)\neq 0\) for some $x$. 
+        \1 Theorem: If \(y_1(x)\) and \(y_2(x)\) are both solutions of the linear homogeneous equation \(P(x)\dfrac{d^2y}{dx^2}+Q(x)\dfrac{dy}{dx}+R(x)y=0\) and \(c_1\) and \(c_2\) are constants, then the function \[y(x)=c_1y_1(x)+c_2y_2(x)\] is also a solution of the equation. 
+        \1 Theorem: if \(y_1\) and \(y_2\) are linearly independent solutions of a second-order linear homogeneous equation, and \(P(x)\) is never \(0\), then the general solution is given by \[y(x)=c_1y_1(x)+c_2y_2(x)\] where \(c_1\) and \(c_2\) are arbitrary constants. 
+        \1 Two equations are linearly independent if neither is a constant multiple of the other. 
+        \1 It is difficult to find solutions to most second-order diff eqs, but it is always possible to do so when \[ay''+by'+cy=0\]
+        \1 Consider the equation \[ar^2+br+c=0\] which is called the auxiliary equation or characteristic equation of the diff eq \(ay''+by'+cy=0\). The roots can be found using the quadratic formula: \[r_1=\dfrac{-b+\sqrt{b^2-4ac}}{2a}\qquad\qquad r_2=\dfrac{-b-\sqrt{b^2-4ac}}{2a}\]
+        \1 Based on the discriminant \(b^2-4ac\), there are three cases: 
+            \2 Case 1: \(b^2-4ac>0\). If the roots $r_1$ and $r_2$ of the auxiliary equation \(ar^2+br+c=0\) are real and unequal, then the general solution of \(ay''+by'+cy=0\) is \[y=c_1e^{r_1x}+c_2e^{r_2x}\]
+            \2 Case 2: \(b^2-4ac=0\). If the auxiliary equation \(ar^2+br+c=0\) only has one real root $r$, then the general solution of \(ay''+by'+cy=0\) is \[y=c_1e^{rx}+c_2xe^{rx}\]
+            \2 Case 3: \(b^2-4ac<0\). If the roots of the auxiliary equation \(ar^2+br+c=0\) are the complex numbers \(r_1=\alpha+i\beta,r_2=\alpha-i\beta\), then the general solution of \(ay''+by'+cy=0\) is \[y=e^{\alpha x}(c_1\cos\beta x+c_2\sin\beta x)\]
+    \end{outline}
+    \subsection{Nonhomogeneous Linear Equations}
+    \begin{outline}
+        \1 Nonhomogeneous equations take the form \[ay''+by'+cy=G(x)\] where $a$, $b$, and $c$ are constants and $G$ is a continuous function. The equation \[ay''+by'+cy=0\] is called the complimentary equation. 
+        \1 Theorem: The general solution of the nonhomogeneous diff eq \(ay''+by'+cy=G(x)\) can be written as \[y(x)=y_p(x)+y_c(x)\] where $y_p$ is a particular solution of the nonhomogeneous equation and $y_c$ is the general solution of the complimentary equation. 
+        \1 The method of undetermined coefficients: 
+            \2 If \(G(x)=e^{kx}P(x)\) where $P$ is a polynomial of degree $n$, then try \(y_p(x)=e^{kx}Q(x)\), where \(Q(x)\) is an $n$th degree polynomial (whose coefficients are determined by substituting in the differential equation). 
+            \2 If \(G(x)=e^{kx}P(x)\cos mx\) or \(G(x)=e^{kx}P(x)\sin mx\), where $P$ is an $n$th degree ploynomial, then try \[y_p(x)=e^{kx}Q(x)\cos mx+e^{kx}R(x)\sin mx\] where $Q$ and $R$ are $n$th degree polynomials. 
+            \2 Modification: If any term of $y_p$ is a solution of the complimentary equation, multiply $y_p$ by $x$ (or by $x^2$ if necessary). 
+
+    \end{outline}
+    \subsection{Applications of Second-Order Differential Equations}
+    \begin{outline}
+        \1 Vibrating springs and Hooke's law: \[m\dfrac{d^2x}{dt^2}=-kx\] The general solution is \(x(t)=c_1\cos\omega t+c_2\cos\omega t=A\cos(\omega t+\delta)\) where \[\omega=\sqrt{\dfrac{k}{m}}\qquad\qquad\text{(frequency)}\]\[A=\sqrt{c_1^2+c_2^2}\qquad\qquad\text{(amplitude)}\]\[\cos\delta=\dfrac{c_1}{A}\qquad\qquad\sin\delta=-\dfrac{c_2}{A}\qquad\qquad\text{(phase angle)}\]
+        \1 Damped vibrations: \[m\dfrac{d^2x}{dt^2}+c\dfrac{dx}{dt}+kx=0\]
+        \1 Forced vibrations: \[m\dfrac{d^2x}{dt^2}+c\dfrac{dx}{dt}+kx=F(t)\] where \(F(t)\) is an external force. 
+        \1 LRC circuits: \[L\dfrac{d^2Q}{dt^2}+R\dfrac{dQ}{dt}+\dfrac{1}{C}Q=V(t)\]
+    \end{outline}
+    \subsection{Series Solutions}
+    \begin{outline}
+        \1 Many diff eqs can't be solved explicitly, but we can use the power series \[y=f(x)=\sum^\infty_{n=0}c_nx^n=c_0+c_1x+c_2x^2+c_3x^3+\cdots\]
+        \1 Substitute this expression into the diff eq and determine the value of the coefficients. 
+    \end{outline}
+
+\end{document}
