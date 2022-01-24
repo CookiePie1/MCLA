@@ -72,8 +72,8 @@
         \1 Theorem: If \(\vb F\) is a vector field defined on all of \(\mathbb R^3\) whose component functions have continuous partial derivatives and curl \(\vb F=\vb 0\), then \(\vb F\) is a conservative vector field. 
         \1 Divergence: if \(\vb F=P\vb i+Q\vb j+R\vb k\) is a vector field on \(\mathbb R^3\) and \(\pdv{P}{x}\), \(\pdv{Q}{y}\), and \(\pdv{R}{z}\) exist, then the divergence of \(\vb F\) is the function of three variables defined by \[\text{div }\vb F=\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z}\] It can also be written as \[\text{div }\vb F=\div \vb F\]
         \1 Theorem: If \(\vb F=P\vb i+Q\vb j+R\vb k\) is a vector field on \(\mathbb R^3\) and \(P\),\(Q\), and \(R\) have continuous second-order partial derivatives, then \[\text{div curl }\vb F=0\]
-        \1 Vector form of Green's Theorem: \[\oint_C\vb F\cdot d\vb r=\iint\limits D(\text{curl }\vb F)\cdot\vb kdA\]
-        \1 Which is also \[\oint_C\vb F\cdot\vb nds=\iint\limits D\text{div }\vb F(x,y)dA\]
+        \1 Vector form of Green's Theorem: \[\oint_C\vb F\cdot d\vb r=\iint\limits_D(\text{curl }\vb F)\cdot\vb kdA\]
+        \1 Which is also \[\oint_C\vb F\cdot\vb nds=\iint\limits_D\text{div }\vb F(x,y)dA\]
 
     \end{outline}
     \subsection{Parametric Surfaces and Their Areas}
@@ -81,25 +81,25 @@
         \1 Given the vector function \[\vb r(u,v)=x(u,v)\vb i+y(u,v)\vb j+z(u,v)\vb k\] The set of all points \((x,y,z)\) in \(\mathbb R^3\) such that \[x=x(u,v)\qquad\qquad y=y(u,v)\qquad\qquad z=z(u,v)\] and \((u,v)\) varies throughout $D$ is called a parametric surface $S$
         \1 A surface of revolution can be represented parametrically with \[x=x\qquad\qquad y=f(x)\cos\theta\qquad\qquad z=f(x)\sin\theta\]
         \1 Given a parametric surface $S$, if \(u\) is kept constant by \(u=u_0\), then \(\vb r(u_0,v)\) defines the grid curve \(C_1\) on \(S\). The tangent vector to \(C_1\) at a point \(P_0\) is given by \[\vb r_v=\pdv{x}{v}(u_0,v_0)\vb i+\pdv{y}{v}(u_0,v_0)\vb j+\pdv{z}{v}(u_0,v_0)\vb k\] If $v$ is kept constant by \(v=v_0\), the grid curve \(C_2\) given by \(\vb r(u,v_0)\) lies on $S$ and its tangent vector at \(P_0\) is given by \[\vb r_u=\pdv{x}{u}(u_0,v_0)\vb i+\pdv{y}{u}(u_0,v_0)\vb j+\pdv{z}{u}(u_0,v_0)\vb k\] If \(\vb r_u\times\vb r_v\neq\vb 0\) then the surface $S$ is called smooth. For a smooth surface, \(\vb r_u\times\vb r_v\) is a normal vector to the tangent plane. 
-        \1 Def: If a smooth parametric surface $S$ is given by the equation \[\vb r(u,v)=x(u,v)\vb i+y(u,v)\vb j+z(u,v)\vb k\qquad(u,v)\in D\] and $S$ is covered just once as \((u,v)\) ranges throughout the parameter domain $D$, then the surface area of $S$ is \[A(S)=\iint\limits D|\vb r_u\times\vb r_v|dA\] where \[\vb r_u=\pdv{x}{u}\vb i+\pdv{y}{u}\vb j+\pdv{z}{u}\vb k\qquad\qquad r_v=\pdv{x}{v}\vb i+\pdv{y}{v}\vb j+\pdv{z}{v}\vb k\]
-        \1 Special case, where \(z=f(x,y)\) where \((x,y)\in D\) and \(f\) has continuous partial derivatives, we have the parametric equations \[x=x\qquad\qquad y=y\qquad\qquad z=f(x,y)\] so \[\vb r_x=\vb i+\left(\pdv{f}{x}\right)\vb k\qquad\qquad\vb r_y=\vb j+\left(\pdv{f}{y}\right)\vb k\] and \[\vb r_x\times\vb r_y=\begin{vmatrix}\vb i & \vb j & \vb k \\ 1 & 0 & \pdv{f}{x} \\ 0 & 1 & \pdv{f}{y}\end{vmatrix}=-\pdv{f}{x}\vb i-\pdv{f}{y}\vb j+\vb k\] which gives \[|\vb r_x\times\vb r_y|=\sqrt{\left(\pdv{f}{x}\right)^2+\left(\pdv{f}{y}\right)^2+1}=\sqrt{1+\left(\pdv{z}{x}\right)^2+\left(\pdv{z}{y}\right)^2}\] and the surface area is \[A(S)=\iint\limits D\sqrt{1+\left(\pdv{z}{x}\right)^2+\left(\pdv{z}{y}\right)^2}dA\]
+        \1 Def: If a smooth parametric surface $S$ is given by the equation \[\vb r(u,v)=x(u,v)\vb i+y(u,v)\vb j+z(u,v)\vb k\qquad(u,v)\in D\] and $S$ is covered just once as \((u,v)\) ranges throughout the parameter domain $D$, then the surface area of $S$ is \[A(S)=\iint\limits_D|\vb r_u\times\vb r_v|dA\] where \[\vb r_u=\pdv{x}{u}\vb i+\pdv{y}{u}\vb j+\pdv{z}{u}\vb k\qquad\qquad r_v=\pdv{x}{v}\vb i+\pdv{y}{v}\vb j+\pdv{z}{v}\vb k\]
+        \1 Special case, where \(z=f(x,y)\) where \((x,y)\in D\) and \(f\) has continuous partial derivatives, we have the parametric equations \[x=x\qquad\qquad y=y\qquad\qquad z=f(x,y)\] so \[\vb r_x=\vb i+\left(\pdv{f}{x}\right)\vb k\qquad\qquad\vb r_y=\vb j+\left(\pdv{f}{y}\right)\vb k\] and \[\vb r_x\times\vb r_y=\begin{vmatrix}\vb i & \vb j & \vb k \\ 1 & 0 & \pdv{f}{x} \\ 0 & 1 & \pdv{f}{y}\end{vmatrix}=-\pdv{f}{x}\vb i-\pdv{f}{y}\vb j+\vb k\] which gives \[|\vb r_x\times\vb r_y|=\sqrt{\left(\pdv{f}{x}\right)^2+\left(\pdv{f}{y}\right)^2+1}=\sqrt{1+\left(\pdv{z}{x}\right)^2+\left(\pdv{z}{y}\right)^2}\] and the surface area is \[A(S)=\iint\limits_D\sqrt{1+\left(\pdv{z}{x}\right)^2+\left(\pdv{z}{y}\right)^2}dA\]
 
     \end{outline}
     \subsection{Surface Integrals}
     \begin{outline}
-        \1 The surface integral of $f$ over the surface $S$ is given by \[\iint\limits Sf(x,y,z)dS=\lim_{m,n\to\infty}\sum^m_{i=1}\sum^n_{j=1}f(P^*_{ij})\Delta S_{ij}=\iint\limits Df(\vb r(u,v))|\vb r_u\times\vb r_v|dA\]
-        \1 for a surface $S$ with \(z=g(x,y)\) the surface integral becomes \[\iint\limits Sf(x,y,z)dS=\iint\limits Df(x,y,g(x,y))\sqrt{\left(\pdv{z}{x}\right)^2+\left(\pdv{z}{y}\right)^2+1}dA\]
-        \1 Def: If $F$ is a continuous vector field defined on an oriented surface $S$ with unit normal vector $\vb n$, then the surface integral of \(\vb F\) over $S$ is given by \[\iint\limits S\vb F\cdot d\vb S=\iint\limits S\vb F\cdot\vb ndS=\iint\limits D\vb F\cdot(\vb r_u\times\vb r_v)dA=\iint\limits D\left(-P\pdv{g}{x}-Q\pdv{g}{y}+R\right)dA\] which is also called the flux of \(\vb F\) across $S$. 
+        \1 The surface integral of $f$ over the surface $S$ is given by \[\iint\limits_Sf(x,y,z)dS=\lim_{m,n\to\infty}\sum^m_{i=1}\sum^n_{j=1}f(P^*_{ij})\Delta S_{ij}=\iint\limits_Df(\vb r(u,v))|\vb r_u\times\vb r_v|dA\]
+        \1 for a surface $S$ with \(z=g(x,y)\) the surface integral becomes \[\iint\limits_Sf(x,y,z)dS=\iint\limits_Df(x,y,g(x,y))\sqrt{\left(\pdv{z}{x}\right)^2+\left(\pdv{z}{y}\right)^2+1}dA\]
+        \1 Def: If $F$ is a continuous vector field defined on an oriented surface $S$ with unit normal vector $\vb n$, then the surface integral of \(\vb F\) over $S$ is given by \[\iint\limits_S\vb F\cdot d\vb S=\iint\limits_S\vb F\cdot\vb ndS=\iint\limits_D\vb F\cdot(\vb r_u\times\vb r_v)dA=\iint\limits_D\left(-P\pdv{g}{x}-Q\pdv{g}{y}+R\right)dA\] which is also called the flux of \(\vb F\) across $S$. 
 
     \end{outline}
     \subsection{Stokes' Theorem}
     \begin{outline}
-        \1 Stokes' Theorem: Let $S$ be an oriented piecewise-smooth surface that is bounded by a simple, closed, piecewise-smooth boundary curve $C$ with positive orientation. Let \(\vb F\) be a vector field whose components have continuous partial derivatives on an open region in \(\mathbb R^3\) that contains $S$. Then \[\int_C\vb F\cdot d\vb r=\iint\limits S\text{curl }\vb F\cdot d\vb S\]
+        \1 Stokes' Theorem: Let $S$ be an oriented piecewise-smooth surface that is bounded by a simple, closed, piecewise-smooth boundary curve $C$ with positive orientation. Let \(\vb F\) be a vector field whose components have continuous partial derivatives on an open region in \(\mathbb R^3\) that contains $S$. Then \[\int_C\vb F\cdot d\vb r=\iint\limits_S\text{curl }\vb F\cdot d\vb S\]
 
     \end{outline}
     \subsection{The Divergence Theorem}
     \begin{outline}
-        \1 Divergence Theorem: Let $E$ be a simple solid region and let $S$ be the boundary surface of $E$, given with positive (outward) orientation. Let \(\vb F\) be a vector field whose component functions have continuous partial derivatives on an open region that contains $E$. Then \[\iint\limits S\vb F\cdot d\vb S=\iiint\limits E\text{div }\vb FdV\]
+        \1 Divergence Theorem: Let $E$ be a simple solid region and let $S$ be the boundary surface of $E$, given with positive (outward) orientation. Let \(\vb F\) be a vector field whose component functions have continuous partial derivatives on an open region that contains $E$. Then \[\iint\limits_S\vb F\cdot d\vb S=\iiint\limits_E\text{div }\vb FdV\]
 
     \end{outline}
     \subsection{Summary of Chapter 17}
@@ -107,9 +107,9 @@
         \1 All main results of Chapter 17 are higher-order versions of the Fundamental Theorem of calculus. 
         \1 Fundamental Theorem of Calculus: \[\int^b_aF'(x)dx=F(b)-F(a)\]
         \1 Fundamental Theorem for Line Integrals: \[\int_C\grad f\cdot d\vb r=f(\vb r(b)) - f(\vb r(a))\]
-        \1 Green's Theorem: \[\iint\limits D\left(\pdv{Q}{x}-\pdv{P}{y}\right)dA=\int_CPdx+Qdy\]
-        \1 Stokes' Theorem: \[\iint\limits S\text{curl }\vb F\cdot d\vb S=\int_C\vb F\cdot d\vb r\]
-        \1 Divergence Theorem: \[\iiint\limits E\text{div }\vb FdV=\iint\limits S\vb F\cdot d\vb S\]
+        \1 Green's Theorem: \[\iint\limits_D\left(\pdv{Q}{x}-\pdv{P}{y}\right)dA=\int_CPdx+Qdy\]
+        \1 Stokes' Theorem: \[\iint\limits_S\text{curl }\vb F\cdot d\vb S=\int_C\vb F\cdot d\vb r\]
+        \1 Divergence Theorem: \[\iiint\limits_E\text{div }\vb FdV=\iint\limits_S\vb F\cdot d\vb S\]
     \end{outline}
 
 \end{document}
