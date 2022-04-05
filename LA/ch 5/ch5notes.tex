@@ -1,0 +1,114 @@
+\documentclass{article}
+\title{Chapter 5 Notes - LA} % title - chapter number
+\author{John Yang}
+\usepackage{amsmath}
+\usepackage[margin=1in, letterpaper]{geometry}
+\usepackage{outlines}
+\setcounter{section}{+4} % chapter number minus 1
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{stackrel}
+\DeclarePairedDelimiter\set\{\}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+\usepackage{tocloft}
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand\cftsecpagefont{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand\cftsecdotsep{\cftdot}
+\renewcommand\cftsubsecdotsep{\cftdot}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \section{Orthogonality} % chapter title
+    \subsection{Orthogonality in \(\mathbb R^n\)} % section topic
+    \begin{outline}
+        \1 A set of vectors \(\{\vb v_1,\vb v_2,\cdots,\vb v_k\}\) in \(\mathbb R^n\) is called an orthogonal set if all pairs of distinct vectors in the set are orthogonal; that is, if \[\vb v_i\cdot\vb v_j=0\quad\text{whenever}\quad i\neq j\quad\text{for }i,j=1,2,\cdots,k\]
+        \1 The standard basis of \(\mathbb R^n\) is an orthogonal set. 
+        \1 If \(\{\vb v_1,\vb v_2,\cdots,\vb v_k\}\) is an orthogonal set of nonzero vectors in \(\mathbb R^n\), then these vectors are linearly independent. 
+        \1 An orthogonal basis for a subspace $W$ of \(\mathbb R^n\) is a basis of $W$ that is an orthogonal set. 
+        \1 Let \(\{\vb v_1,\vb v_2,\cdots,\vb v_k\}\) be an orthogonal basis for a subspace $W$ of \(\mathbb R^n\) and let \(\vb w\) be any vector in $W$. Then the unique scalars \(c_1,\cdots,c_k\) such that \[\vb w=c_1\vb v_1+\cdots+c_k\vb v_k\] are given by \[c_i=\dfrac{\vb w\cdot\vb v_i}{\vb v_i\cdot \vb v_i}\qquad\text{for }i=1,\cdots,k\] 
+        \1 A set of vectors \(\mathbb R^n\) is an orthonormal set if it is an orthogonal set of unit vectors. An orthonormal basis for a subspace $W$ of \(\mathbb R^n\) is a basis of $W$ that is an orthonormal set. 
+        \1 Let \(\{\vb v_1,\vb v_2,\cdots,\vb v_k\}\) be an orthogonal basis for a subspace $W$ of \(\mathbb R^n\) and let \(\vb w\) be any vector in $W$. Then \[\vb w=(\vb w\cdot \vb q_1)\vb q_1+(\vb w\cdot\vb q_2)\vb q_2+\cdots+(\vb w\cdot\vb q_k)\vb q_k\] and this representation is unique. 
+        \1 The columns of an \(m\times n\) matrix $Q$ form an orthonormal set IFF \(Q^TQ=I_n\)
+        \1 An \(n\times n\) matrix $Q$ whose columns form an orthonormal set is called an orthogonal matrix. 
+        \1 A square matrix \(Q\) is orthogonal IFF \(Q^{-1}=Q^T\)
+        \1 Let $Q$ be an \(n\times n\) matrix. The following are equivalent:
+            \2 $Q$ is orthogonal. 
+            \2 \(||Q\vb x||=||\vb x||\) for every \(\vb x\) in \(\mathbb R^n\)
+            \2 \(Q\vb x\cdot Q\vb y=\vb x\cdot\vb y\) for every \(\vb x\) and \(\vb y\) in \(\mathbb R^n\)
+        \1 If $Q$ is an orthogonal matrix, then its rows form an orthonormal set. 
+        \1 Let $Q$ be an orthogonal matrix. 
+            \2 \(Q^{-1}\) is orthogonal. 
+            \2 \(\det Q=\pm 1\)
+            \2 If \(\lambda\) is an eigenvalue of $Q$, then \(|\lambda|=1\) 
+            \2 If \(Q_1\) and \(Q_2\) are orthogonal \(n\times n\) matrices, then so is \(Q_1Q_2\). 
+
+    \end{outline}
+    \subsection{Orthogonal Complements and Orthogonal Projections}
+    \begin{outline}
+        \1 Let $W$ be a subspace of \(\mathbb R^n\). We say that a vector \(\vb v\) in \(\mathbb R^n\) is orthogonal to $W$ if \(\vb v\) is orthogonal to every vector in $W$. The set of all vectors that are orthogonal to $W$ is called the orthogonal complement of $W$, denoted \(W^{\perp}\). That is, \[W^\perp=\{\vb v\text{ in }\mathbb R^n:\vb v\cdot\vb w=0\quad \text{for all }\vb w\text{ in }W\}\]
+        \1 Let $W$ be a subspace of \(\mathbb R^n\). 
+            \2 \(W^\perp\) is a subspace of \(\mathbb R^n\)
+            \2 \((W^\perp)^\perp=W\)
+            \2 \(W\cap W^\perp=\{\vb 0\}\)
+            \2 If \(W=\text{span}(\vb w_1,\ldots,\vb w_k)\), then $\vb v$ is in \(W^\perp\) IFF \(\vb v\cdot\vb w_i=0\) for all \(i=1,\ldots,k\). 
+        \1 Let $A$ be an \(m\times n\) matrix. Then the orthogonal complement of the row space of $A$ is the null space of $A$, and the orthogonal complement of the column space of $A$ is the null space of \(A^T\): \[(\text{row}(A))^\perp=\text{null}(A)\quad\text{and}\quad(\text{col}(A))^\perp=\text{null}(A^T)\]
+        \1 Let $W$ be a subspace of \(\mathbb R^n\) and let \(\{\vb u_1,\ldots,\vb u_k\}\) be an orthogonal basis for $W$. For any vector \(\vb v\) in \(\mathbb R^n\), the orthogonal projection of \(\vb v\) onto $W$ is defined as \[\text{proj}_w(\vb v)=\left(\dfrac{\vb u_1\cdot\vb v}{\vb u_1\cdot\vb u_1}\right)\vb u_1+\cdots+\left(\dfrac{\vb u_k\cdot \vb v}{\vb u_k\cdot\vb u_k}\right)\vb u_k\]The complement of \(\vb v\) orthogonal to $W$ is the vector \[\text{perp}_w(\vb v)=\vb v-\text{proj}_w(\vb v)\]
+        \1 \(\text{proj}_w(\vb v)=\text{proj}_{\vb u_1}(\vb v)+\cdots+\text{proj}_{\vb u_k}(\vb v)\)
+        \1 The orthogonal decomposition theorem: Let $W$ be a subspace of \(\mathbb R^n\) and let \(\vb v\) be a vector in \(\mathbb R^n\). Then there are unique vectors \(\vb w\) in $W$ and \(\vb w^\perp\) in \(W^\perp\) such that \[\vb v=\vb w+\vb w^\perp\]
+        \1 If $W$ is a subspace of $\mathbb R^n$ then \[(W^\perp)^\perp=W\]
+        \1 If $W$ is a subspace of $\mathbb R^n$ then \[\text{dim}W+\text{dim}W^\perp=n\]
+        \1 The Rank Theorem: If $A$ is an \(m\times n\) matrix, then \[\text{rank}(A)+\text{nullity}(A)=n\]
+
+
+    \end{outline}
+    \subsection{The Gram-Schmidt Process and the \(QR\) Factorization}
+    \begin{outline}
+        \1 The Gram-Schmidt Process: Let \(\{\vb x_1,\ldots,\vb x_k\}\) be a basis for a subspace $W$ of \(\mathbb R^n\) and define the following: \[\vb v_1=\vb x_1;\qquad\qquad W_1=\text{span}(\vb x_1)\]\[\vb v_2=\vb x_2-\left(\dfrac{\vb v_1\cdot\vb x_2}{\vb v_1\cdot\vb v_1}\right)\vb v_1,\qquad\qquad W_2=\text{span}(\vb x_1,\vb x_2)\]\[\vb v_3=\vb x_3-\left(\dfrac{\vb v_1\cdot\vb x_3}{\vb v_1\cdot\vb v_1}\right)\vb v_1-\left(\dfrac{\vb v_2\cdot\vb x_3}{\vb v_2\cdot\vb v_2}\right)\vb v_2,\qquad\qquad W_3=\text{span}(\vb x_1,\vb x_2,\vb x_3)\]\[\vdots\]\[\vb v_k=\vb x_k-\left(\dfrac{\vb v_1\cdot\vb x_k}{\vb v_1\cdot=v_1}\right)\vb v_1-\left(\dfrac{\vb v_2\cdot\vb x_k}{\vb v_2\cdot\vb v_2}\right)\vb v_2-\cdots-\left(\dfrac{\vb v_{k-1}\cdot\vb x_k}{\vb v_{k-1}\cdot\vb v_{k-1}}\right)\vb v_{k-1},\qquad\qquad W_k=\text{span}(\vb x_1,\ldots,\vb x_k)\] Then for each \(i=1,\ldots,k,\{\vb v_1,\ldots,\vb v_i\}\) is an orthogonal basis for \(W_i\). In particular, \(\{\vb v_1,\ldots,\vb v_i\}\) is an orthogonal basis for $W$. 
+        \1 QR Factorization: Let $A$ be an \(m\times n\) matrix with linearly independent columns. Then $A$ can be factored as $A=QR$, where $Q$ is an \(m\times n\) matrix with orthonormal columns and $R$ is an invertible upper triangular matrix. 
+        \1 Finding the QR factorization: find an orthonormal basis for \(\text{col}(A)\) using the Gram-Schmidt Process. Then, \(Q=[\vb q_1,\vb q_2,\ldots,\vb q_k]\). Then, use the fact that \(A=QR\) and \(Q^TQ=I\) since $Q$ has orthonormal columns. Therefore \(Q^TA=Q^TQR=IR=R\)
+    \end{outline}
+    \subsection{Orthogonal Diagonalization of Symmetric Matrices}
+    \begin{outline}
+        \1 A square matrix $A$ is orthogonally diagonalizable if there exists an orthogonal matrix $Q$ and a diagonal matrix $D$ such that \(Q^TAQ=D\)
+        \1 If $A$ is orthogonally diagonalizable, then $A$ is symmetric. 
+        \1 If $A$ is a real symmetric matrix, then the eigenvalues of $A$ are real. 
+        \1 If $A$ is a symmetric matrix, then any two eigenvectors corresponding to distinct eigenvalues of $A$ are orthonormal. 
+        \1 The spectral theorem: Let $A$ be an \(n\times n\) real matrix. Then $A$ is symmetric IFF it is orthogonally diagonalizable. 
+        \1 Spectral decomposition: \[A=\lambda_1\vb q_1\vb q_1^T+\lambda_2\vb q_2\vb q_2^T+\cdots+\lambda_n\vb q_n\vb q_n^T\]
+
+    \end{outline}
+    \subsection{Applications}
+    \begin{outline}
+        \1 A quadratic form in $n$ variables is a function \(f:\mathbb R^n\to\mathbb R\) of the form \[f(\vb x)=\vb x^TA\vb x\] where $A$ is a symmetric \(n\times n\) matrix and \(\vb x\) is in \(\mathbb R^n\). We refer to $A$ as the matrix associated with $f$. 
+        \1 The principal axes theroem: Every quadratic form can be diagonalized. Specifically, if $A$ is the \(n\times n\) symmetric matrix associated with the quadratic form \(\vb x^TA\vb x\) and if $Q$ is an orthogonal matrix such that \(Q^TAQ=D\) is a diagonal matrix, then the change of variable \(\vb x=Q\vb y\) transforms the quadratic form \(\vb x^TA\vb x\) into the quadratic form \(\vb y^TD\vb y\), which has no cross-product terms. If the eigenvalues of $A$ are \(\lambda_1,\ldots,\lambda_n\) and \(\vb y=[y_1\cdots y_n]^T\), then \[\vb x^TA\vb x=\vb y^TD\vb y=\lambda_1y_a^2+\cdots+\lambda_ny_n^2\]
+        \1 A quadratic form \(f(\vb x)=\vb x^TA\vb x\) is classified as one of the following: 
+            \2 positive definite if \(f(\vb x)>0\) for all \(\vb x\neq\vb 0\)
+            \2 positive semidefinite if \(f(\vb x)\geq0\) for all \(\vb x\)
+            \2 negative definite if \(f(\vb x)<0\) for all \(\vb x\neq\vb 0\)
+            \2 negative semidefinite if \(f(\vb x)\leq0\) for all \(\vb x\)
+            \2 indefinite if \(f(\vb x)\) takes on both positive and negative values
+        \1 A symmetric matrix $A$ is called positive definite, positive semidefinite, negative definite, negative semidefinite, or indefinite if the associated quadratic form \(f(\vb x)=\vb x^TA\vb x\) has the corresponding property. 
+        \1 Let $A$ be an \(n\times n\) symmetric matrix. The quadratic form \(f(\vb x)=\vb x^TA\vb x\) is 
+            \2 Positive definite IFF all eigenvalues of $A$ are positive. 
+            \2 positive semidefinite IFF all eigenvalues are nonnegative. 
+            \2 negative definite IFF all eigenvalues are negative
+            \2 negative semidefinite IFF all eigenvalues are nonpositive. 
+            \2 indefinite IFF $A$ has both positive and negative eigenvalues. 
+        \1 Let \(f(\vb x)=\vb x^TA\vb x\) be a quadratic form with associated \(n\times n\) symmetric matrix $A$. Let the eigenvalues of $A$ be \(\lambda_1\geq\lambda_2\geq\cdots\geq\lambda_n\). Then the following are true, with the constraint of \(||\vb x||=1\): 
+            \2 \(\lambda_1\geq f(\vb x)\geq\lambda_n\)
+            \2 The max value of \(f(\vb x)\) is \(\lambda_1\) and occurs when \(\vb x\) is a unit eigenvector corresponding to \(\lambda_1\)
+            \2 The min value of \(f(\vb x)\) is \(\lambda_n\) and occurs when \(\vb x\) is a unit eigenvector corresponding to \(\lambda_n\)
+        \1 The general form of a quadratic equation in two variables $x$ and $y$ is \[ax^2+by^2+cxy+dx+ey+f=0\]
+        \1 The general form of a quadratic equation in three variables $x$, $y$, and $z$ is \[ax^2+by^2+cz^2+dxy+exz+fyz+gx+hy+iz+j=0\]
+        
+    \end{outline}
+\end{document}

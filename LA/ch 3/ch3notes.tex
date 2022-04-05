@@ -1,0 +1,211 @@
+\documentclass{article}
+\title{Chapter 3 Notes - LA} % title - chapter number
+\author{John Yang}
+\usepackage{amsmath}
+\usepackage[margin=1in, letterpaper]{geometry}
+\usepackage{outlines}
+\setcounter{section}{+2} % chapter number minus 1
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{stackrel}
+\DeclarePairedDelimiter\set\{\}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+\usepackage{tocloft}
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand\cftsecpagefont{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand\cftsecdotsep{\cftdot}
+\renewcommand\cftsubsecdotsep{\cftdot}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \section{Matrices} % chapter title
+    \subsection{Matrix Operations} % section topic
+    \begin{outline}
+        \1 A matrix is defined as a rectangular array of numbers called the entries, or elements, of the matrix 
+        \1 The size of a matrix is based on the number of rows and columns; a matrix with $m$ rows and $n$ columns is an $m \times n$ matrix ($m$ by $n$). 
+        \1 Entries of matrix are refered to with double subscripts
+        \1 If $m=n$, the matrix is a square matrix. If all nondiagonal entries are $0$, the matrix is a diagonal matrix. A diagonal matrix whose diagonal entries are the same is called a scalar matrix. If the scalar on the diagonal is $1$ it is an identity matrix. 
+        \1 Adding matrices: only matrices with the same dimensions can be added. Add each corresponding entry. 
+        \1 A matrix whose entries are all 0 is a zero matrix denoted by $O$. 
+        \1 Multiplying matrices: If $A$ is an \(m\times n\) matrix and $B$ is an \(n\times r\) matrix, then the product \(C=AB\) is an \(m\times r\) matrix. The \((i,j)\) entry of the product is computed as follows: \[c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{in}b_{nj}\]
+        \1 Note that if $A$ is an m by n matrix and B is an n by r matrix, AB is an m by r matrix and n must be equal to n. 
+        \1 The product of two matrices is a dot product. 
+        \1 Theorem: let $A$ be an \(m\times n\) matrix, \(\vb e_i\) a \(1\times m\) standard unit vector, and \(\vb e_j\) an \(n\times 1\) standard unit vector. Then:
+            \2 \(\vb e_iA\) is the \(i\)th row of $A$ and 
+            \2 \(A\vb e_j\) is the \(j\)th column of $A$. 
+        \1 Partitioned matrices: you can divide a matrix into submatrices by partitioning it into blocks. 
+        \1 Matrx powers: \[A^k=AA\cdots A\] by $k$ factors
+        \1 If $A$ is a square matrix and $r$ and $s$ are nonnegative integers, then \[A^rA^s=A^{r+s}\qquad\qquad(A^r)^s=A^{rs}\]
+        \1 The transpose of an \(m\times n\) matrix $A$ is the \(n\times m\) matrix of \(A^T\) obtained by interchanging the rows and columns of $A$. That is, the \(i\)th column of \(A^T\) is the \(i\)th row of $A$ for all $i$
+        \1 A square matrix $A$ is defined as symmetric if \(A^T=A\); that is, if $A$ is equal to its own transpose. 
+        \1 A square matrix $A$ is symmetric IFF \(A_{ij}=A_{ji}\) for all $i$ and $j$
+    
+   \end{outline}
+   \subsection{Matrix Algebra}
+   \begin{outline}
+        \1 Properties of matrix addition and scalar multiplication
+            \2 \(A+B=B+A\)
+            \2 \((A+B)+C=A+(B+C)\)
+            \2 \(A+O=A\)
+            \2 \(A+(-A)=O\)
+            \2 \(c(A+B)=cA+cB\)
+            \2 \((c+d)A=cA+dA\)
+            \2 \(c(dA)=(cd)A\)
+            \2 \(1A=A\)
+        \1 Linear independence applies to matrices as well
+        \1 Properties of matrix multiplication 
+            \2 \(A(BC)=(AB)C\)
+            \2 \(A(B+C)=AB+AC\)
+            \2 \((A+B)C=AC+BC\)
+            \2 \(k(AB)=(kA)B=A(kB)\)
+            \2 \(I_mA=A=AI_n\text{ if }A\text{ is }m\times n\)
+        \1 Properties of the transpose
+            \2 \((A^T)^T=A\)
+            \2 \((A+B)^T=A^T+B^T\)
+            \2 \((kA)^T=k(A^T)\)
+            \2 \((AB)^T=B^TA^T\)
+            \2 \((A^r)^T=(A^T)^r\) for all nonnegative integers $r$
+        \1 Transposing a matrix: like flipping it on its side; rows become columns and columns become rows. Order stays the same; left to right, top to bottom
+        \1 If \(A\) is a square matrix, then \(A+A^T\) is a symmetric matrix 
+        \1 For any matrix $A$, \(AA^T\) and \(A^TA\) are symmetric matrices. 
+   \end{outline}
+   \subsection{The Inverse of a Matrix}
+   \begin{outline}
+       \1 If $A$ is an \(n\times n\) matrix, an inverse of $A$ is an \(n\times n\) matrix \(A'\) with the property that \[AA'=I\quad\text{ and }\quad A'A=I\]  where \(I=I_n\), the \(n\times n\) identity matrix. If \(A'\) exists, then \(A\) is called invertible. 
+       \1 If $A$ is an invertible matrix, then its inverse is unique. 
+       \1 If \(A\) is an invertible \(n\times n\) matrix, then the system of linear equations given by \(A\vb x=\vb b\) has the unique solution \(\vb x=A^{-1}\vb b\) for any \(\vb b\) in \(\mathbb R^n\)
+       \1 If \(A=\begin{bmatrix}
+           a & b\\ c& d
+       \end{bmatrix}\), then \(A\) is invertible if \(ad-bc\neq 0\), in which case \[A^{-1}=\dfrac{1}{ad-bc}\begin{bmatrix}
+           d & -b \\ -c & a
+       \end{bmatrix}\] If \(ad-bc=0\), then \(A\) is not invertible. 
+       \1 The expression \(ad-bc\) is the determinant of $A$, given by \(\det A\)
+       \1 Properties of invertible matrices: 
+            \2 If \(A\) is an invertible matrix, then \(A^{-1}\) is invertible and \[(A^{-1})^{-1}=A\]
+            \2 If $A$ is an invertible matrix and $c$ is a nonzero scalar, then \(cA\) is an invertible matrix and \[(cA)^{-1}=\dfrac{1}{c}A^{-1}\]
+            \2 If \(A\) and \(B\) are invertible matrices of the same size, then \(AB\) is invertible, and \[(AB)^{-1}=B^{-1}A^{-1}\]
+            \2 If \(A\) is an invertible matrix, then \(A^T\) is invertible and \[(A^T)^{-1}=(A^{-1})^T\]
+            \2 If $A$ is an invertible matrix, then \(A^n\) is invertible for all nonnegative integers $n$ and \[(A^n)^{-1}=(A^{-1})^n\]
+        \1 The inverse of a product of invertible matrices is the product of their inverses in reverse order. 
+        \1 If $A$ is an invertible matrix and \(n\) is a positive integer, then \(A^{-n}\) is defined by \[A^{-n}=(A^{-1})^n=(A^n)^{-1}\]
+        \1 An elementary matrix is one that can be obtained by performing an elementary row operation on an identity matrix. 
+        \1 Let \(E\)  by the elementary matrix obtained by performing an elementary row operation on \(I_n\). If the same elementary row operation is performed on an \(n\times r\) matrix $A$, the result is the same as the matrix \(EA\). 
+        \1 Each elementary matrix is invertible, and its inverse is an elementary matrix of the same type. 
+        \1 The fundamental theorem of invertible matrices: version 1. Let $A$ be an \(n\times n\) matrix. The following statements are equivalent: 
+            \2 \(A\) is invertible. 
+            \2 \(A\vb x=\vb b\) has a unique solution for every \(\vb b\) in \(\mathbb R^n\)
+            \2 \(A\vb x=\vb 0\) has only the trivial solution. 
+            \2 The RREF of \(A\) is \(I_n\)
+            \2 \(A\) is a product of elementary matrices. 
+        \1 Let \(A\) be a square matrix. If \(B\) is a square matrix such that either \(AB=I\) or \(BA=1\), then \(A\) is invertible and \(B=A^{-1}\)
+        \1 Let \(A\) be a square matrix. If a sequence of elementary row operations reduces \(A\) to \(I\), then the same sequence of elementary row operations transforms \(I\) into \(A^{-1}\)
+
+   \end{outline}
+   \subsection{The LU Factorization}
+   \begin{outline}
+        \1 Let \(A\) be a square matrix. A factorization of \(A\) as \(A=LU\), where \(L\) is unit lower triangular and \(U\) is upper triangular, is called an \(LU\) factorization of \(A\). 
+        \1 If \(A\) is a square matrix that can be reduced to REF without using any row interchanges, then \(A\) has an \(LU\) factorization. 
+        \1 If \(A\) is an invertible matrix that has an \(LU\) factorization, then \(L\) and \(U\) are unique. 
+        \1 If \(P\) is a permutation matrix, then \(P^{-1}=P^T\)
+        \1 Let \(A\) be a square matrix. A factorization of \(A\) as \(A=P^TLU\), where \(P\) is a permutation matrix, $L$ is unit lower triangular, and $U$ is upper triangular, is called a \(P^TLU\) factorization of \(A\)
+        \1 Every square matrix has a \(P^TLU\) factorization. 
+   \end{outline}
+   \subsection{Subspaces, Basis, Dimension, and Rank}
+   \begin{outline}
+        \1 A subspace of \(\mathbb R^n\) is any collection of $S$ vectors in \(\mathbb R^n\) such that 
+            \2 The zero vector \(\vb 0\) is in $S$
+            \2 If \(\vb u\) and \(\vb v\) are in $S$, then \(\vb u+\vb v\) is in $S$ (That is, $S$ is closed under addition). 
+            \2 If \(vb u\) is in $S$ and $c$ is a scalar, then \(c\vb u\) is in $S$ ($S$ is closed under scalar multiplication). 
+            \2 From the previous two conditions, we conclude that $S$ must then be closed under linear combinations: $S$ includes all linear combinations of all vectors \(\vb u_k\) in $S$. 
+        \1 Let \(\vb v_1,\vb v_2,\cdots,\vb v_k\) be vectors in \(\mathbb R^n\). Then, \(\text{span}(\vb v_1,\vb v_2,\cdots,\vb v_k)\) is a subspace of \(\mathbb R^n\)
+        \1 Let \(A\) be an \(m\times n\) matrix. 
+            \2 The row space of $A$ is the subspace row\((A)\) of \(\mathbb R^n\) spanned by the rows of \(A\). 
+            \2 The column space of \(A\) is the subspace col\((A)\) of \(\mathbb R^m\) spanned by the columns of \(A\). 
+        \1 Let \(B\) be any matrix that is row equivalent to a matrix \(A\). Then \(\text{row}(B)=\text{row}(A)\)
+        \1 Let \(A\) be an \(m\times n\) matrix and let \(N\) be the set of solutions to the homogeneous linear system \(A\vb x=\vb 0\). Then \(N\) is a subspace of \(\mathbb R^n\)
+        \1 Let \(A\) be an \(m\times n\) matrix. The null space of \(A\) is the subspace of \(\mathbb R^n\) consisting of solutions to the homogeneous linear system \(A\vb x=0\). It is denoted by \(\text{null}(A)\)
+        \1 Let \(A\) be a matrix whose entries are real numbers. For any system of linear equations \(A\vb x=\vb b\), exactly one of the following is true: 
+            \2 There is no solution. 
+            \2 There is a unique solution. 
+            \2 There are infinitely many solutions. 
+        \1 A basis for a subspace $S$ of \(\mathbb R^n\) is a set of vectors in $S$ that 
+            \2 spans $S$ and 
+            \2 Is linearly independent. 
+        \1 How to find the bases for the row space, column space, and null space of matrix \(A\):
+            \2 Find the rref $R$ of $A$. 
+            \2 Use the nonzero row vectors of $R$ (containing the leading 1s) to form a basis for row\((A)\)
+            \2 Use the column vectors of \(A\) that correspond to the columns of $R$ containing the leading 1s (the pivot columns) to form a basis for col\((A)\)
+            \2 Solve for the leading variables of \(R\vb x=0\) in terms of the free variables, set the free variables equal to parameters, substitute back into \(\vb x\), and write the result as a linear combination of $f$ vectors (where $f$ is the number of free variables). These $f$ vectors form a basis for null\((A)\)
+        \1 The Basis Theorem: Let $S$ be a subspace of \(\mathbb R^n\). Then any two bases for $S$ have the same number of vectors. 
+        \1 If $S$ is a subspace of \(\mathbb R^n\), then the number of vectors in a basis for $S$ is called the dimension of $S$, denoted dim $S$. 
+        \1 The row and column spaces of a matrix $A$ have the same dimension. 
+        \1 The rank of a matrix $A$ is the dimension of its row and column spaces and is denoted by rank\((A)\). 
+        \1 For any matrix $A$, \[\text{rank}(A^T)=\text{rank}(A)\]
+        \1 The nullity of a matrix $A$ is the dimension of its null space and is denoted by nullity\((A)\). 
+        \1 The Rank Theorem: If \(A\) is an \(m\times n\) matrix, then \[\text{rank}(A)+\text{nullity}(A)=n\]
+        \1 The fundamental theorem of invertible matrices: version 2. Let \(A\) be an \(m\times n\) matrix. The following statements are equivalent: 
+            \2 \(A\) is invertible. 
+            \2 \(A\vb x=b\) has a unique solution for every \(\vb b\) in \(\mathbb R^n\)
+            \2 \(A\vb x=\vb 0\) has only the trivial solution. 
+            \2 The rref of $A$  is \(I_n\)
+            \2 \(A\) is a product of elementary matrices. 
+            \2 rank\((A)=n\)
+            \2 nullity\((A)=0\)
+            \2 The column vectors of \(A\) are linearly independent 
+            \2 The column vectors of \(A\) span \(\mathbb R^n\). 
+            \2 The column vectors of \(A\) form a basis for \(\mathbb R^n\). 
+            \2 The row vectors of \(A\) are linearly independent. 
+            \2 The row vectors of \(A\) span \(\mathbb R^n\)
+            \2 The row vectors of \(A\) form a basis for \(\mathbb R^n\). 
+        \1 Let \(A\) be an \(m\times n\) matrix. Then 
+            \2 rank\((A^TA)=\text{rank}(A)\)
+            \2 The \(n\times n\) matrix \(A^TA\) is invertible IFF rank\((A)=n\)
+        \1 Let $S$ be a subspace of \(\mathbb R^n\) and let \(\mathcal B=\{\vb v_1,\vb v_2,\cdots,\vb v_k\}\) be a basis for $S$. For every vector \(\vb v\) in $S$, there is exactly one way to write \(\vb v\) as a linear combination of the basis vectors in \(\mathcal B\): \[\vb v=c_1\vb v_1+c_2\vb v_2+\cdots+c_k\vb v_k\]
+        \1 Let $S$ be a subspace of \(\mathbb R^n\) and let \(\mathcal B=\{\vb v_1,\vb v_2,\cdots,\vb v_k\}\) be a basis for $S$. Let \(\vb v\) be a vector in $S$, and write \(\vb v=c_1\vb v_1+c_2\vb v_2+\cdots+c_k\vb v_k\). Then \(c_1,c_2,\cdots,c_k\) are called the coordinates of \(\vb v\) with respect to \(\mathcal B\), and the column vector \[[\vb v]_\mathcal B=\begin{bmatrix}
+            c_1\\c_2\\\vdots\\c_k
+        \end{bmatrix}\] is called the coordinate vector of \(\vb v\) with respect to \(\mathcal B\). 
+   \end{outline}
+   \subsection{Introduction to Linear Transformations}
+   \begin{outline}
+        \1 A transformation \(T:\mathbb R^n\to \mathbb R^m\) is called a linear transformation if:
+            \2 \(T(\vb u+\vb v)=T(\vb u)+T(\vb v)\) for all \(u\) and \(v\) in \(\mathbb R^n\) and 
+            \2 \(T(c\vb v)=cT(\vb v)\) for all \(\vb v\) in \(\mathbb R^n\) and all scalars $c$. 
+        \1 Let \(A\) be an \(m\times n\) matrix. Then the matrix transformation \(T_A:\mathbb R^n\to\mathbb R^m\) defined by \[T_A(\vb x)=A\vb x\quad (\text{for }\vb x\text{ in }\mathbb R^n)\] is a linear transformation. 
+        \1 Let \(T:\mathbb R^n\to \mathbb R^m\) be a linear transformation. Then \(T\) is a matrix transformation. More specifically, \(T=T_A\), where \(A\) is the \(m\times n\) matrix \[A=[T(\vb e_1)\vdots T(\vb e_2)\vdots\cdots\vdots T(\vb e_n)]\]
+        \1 Let \(T:\mathbb R^m\to \mathbb R^n\) and \(S:\mathbb R^n\to\mathbb R^p\) be linear Transformations. then \(S\circ T:\mathbb R^m\to\mathbb R^p\) is a linear transformation whose standard matrices are related by \[S\circ T=[S][T]\]
+        \1 Let $s$ and $T$ be linear transformations from \(\mathbb R^n\) to \(\mathbb R^n\). Then $S$ and $T$ are inverse transformations if \(S\circ T=I_n\) and \(T\circ S=I_n\)
+        \1 Let \(T:\mathbb R^n\to\mathbb R^n\) be an invertible linear transformation. Then its standard matrix \([T]\) is an invertible matrix, and \[[T^{-1}]=[T]^{-1}\] (``The matrix of the inverse is the inverse of the matrix''). 
+
+   \end{outline}
+   \subsection{Applications}
+   \begin{outline}
+        \1  Markov chain: evolving proccess consisting of a finite number of states. 
+        \1 Can use linear algebra to analyze probabilities. Consider two-way tables in statistics: working with multiple of these tables as matrices and vectors can allow us to solve probability problems. 
+        \1 Graphs and digraphs: If $G$ is a graph with $n$ vertices, then its adjacency matrix is the \(n\times n\) matrix $A$ (or \(A(G)\)) defined by \[a_{ij}=1 \text{ if there is an edge between vertices i and j, and }a_{ij}=0\text{ otherwise. }\]
+        \1 If $A$ is the adjacency matrix of a graph $G$, then the \((i,j)\) entry of \(A^k\) is equal to the number of \(k\)-paths between vertices $i$ and $j$. 
+        \1 If $G$ is a digraph with $n$ vertices, then its adjacency matrix is the \(n\times n\) matrix $A$ (or \(A(G)\)) defined by \[a_{ij}=1 \text{ if there is an edge between vertices i and j, and }a_{ij}=0\text{ otherwise. }\]
+        \1 Error correcting codes: If \(k<n\), then any \(n\times k\) matrix of the form \(G=\begin{bmatrix}
+            I_k\\A
+        \end{bmatrix}\), where $A$ is an \((n-k)\times k\) matrix over \(\mathbb Z_2\), is called a standard generator matrix for an \((n,k)\) binary code \(T:\mathbb Z^k_2\to\mathbb Z^n_2\). Any \((n-k)\times n\) matrix of the form \(P=[B\text{ }I_{n-k}]\), where $B$ is an \((n-k)\times k\) matrix over \(\mathbb Z_2\), is called a stardard parity check matrix. The code is said to have length $n$ and dimension $k$. 
+        \1 If \(G=\begin{bmatrix}
+            I_k\\A
+        \end{bmatrix}\)  is a standard generator matrix and \(P=[B\text{ }I_{n-k}]\) is a standard parity check matrix, then $P$ is the parity check matrix associated with $G$ IFF \(A=B\). The corresponding \(n,k\) binary code is (single) error-correcting IFF the columns of $P$ are nonzero and distinct. 
+        \1 Summary of error-correcting codes: 
+            \2 For \(n>k\), and \(n\times k\) matrix $G$ and an \((n-k)\times n\) matrix $P$ (with entries in \(mathbb Z_2\)) are a standard generator matrix and a standard parity check matrix, respectively, for an \((n,k)\) binary code IFF in block form, \(G=\begin{bmatrix}
+                I_k\\A
+            \end{bmatrix}\) and \(P=[A\text{ }I_{n-k}]\) for some \((n-k)\times k\) matrix $A$ over \(\mathbb Z_2\). 
+            \2 $G$ encodes a message vector \(\vb x\) in \(\mathbb Z^k_2\) as a code vector $\vb c$ in \(\mathbb Z^n_2\) via \(\vb c=G\vb x\). 
+            \2 $G$ is error-correcting IFF the columns of $P$ are nonzero and distinct. A vector \(\vb c'\) in \(\mathbb Z^n_2\) is a code vector IFF \(P\vb c'=\vb 0\). In this case, the corresponding message vector is the vector \(\vb x\) in \(\mathbb Z^k_2\) consisting of the first $k$ components of \(\vb c'\). If \(P\vb c'\neq 0\), then \(\vb c'\) is not a code vector and \(P\vb c'\) is one of the columns of $P$. If \(P\vb c'\) is the $i$th column of $P$, then the error is in the $i$th component of \(\vb c'\) and we can recover the correct code vector (and hence the message) by changing this component. 
+            
+
+    \end{outline}
+\end{document}

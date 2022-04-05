@@ -1,0 +1,201 @@
+\documentclass{article}
+\title{Chapter 4 Notes - LA} % title - chapter number
+\author{John Yang}
+\usepackage{amsmath}
+\usepackage[margin=1in, letterpaper]{geometry}
+\usepackage{outlines}
+\setcounter{section}{+3} % chapter number minus 1
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{stackrel}
+\DeclarePairedDelimiter\set\{\}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+\usepackage{tocloft}
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand\cftsecpagefont{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand\cftsecdotsep{\cftdot}
+\renewcommand\cftsubsecdotsep{\cftdot}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \section{Eigenvalues and Eigenvectors} % chapter title
+    \subsection{Introduction to Eigenvalues and Eigenvectors} % section topic
+    \begin{outline}
+        \1 Let $A$ be an \(n\times n\) matrix. A scalar \(\lambda\) is called an eigenvalue of $A$ if there is a nonzero vector \(\vb x\) such that \(A\vb x=\lambda\vb x\). Such a vector \(\vb x\) is called an eigenvector of $A$ corresponding to \(\lambda\). 
+        \1 Let $A$ be an \(n\times n\) matrix and let \(\lambda\) be an eigenvalue of $A$. The collection of all eigenvectors corresponding to \(\lambda\), together with the zero vector, is called the eigenspace of \(\lambda\) and is denoted by \(E_\lambda\). 
+    \end{outline}
+    \subsection{Determinants}
+    \begin{outline}
+        \1 Let \(A = \begin{bmatrix}
+            a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
+        \end{bmatrix}\). Then the determinant of $A$ is the scalar \[\det A = |A| = a_{11}\begin{vmatrix}
+            a_{22} & a_{23} \\ a_{32} & a_{33}
+        \end{vmatrix}+a_{13}\begin{vmatrix}
+            a_{21} & a_{22} \\ a_{31} & a_{32}
+        \end{vmatrix}\]
+        \1 We can simplify this equation as: \[\det A=a_{11}\det A_{11} - a_{12}\det A_{12}+a_{13}\det A_{13}\]\[=\sum^3_{j=1}(-1)^{1+j}a_{ij}\det A_{ij}\]
+        \1 For any square matrix $A$, \(\det A_{ij}\) is called the \((i,j)\)-minor of $A$. 
+        \1 Let \(A=[a_{ij}]\) be an \(n\times n\) matrix, where \(n\geq 2\). Then the determinant of $A$ is the scalar \[\det A=|A|=a_{11}\det A_{11}-a_{12}\det A_{12}+\cdots+(-1)^{1+n}a_{1n}\det A_{1n}\]\[=\sum^n_{j=1}(-1)^{1+j}a_{1j}\det A_{1j}\]
+        \1 The \((i,j)\)-cofactor of $A$ is defined as \[C_{ij}=(-1)^{i+j}\det A_{ij}\]
+        \1 Thus, the definition of the determinant becomes \[\det A=\sum^n_{j=1}a_{1j}C_{1j}\]
+        \1 The Laplace Expansion Theorem: The determinant of an \(n\times n\) matrix \(A=[a_{ij}]\), where \(n\geq 2\), can be computed as \[\det A=a_{i1}C_{i1}+a_{i2}C_{i2}+\cdots+a_{in}C_{in}\]\[\sum^n_{j=1}a_{ij}C_{ij}\] (which is the cofactor expansion along the $i$th row) and also as \[\det A=a_{1j}C_{1j}+a_{2j}C_{2j}+\cdots+a_{nj}C_{nj}\]\[=\sum^n_{i=1}a_{ij}C_{ij}\] (the cofactor expansion along the $j$th column). 
+        \1 The determiniant of a triangular matrix is the product of the entries on its main diagonal. Specifically, if \(A=[a_{ij}]\) is an \(n\times n\) triangular matrix, then \[\det A=a_{11}a_{22}\cdots a_{nn}\]
+        \1 Properties of determinants: let \(A\) be a square matrix. 
+            \2 If $A$ has a zero row (column), then \(\det A=0\)
+            \2 If $B$ is obtained by interchanging two rows (columns) of $A$, then \(\det B=-\det A\)
+            \2 If $A$ has two identical rows (columns), then \(\det A=0\)
+            \2 If $B$ is obtained by multiplying a row (column) of $A$ by $k$, then \(\det B=k\det A\)
+            \2 If $A$, $B$, and $C$ are identical except that the $i$th row (column) of $C$ is the sum of the $i$th rows (columns) of \(A\) and \(B\), then \(\det C=\det A+\det B\)
+            \2 If $B$ is obtained by adding a multiple of one row (column) of $A$ to another row (column), then \(\det B=\det A\)
+        \1 Let $E$ be an \(n\times n\) elementary matrix. 
+            \2 If \(E\) results from interchanging two rows of $I_n$, then \(\det E=-1\)
+            \2 If \(E\) results from multiplying one row of \(I_n\) by \(k\), then \(\det E=k\)
+            \2 If \(E\) results from adding a multiple of one row of \(I_n\) to another row, then \(\det E=1\)
+        \1 Let \(B\) be an \(n\times n\) matrix and let \(E\) be an \(n\times n\) elementary matrix. Then \[\det (EB)=(\det E)(\det B)\]
+        \1 A square matrix \(A\) is invertible IFF \(\det A\neq 0\)
+        \1 If \(A\) is an \(n\times n\) matrix, then \[\det (kA)=k^n\det A\]
+        \1 If $A$ and $B$ are \(n\times n\) matrices, then \[\det (AB)=(\det A)(\det B)\]
+        \1 If \(A\) is invertible, then \[\det (A^{-1})=\dfrac{1}{\det A}\]
+        \1 For any square matrix $A$, \[\det A=\det A^T\]
+        \1 Cramer's rule: let $A$ be an invertible \(n\times n\) matrix and let \(\vb b\) be a vector in \(\mathbb R^n\). Then the unique solution \(\vb x\) of the system \(A\vb x=\vb b\) is given by \[x_i=\dfrac{\det (A_i(\vb b))}{\det A}\qquad\text{for }i=1,\cdots,n\]
+        \1 Let \(A\) be an invertible \(n\times n\) matrix. Then \[A^{-1}=\dfrac{1}{\det A}\text{adj }A\] where the adjoint of $A$ adj $A$ is defined by \[[C_{ji}]=[C_{ij}]^T=\begin{bmatrix}
+            C_{11} & C_{21} & \cdots & C_{n1} \\ C_{12} & C_{22} & \cdots & C_{n2} \\ \vdots & \vdots & \ddots & \vdots \\ C_{1n} & C_{2n} & \cdots & C_{nn}
+        \end{bmatrix}\]
+        \1 Let $A$ be an \(n\times n\) matrix. Then \[a_{11}C_{11}+a_{12}C_{12}+\cdots+a_{1n}C_{1n}=\det A=a_{11}C_{11}+A_{21}C_{21}+\cdots+a_{n1}C_{n1}\]
+        \1 Let $A$ be an \(n\times n\) matrix and let $B$ be obtained by interchanging any two rows (columns) of $A$. Then \[\det B=-\det A\]
+    \end{outline}
+    
+    \subsection{Eigenvalues and Eigenvectors of $n\times n$ Matrices}
+    \begin{outline}
+        \1 The eigenvalues of a square matrix $A$ are preciesely the solutions \(\lambda\) of the equation \[\det (A-\lambda I) = 0\]. 
+        \1 Finding the eigenvalues and eigenvectors of a matrix: Let $A$ be an \(n\times n\) matrix. 
+            \2 Compute the characteristic polynomial \(\det (A-\lambda I)\) of $A$. 
+            \2 Find the eigenvalues of $A$ by solving the characteristic equation \(\det (A-\lambda I)=0\) for \(\lambda\)
+            \2 For each eigenvalue \(\lambda\), find the null space of the matrix \(A-\lambda I\). This is the eigenspace \(E_\lambda\), the nonzero vectors of which are the eigenvectors of $A$ corresponding to \(\lambda\). 
+            \2 Find a basis for each eigenspace. 
+        \1 The algebraic multiplicity of an eigenvalue is its multiplicity as a root of the characteristic equation. An \(n\times n\) matrix will always have $n$ eigenvalues, but some will be duplicates due to algebraic multiplicity. 
+        \1 The eigenvalues of a triangular matrix are the entries on its main diagonal. 
+        \1 A square matrix $A$ is invertible IFF $0$ is not an eigenvalue of $A$. 
+        \1 The fundamental theorem of invertible matrices: version 3. Let $A$ be an $n\times n$ matrix. The following statements are equivalent: 
+            \2 $A$ is invertible
+            \2 $A\vb x=\vb b$ has a unique solution for every \(\vb b\) in \(\mathbb R^n\)
+            \2 \(A\vb x=\vb 0\) has only the trivial solution. 
+            \2 The reduced row echelon form of $A$ is \(I_n\). 
+            \2 $A$ is the product of elementary matrices. 
+            \2 \(\rank (A)=n\)
+            \2 nullity\((A)=0\)
+            \2 The column vectors of $A$ are linearly independent
+            \2 The column vectors of $A$ span \(\mathbb R^n\)
+            \2 The column vectors of $A$ form a basis for \(\mathbb R^n\)
+            \2 The row vectors of $A$ are linearly independent
+            \2 The row vectors of $A$ span \(\mathbb R^n\)
+            \2 The row vectors of $A$ form a basis for \(\mathbb R^n\)
+            \2 \(\det A\neq 0\)
+            \2 $0$ is not an eigenvalue of $A$
+        \1 Let $A$ be a square matrix with eigenvalue \(\lambda\) and corresponding eigenvector \(\vb x\). 
+            \2 For any positive integer $n$, \(\lambda ^n\) is an eigenvalue of \(A^n\) with corresponding eigenvector \(\vb x\). 
+            \2 If $A$ is invertible, then \(1/\lambda\) is an eigenvalue of \(A^{-1}\) with corresponding eigenvector \(\vb x\). 
+            \2 If \(A\) is invertible, then for any integer \(n\), \(\lambda^n\) is an eigenvalue of \(A^n\) with corresponding eigenvector \(\vb x\). 
+        \1 Suppose the \(n\times n\) matrix $A$ has eigenvectors \(\vb v_1,\vb v_2\cdots,\vb v_m\) with corresponding eigenvalues \(\lambda_1,\lambda_2,\cdots,\lambda_m\). If \(\vb x\) is a vector in \(\mathbb R^n\) that can be expressed as a linear combination of these eigenvectors, then for any integer $k$, \[A^k\vb x=c_1\lambda_1^k\vb v_1+c_2\lambda_2^k\vb v_2+\cdots+c_m\lambda_m^k\vb v_m\]
+        \1 Let $A$ be an \(n\times n\) matrix and let \(\lambda_1,\lambda_2,\cdots,\lambda_m\) be distinct eigenvalues of $A$ with corresponding eigenvectors \(\vb v_1,\vb v_2,\cdots,\vb v_m\). Then \(\vb v_1,\vb v_2,\cdots,\vb v_m\) are linearly independent. 
+
+    \end{outline}
+    
+    \subsection{Similarity and Diagonalization}
+    \begin{outline}
+        \1 Let $A$ and $B$ be \(n\times n\) matrices. We say that $A$ is similar to $B$ if there is an invertible \(n\times n\) matrix $P$ such that \(P^{-1}AP=B\). If \(A\) is similar to \(B\), we write \(A\sim B\)
+        \1 Let \(A,B,C\) be \(n\times n\) matrices. 
+            \2 \(A\sim A\)
+            \2 If \(A\sim B\) then \(B\sim A\)
+            \2 If \(A\sim B\) and \(B\sim C\) then \(A\sim C\)
+        \1 Let \(A\) and \(B\) be \(n\times n\) matrices with \(A\sim B\). Then 
+            \2 \(\det A=\det B\)
+            \2 \(A\) is invertible IFF \(B\) is invertible. 
+            \2 \(A\) and \(B\) have the same rank 
+            \2 \(A\) and \(B\) have the same characteristic polynomial. 
+            \2 \(A\) and \(B\) have the same eigenvalues. 
+            \2 \(A^m\sim B^m\) for all integers \(m\geq 0\)
+            \2 If \(A\) is invertible, then \(A^m\sim B^m\) for all integers \(m\). 
+        \1 An \(n\times n\) matrix \(A\) is diagonalizable if there is a diagonal matrix \(D\) such that \(A\) is similar to \(D\) - that is, if there is an invertible \(n\times n\) matrix \(P\) such that \(P^{-1}AP=D\)
+        \1 Let \(A\) be an \(n\times n\) matrix. Then \(A\) is diagonalizable IFF $A$ has \(n\) linearly independent eigenvectors. More precisely, there exist an invertible matrix $P$ and a diagonal matrix $D$ such that \(P^{-1}AP=D\) IFF the columns of $P$ are \(n\) linearly independent eigenvectors of \(A\) and the diagonal entries of $D$ are the eigenvalues of $A$ corresponding to the eigenvectors in $P$ in the same order. 
+        \1 Let \(A\) be an \(n\times n\) matrix and let \(\lambda_1,\lambda_2,\cdots,\lambda_k\) be distinct eigenvalues of $A$. If \(\mathcal B_i\) is a basis for the eigenspace \(E_\lambda\), then \(\mathcal B=\mathcal B_1\cup\mathcal B_2\cup\cdots\cup\mathcal B_k\) (i.e., the total collection of basis vectors for all the eigenspaces) is linearly independent. 
+        \1 If $A$ is an \(n\times n\) matrix with \(n\) distinct eigenvalues, then \(A\) is diagonalizable
+        \1 If $A$ is an \(n\times n\) matrix, then the geometric multiplicity of each eigenvalue is less than or equal to its algebraic multiplicity. 
+        \1 The diagonalization theorem: Let $A$ be an \(n\times n\) matrix whose distinct eigenvalues are \(\lambda_1,\lambda_2,\cdots,\lambda_k\). The following statements are equivalent. 
+            \2 $A$ is diagonalizable. 
+            \2 The union \(\mathcal B\) of the bases of the eigenspaces of $A$ (as in theorem 4.24) contains \(n\) vectors. 
+            \2 The algebraic multiplicity of each eigenvalue equals its geometric multiplicity. 
+        
+    \end{outline}
+    
+    \subsection{Iterative Methods for Computing Eigenvalues}
+    \begin{outline}
+        \1 Let \(A\) be an \(n\times n\) diagonalizable matrix with dominant eigenvalue \(\lambda_1\). Then there exists a nonzero vector \(\vb x_0\) such that the sequence of vectors \(\vb x_k\) defined by \[\vb x_1=A\vb x_0,\vb x_2=A\vb x_1,\vb x_3=A\vb x_2,\cdots,\vb x_k=A\vb x_{k-1},\cdots\] approaches a dominant eigenvector of $A$
+        \1 Summarization of the power method: Let \(A\) be a diagonalizable \(n\times n\) matrix with a corresponding dominant eigenvalue \(\lambda_1\)
+            \2 Let \(\vb x_0=\vb y_0\) be any initial vector in \(\mathbb R^n\) whose largest component is \(1\). 
+            \2 Repeat the following steps for \(k=1,2,\cdots\):
+                \3 Compute \(\vb x_k=A\vb y_{k-1}\)
+                \3 Let \(m_k\) be the component of \(\vb x_k\) with the largest absolute value. 
+                \3 Set \(\vb y_k=(1/m_k)\vb x_k\)
+        \1 For most choices of \(\vb x_0\), \(m_k\) converges to the dominant eigenvalue \(\lambda_1\) and \(\vb y_k\) converges to a dominant eigenvector. 
+        \1 Let \(A=[a_{ij}]\) be a (real or complex) \(n\times n\) matrix, and let \(r_i\) denote the sum of the absolute values of the off-diagonal entries in the $i$th row of $A$; that is, \(r_i=\sum_{j\neq i}|a_{ij}|\). The $i$th Gerschgorin disk is the circular disk $D_i$ in the complex plane with center \(a_{ii}\) and radius \(r_i\). That is, \[D_i=\{z\in\mathbb C:|z-a_{ii}|\leq r_i\}\]
+        \1 Gerschgorin's Disk Theorem: Let \(A\) be an \(n\times n\) (real or complex) matrix. Then every eigenvalue of $A$ is contained within a Gerschgorin disk. 
+    \end{outline}
+    
+    \subsection{Applications and the Perron-Frobenius Theorem}
+    \begin{outline}
+        \1 If \(P\) is the \(n\times n\) transition matrix of a Markov chain, then 1 is an eigenvalue of $P$. 
+        \1 Let \(P\) be an \(n\times n\) transition matrix with eigenvalue \(\lambda\). 
+            \2 \(|\lambda|\leq 1\) 
+            \2 If $P$ is regular and \(\lambda\neq 1\), then \(|\lambda|<1\)
+        \1 Let $P$ be a regular \(n\times n\) transition matrix. If $P$ is diagonalizable, then the dominant eigenvalue \(\lambda_1=1\) has algebraic multiplicity 1
+        \1 Let $P$ be a regular \(n\times n\) transition matrix. Then as \(k\to \infty\), \(p^k\) approcahes an \(n\times n\) matrix $L$ whose columns are identical, each equal to the same vector \(\vb x\). This vector \(\vb x\) is a steady state probability vector for $P$. 
+        \1 Let $P$ be a regular \(n\times n\) transition matrix, with \(\vb x\) the steady state probability vector for $P$, as in the above. Then, for any initial probability vector \(\vb x_0\), the sequence of iterates \(\vb x_k\) approaches \(\vb x\). 
+        \1 Every Leslie matrix has a unique positive eigenvalue and a corresponding eigenvector with positive components. 
+        \1 Perron's Theroem: Let $A$ be a positive \(n\times n\) matrix. Then \(A\) has a real eigenvalue \(\lambda_1\) with the following properties: 
+            \2 \(\lambda_1>0\)
+            \2 \(\lambda_1\) has a corresponding positive eigenvector. 
+            \2 If \(\lambda\) is any other eigenvalue of $A$, then \(|\lambda|\leq\lambda_1\)
+        \1 The Perron-Frobenius Theorem: Let \(A\) be an irreducible nonnegative \(n\times n\) matrix. Then \(A\) has a real eigenvalue \(\lambda_1\) with the following properties: 
+            \2 \(\lambda_1>0\)
+            \2 \(\lambda_1\) has a corresponding positive eigenvector. 
+            \2 If \(\lambda\) is any other eigenvalue of $A$, then \(|\lambda|\leq\lambda_1\). If $A$ is primitive, then this inequality is strict. 
+            \2 If \(\lambda\) is an eigenvalue of $A$ such that \(|\lambda|=\lambda_1\), then \(\lambda\) is a (complex) root of the equation \(\lambda^n-\lambda_1^n=0\)
+            \2 \(\lambda_1\) has algebraic multiplicity 1. 
+        \1 Def: Let \((x_n)=(x_0,x_1,x_2)\) be a sequence of numbers that is defined as follows: 
+            \2 \(x_0=a_0,x_1=a_1,\cdots,x_{k-1}=a_{k-1}\), where \(a_0,a_1,\cdots,a_{k-1}\) are scalars. 
+            \2 For all \(n\geq k,x_n=c_1x_{n-1}+c_2x_{n-2}+\cdots+c_kx_{n-k}\), where \(c_1,c_2,\cdots,c_k\) are scalars. 
+        \1 If \(c_k\neq 0\), the equation in the second line is called a linear recurrence relation of order $k$. The equations in the first line are referred to as the initial conditions of the recurrence. 
+        \1 Let \(x_n=ax_{n-1}+bx_{n-2}\) be a recurrence relation that is satisfied by a sequence \((x_n)\). Let \(\lambda_1\) and \(\lambda_2\) be the eigenvalues of the associated characteristic equation \(\lambda^2-a\lambda-b=0\). 
+            \2 If \(\lambda_1\neq \lambda_2\), then \(x_n=c_1\lambda_1^n+c_2\lambda_2^n\) for some scalars \(c_1\) and \(c_2\). 
+            \2 If \(\lambda_1=\lambda_2=\lambda\), then \(x_n=c_1\lambda^n+c_2n\lambda^n\) for some scalars \(c_1\) and \(c_2\). 
+        \1 In either case, \(c_1\) and \(c_2\) can be determined using the initial conditions. 
+        \1 Let \(x_n=a_{m-1}x_{n-1}+a_{m-2}x_{n-2}+\cdots+a_0x_{n-m}\) be a recurrence relation of order \(m\) that is satisfied by a sequence \((x_n)\). Suppose the associated characteristic polynomial \[\lambda^m-a_{m-1}\lambda^{m-1}-a_{m-2}\lambda^{m-2}-\cdots-a_0\] factors as \((\lambda-\lambda_1)^{m_1}(\lambda-\lambda_2)^{m_2}\cdots(\lambda-\lambda_k)^{m_k}\), where \(m_1+m_2+\cdots+m_k=m\). Then \(x_n\) has the form \[x_n=(c_{11}\lambda_1^n+c_{12}n\lambda_1^n+c_{13}n^2\lambda_1^n+\cdots+c_{1m_1}n^{m_1-1}\lambda_1^n)+\cdots\]\[+(c_{k1}\lambda_k^n+c_{k2}n\lambda_k^n+c_{k3}n^2\lambda_k^n+\cdots+c_{km_k}n^{m_k-1}\lambda_k^n)\]
+        \1 Let $A$ be an \(n\times n\) diagonalizable matrix and let \(P=[\vb v_1\quad\vb v_2\quad \cdots\quad \vb v_n]\) be such that \[P^{-1}AP=\begin{bmatrix}
+            \lambda_1 & 0 & \cdots & 0\\ 0 & \lambda_2 & \cdots& 0\\\vdots &\vdots& \ddots &\vdots\\0&0&\cdots&\lambda_n
+        \end{bmatrix}\] Then the general solution to the system \(\vb x'=A\vb x\) is \[\vb x=C_1e^{\lambda_1t}\vb v_1+C_2e^{\lambda_2t}\vb v_2+\cdots+C_ne^{\lambda_nt}\vb v_n\]
+        \1 Let $A$ be an \(n\times n\) diagonalizable matrix with eigenvalues \(\lambda_1,\lambda_2,\cdots,\lambda_n\). Then the general solution to the system \(\vb x'=A\vb x\) is \(\vb x=e^{At}\vb c\), where \(\vb c\) is an arbitrary constant vector. If an initial condition \(\vb x(0)\) is specified, then \(\vb c=\vb x(0)\). 
+        \1 Let \(A=\begin{bmatrix}
+            a & -b \\ b & a
+        \end{bmatrix}\). The eigenvalues of \(A\) are \(\lambda=a\pm bi\), and if \(a\) and \(b\) are not both zero, then $A$ can be factored as \[A=\begin{bmatrix}
+            a & -b \\ b& a
+        \end{bmatrix}=\begin{bmatrix}
+            r & 0 \\ 0 & r
+        \end{bmatrix}\begin{bmatrix}
+            \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta
+        \end{bmatrix}\] where \(r=|\lambda|=\sqrt{a^2+b^2}\) and \(\theta\) is the principal argument of \(a+bi\)
+        \1 Let $A$ be a real \(2\times 2\) matrix with a complex eigenvalue \(\lambda=a-bi\) (where \(b\neq 0\)) and corresponding eigenvector \(\vb x\). Then the matrix \(P=[\text{Re}\vb x\quad \text{Im}\vb x]\) is invertbible and \[A=P\begin{bmatrix}
+            a & -b \\ b & a
+        \end{bmatrix}P^{-1}\]
+    \end{outline}
+    
+\end{document}
