@@ -1,0 +1,154 @@
+\documentclass{article}
+\title{Chapter 6 Notes - LA} % title - chapter number
+\author{John Yang}
+\usepackage{amsmath}
+\usepackage[margin=1in, letterpaper]{geometry}
+\usepackage{outlines}
+\setcounter{section}{+5} % chapter number minus 1
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{stackrel}
+\DeclarePairedDelimiter\set\{\}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+\usepackage{tocloft}
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand\cftsecpagefont{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand\cftsecdotsep{\cftdot}
+\renewcommand\cftsubsecdotsep{\cftdot}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \section{Vector Spaces}
+    \subsection{Vector Spaces and Subspaces}
+    \begin{outline}
+        \1 In the past, we studied vectors in a concrete situation, \(\mathbb R^n\). Now, we generalize ``vectors'' by abstracting them into a general setting. 
+        \1 Let $V$ be a set on which two operations, called addition and scalar multiplication, have been defined. If \(\vb u\) and \(\vb v\) are in $V$, the sum of \(\vb u\) and \(\vb v\) is denoted by \(\vb u+\vb v\), and if $c$ is a scalar, the scalar multiple of $\vb u$ by $c$ is denoted by \(c\vb u\). If the following axioms hold for all \(\vb u\), \(\vb v\), and \(\vb w\) in $V$ and for all scalars \(c\) and \(d\), then $V$ is called a vector space and its elements are vectors. 
+    \end{outline}
+    \begin{enumerate}
+        \item \(\vb u+\vb v\) is in $V$. 
+        \item \(\vb u+\vb v=\vb v+\vb u\)
+        \item \((\vb u+\vb v)+\vb w=\vb u+(\vb v+\vb w)\)
+        \item There exists an element $\vb 0$ in $V$, called a zero vector, such that \(\vb u+\vb 0=\vb u\)
+        \item For each \(\vb u\) in $V$, there is an element \(-\vb u\) in $V$ such that \(\vb u+(-\vb u)=\vb 0\)
+        \item \(c\vb u\) is in $V$. 
+        \item \(c(\vb u+\vb v)=c\vb u+c\vb v\)
+        \item \((c+d)\vb u=c\vb u+d=vb u\)
+        \item \(c(d\vb u)=(cd)\vb u\)
+        \item \(1\vb u=\vb u\)
+    \end{enumerate}
+    \begin{outline}
+        \1 Let $V$ be a vector space \(\vb u\) a vector in $V$, and $c$ a scalar. 
+            \2 \(0\vb u=\vb 0\)
+            \2 \(c\vb 0=\vb 0\)
+            \2 \((-1)\vb u=-\vb u\)
+            \2 If \(c\vb u=\vb 0\), then \(c=0\) or \(\vb u=\vb 0\)
+        \1 A subset $W$ of a vector space $V$ is called a subspace of $V$ if $W$ is itself a vector space with the same scalars, addition, and scalar multiplication as $V$. 
+        \1 Let $V$ be a vector space and let $W$ be a nonempty subset of $V$. Then $W$ is a subspace of $V$ IFF the following conditions hold: 
+            \2 If \(\vb u\) and \(\vb v\) are in $W$, then \(\vb u+\vb v\) is in \(W\)
+            \2 If \(\vb u\) is in $W$ and $c$ is a scalar, then \(c\vb u\) is in $W$. 
+        \1 If $W$ is a subspace of a vector space $V$, then $W$ contains the zero vector \(\vb 0\) of $V$. 
+        \1 If \(S=\{\vb v_1,\vb v_2,\ldots,\vb v_k\}\) is a set of vectors in a vector space $V$, then the set of all linear combinations of \(\vb v_1,\vb v_2,\ldots,\vb v_k\) is called the span of \(\vb v_1,\vb v_2,\ldots,\vb v_k\) and is denoted by \(\text{span}(\vb v_1,\vb v_2,\ldots,\vb v_k)\) or \(\text{span}(S)\). If \(V=\text{span}(S)\), then $S$ is called a spanning set of $V$ and $V$ is said to be spanned by $S$. 
+        \1 Let \(\vb v_1,\vb v_2,\ldots,\vb v_k\) be vectors in a vector space $V$. 
+            \2 \(\text{span}(\vb v_1,\vb v_2,\ldots,\vb v_k)\) is a subspace of $V$. 
+            \2 \(\text{span}(\vb v_1,\vb v_2,\ldots,\vb v_k)\) is the smallest subspace of $V$ that contains \(\vb v_1,\vb v_2,\ldots,\vb v_k\)
+
+    \end{outline}
+    \subsection{Linear Independence, Basis, and Dimension}
+    \begin{outline}
+        \1 A set of vectors \(\{\vb v_1,\vb v_2,\ldots,\vb v_k\}\) in a vector space $V$ is linearly dependent if there are scalars \(c_1,c_2,\ldots,c_k\), at least one of which is not zero, such that \[c_1\vb v_1+c_2\vb v_2+\cdots+c_k\vb v_k=\vb 0\] A set of vectors that is not linearly dependent is said to be linearly independent. 
+        \1 A set of vectors \(\{\vb v_1,\vb v_2,\ldots,\vb v_k\}\) in a vector space $V$ is linearly dependent IFF at least one of the vectors can be expressed as a linear combination of the others. 
+        \1 A set $S$ of vectors in a vector space $V$ is linearly dependent if it contains finitely many linearly dependent vectors. A set of vectors that is not linearly dependent is said to be linearly independent. 
+        \1 A subset \(\mathcal B\) of a vector space $V$ is a basis for $V$ if 
+            \2 \(\mathcal B\) spans $V$ and 
+            \2 \(\mathcal B\) is linearly indepnedent. 
+        \1 Let $V$ be a vector space and let \(\mathcal B\) be a basis for $V$. For every vector \(\vb v\) in $V$, there is exactly one way to write $\vb v$ as a linear combination of the basis vectors in \(\mathcal B\)
+        \1 Let \(\mathcal B=\{\vb v_1,\vb v_2,\ldots,\vb v_k\}\) be a basis for the vector space $V$. Let \(\vb v\) be a vector in $V$, and write \(\vb v=c_1\vb v_1+c_2\vb v_2+\cdots+c_n\vb v_n\). Then \(c_1,c_2,\ldots,c_n\) are called the coordinates of \(\vb v\) with respect to \(\mathcal B\), and the column vector \[[\vb v]_{\mathcal B}=\begin{bmatrix}
+            c_1\\c_2\\\vdots\\c_n
+        \end{bmatrix}\] is called the coordinate vector of \(\vb v\) with respect to \(\mathcal B\). 
+        \1 Let \(\mathcal B=\{\vb v_1,\vb v_2,\ldots,\vb v_k\}\) be a basis for a vector space $V$. Let \(\vb u\) and \(\vb v\) be vectors in $V$ and let \(c\) be a scalar. Then 
+            \2 \([\vb u+\vb v]_\mathcal B=[\vb u]_\mathcal B+[\vb v]_\mathcal B\)
+            \2 \([c\vb u]_\mathcal B=c[\vb u]_\mathcal B\)
+        \1 \[[c_1\vb u_1+\cdots+c_k\vb u_k]_\mathcal B=c_1[\vb u_1]_\mathcal B+\cdots+c_k[\vb u_k]_\mathcal B\]
+        \1 Let \(\mathcal B=\{\vb v_1,\vb v_2,\ldots,\vb v_k\}\) be a basis for a vector space $V$ and let \(\vb u_1,\ldots,\vb u_k\) be vectors in $V$. Then \(\{\vb u_1,\ldots,\vb u_k\}\) is linearly independent in $V$ IFF \(\{[\vb u_1]_\mathcal B,\ldots,[\vb u_k]_\mathcal B\}\) is linearly independent in \(\mathbb R^n\). 
+        \1 Let \(\mathcal B=\{\vb v_1,\vb v_2,\ldots,\vb v_k\}\) be a basis for a vector space $V$. 
+            \2 Any set of more than $n$ vectors in $V$ must be linearly dependent. 
+            \2 Any set of fewer than $n$ vectors in $V$ cannot span $V$. 
+        \1 The Basis Theorem: If a vector space $V$ has a basis with $n$ vectors, then every basis for $V$ has exactly $n$ vectors. 
+        \1 A vector space $V$ is called finite-dimensional if it has a basis consisting of finitely many vectors. The dimension of $V$, denoted by \(\text{dim }V\), is the number of vectors in a basis for $V$. The dimension of the zero vector space \(\{\vb 0\}\) is defined to be zero. A vector space that has no finite basis is called infinite-dimensional. 
+        \1 Let $V$ be a vector space with \(\text{dim }V=n\). Then: 
+            \2 Any linearly independent set in $V$ contains at most $n$ vectors. 
+            \2 Any spanning set for $V$ contains at least $n$ vectors. 
+            \2 Any linearly indpendent set of exactly $n$ vectors in $V$ is a basis for $V$. 
+            \2 Any spanning set for $V$ consisting of exactly $n$ vectors is a basis for $V$. 
+            \2 Any linearly independent set in $V$ can be extended to a basis for $V$. 
+            \2 Any spanning set for $V$ can be reduced to a basis for $V$. 
+        \1 Let $W$ be a subspace of a fin site-dimensional vector space $V$. Then: 
+            \2 $W$ is finite-dimensional and \(\text{dim }W\leq\text{dim }V\). 
+            \2 \(\text{dim }W=\text{dim }V\) IFF \(W=V\)
+    \end{outline}
+    \subsection{Change of Basis}
+    \begin{outline}
+        \1 Let \(\mathcal B=\{\vb u_1,\ldots,\vb u_n\}\) and \(\mathcal C=\{\vb v_1,\ldots,\vb v_n\}\) be bases for a vector space $V$. The \(n\times n\) matrix whose columns are the coordinate vectors \([\vb u_1]_\mathcal C,\ldots,[\vb u_n]_\mathcal C\) of the vectors in \(\mathcal B\) with respect to \(\mathcal C\) is denoted by \(P_{\mathcal C\leftarrow\mathcal B}\) and is called the change-of-basis matrix from \(\mathcal B\) to \(\mathcal C\). That is, \[P_{\mathcal C\leftarrow\mathcal B}=[[\vb u_1]_\mathcal C[\vb u_2]_\mathcal C\cdots[\vb u_n]_\mathcal C]\]
+        \1 Let \(\mathcal B=\{\vb u_1,\ldots,\vb u_n\}\) and \(\mathcal C=\{\vb v_1,\ldots,\vb v_n\}\) be bases for a vector space $V$ and let \(P_{\mathcal C\leftarrow\mathcal B}\) be the change-of-basis matrix from \(\mathcal B\) to \(\mathcal C\). Then 
+            \2 \(P_{\mathcal C\leftarrow\mathcal B[\vb x]_\mathcal B=[\vb x]_\mathcal{C}}\) for all \(\vb x\) in $V$. 
+            \2 \(P_{\mathcal C\leftarrow\mathcal B}\) is the unique matrix $P$ with the property that \(P[\vb x]_\mathcal B=[\vb x]_\mathcal C\) for all \(\vb x\) in $V$. 
+            \2 \(P_{\mathcal C\leftarrow\mathcal B}\) is invertible and \((P_{\mathcal C\leftarrow\mathcal B})^{-1}=P_{\mathcal B\leftarrow\mathcal C}\). 
+        \1 Let \(\mathcal B=\{\vb u_1,\ldots,\vb u_n\}\) and \(\mathcal C=\{\vb v_1,\ldots,\vb v_n\}\) be bases for a vector space $V$. Let \(B=[[\vb u_1]_\mathcal E\cdots[\vb u_n]_\mathcal E]\) and \(C=[[\vb v_1]_\mathcal E\cdots[\vb v_n]_\mathcal E]\), where \(\mathcal E\) is any basis for $V$. Then the row reduction applied to the \(n\times 2n\) augmented matrix \([C|B]\) produces \[[C|B]\to[I|P_{\mathcal C\leftarrow\mathcal B}]\]
+
+    \end{outline}
+    \subsection{Linear Transformations}
+    \begin{outline}
+        \1 A linear transformation from a vector space $V$ to a vector space $W$ is a mapping \(T:V\to W\) such that, for all \(\vb u\) and \(\vb v\) in $V$ and for all scalars $c$, 
+            \2 \(T(\vb u+\vb v)=T(\vb u)+T(\vb v)\)
+            \2 \(T(c\vb u)=cT(\vb u)\)
+        \1 \(T:V\to W\) is a linear transformation IFF \[T(c_1\vb v_1+c_2\vb v_2+\cdots+c_k\vb v_k)=c_1T(\vb v_1)+c_2T(\vb v_2)+\cdots+c_kT(\vb v_k)\] for all \(\vb v_1,\ldots,\vb v_k\) in $V$ and scalars \(c_1,\ldots,c_k\). 
+        \1 Let \(T:V\to W\) be a linear transformation. Then: 
+            \2 \(T(\vb 0)=\vb 0\)
+            \2 \(T(-\vb v)=-T(\vb v)\) for all \(\vb v\) in $V$. 
+            \2 \(T(\vb u-\vb v)=T(\vb u)-T(\vb v)\) for all \(\vb u\) and \(\vb v\) in $V$. 
+        \1 Let \(T:V\to W\) be a linear transformation and let \(\mathcal B=\{\vb v_1,\ldots,\vb v_n\}\) be a spanning set for $V$. Then \(T(\mathcal B)=\{T(\vb v_1),\ldots,T(\vb v_n)\}\) spans the range of $T$. 
+        \1 If \(T:U\to V\) and \(S:V\to W\) are linear transformations, then the composition of $S$ with $T$ is the mapping \(S\circ T\), defined by \[(S\circ T)(\vb u)=S(T(\vb u))\] where \(\vb u\) is in $U$. 
+        \1 If \(T:U\to V\) and \(S:V\to W\) are linear transformations, then \(S\circ T:U\to W\) is a linear transformation. 
+        \1 \(R\circ(S\circ T)=(R\circ S)\circ T\)
+        \1 A linear transformation \(T:V\to W\) is invertible if there is a linear transformation \(T':W\to V\) such that \[T'\circ T=I_V\quad\text{and}\quad T\circ T'=I_W\] In this case, \(T'\) is called an inverse for $T$. 
+        \1 If $T$ is an invertible linear transformation, then its inverse is unique. 
+    \end{outline}
+    \subsection{The Kernel and Range of a Linear Transformation}
+    \begin{outline}
+        \1 Let \(T:V\to W\) be a linear transformation. The kernel of $T$, denoted \(\text{ker}(T)\), is the set of all vectors in $V$ that are mapped by $T$ to \(\vb 0\) in $W$. That is, \[\text{ker}(T)=\{\vb v\text{ in }V:T(\vb v)=\vb 0\}\] The range of $T$, denoted \(\text{range}(T)\), is the set of all vectors in $W$ that are images of vectors in $V$ under $T$. That is, \[\text{range}(T)=\{T(\vb v):\vb v\text{ in }V\}=\{\vb w\text{ in }W:\vb w=T(\vb v)\text{ for some }\vb v\text{ in }V\}\]
+        \1 Let \(T:V\to W\) be a linear transformation. Then: 
+            \2 The kernel of $T$ is a subspace of $V$. 
+            \2 The range of $T$ is a subspace of $W$. 
+        \1 Let \(T:V\to W\) be a linear transformation. The rank of $T$ is the dimension of the range of $T$ and is denoted by \(\text{rank}(T)\). The nullity of $T$ is the dimension of the kernel of $T$ and is denoted by \(\text{nullity}(T)\). 
+        \1 The rank theorem: Let \(T:V\to W\) be a linear transformation from a finite-dimensional vector space $V$ into a vector space $W$. Then \[\text{rank}(T)+\text{nullity}(T)=\text{dim }V\]
+        \1 A linear transformation \(T:V\to W\) is called one-to-one if $T$ maps distinct vectors in $V$ to distinct vectors in W. If \(\text{range}(T)=W\), then $T$ is called onto. 
+        \1 \(T:V\to W\) is one-tocloftone if, for all \(\vb u\) and \(\vb v\) in $V$, \[\vb u\neq\vb v\text{ implies that }T(\vb u)\neq T(\vb v)\]
+        \1 Which is to say, if \(T:V\to W\) is one-to-one if, for all \(\vb u\) and \(\vb v\) in $V$, \[T(\vb u)=T(\vb v)\text{ implies that }\vb u=\vb v\]
+        \1 \(T:V\to W\) is onto if, for all \(\vb w\) in $W$, there is at leeast one \(\vb v\) in $V$ such that \[\vb w=T(\vb v)\]
+        \1 A linear transformation \(T:V\to W\) is one-to-one IFF \(\text{ker}(T)=\{\vb 0\}\). 
+        \1 Let \(\text{dim }V=\text{dim }W=n\). Then a linear transformation \(T:V\to W\) is one-to-one IFF it is onto
+        \1 Let \(T:V\to W\) be a one-to-one linear transformation. If \(S=\{\vb v_1,\ldots,\vb v_k\}\) is a linearly indepnedent set in $V$, then \(T(S)=\{T(\vb v_1),\ldots,T(\vb v_k)\}\) is a linearly independent set in $W$. 
+        \1 Let \(\text{dim }V=\text{dim }W=n\). Then a one-to-one linear transformation \(T:V\to W\) maps a basis for $V$ to a basis for $W$. 
+        \1 A linear transformation \(T:V\to W\) is invertible IFF it is one-to-one and onto. 
+        \1 A lineart transformation \(T:V\to W\) is called an isomorphism if it is one-to-one and onto. If $V$ and $W$ are two vector spaces such that there is an isomorphism from $V$ to $W$, then we say that $V$ is isomorphic to $W$ and write \(V\cong W\). 
+        \1 Let $V$ and $W$ be two finite-dimensional vector spaces (over the same field of scalars). Then $V$ is isomorphic to $W$ IFF \(\text{dim }V=\text{dim }W\). 
+        
+    \end{outline}
+    \subsection{The Matrix of a Linear Transformation}
+    \begin{outline}
+        \1 
+    \end{outline}
+    \subsection{Applications}
+    \begin{outline}
+        \1 
+    \end{outline}
+\end{document}
