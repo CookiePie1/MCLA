@@ -18,6 +18,7 @@
 	urlcolor=cyan,
 }
 \usepackage{tocloft}
+\usepackage{mathrsfs}
 \renewcommand\cftsecfont{\normalfont}
 \renewcommand\cftsecpagefont{\normalfont}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
@@ -141,14 +142,46 @@
         \1 A linear transformation \(T:V\to W\) is invertible IFF it is one-to-one and onto. 
         \1 A lineart transformation \(T:V\to W\) is called an isomorphism if it is one-to-one and onto. If $V$ and $W$ are two vector spaces such that there is an isomorphism from $V$ to $W$, then we say that $V$ is isomorphic to $W$ and write \(V\cong W\). 
         \1 Let $V$ and $W$ be two finite-dimensional vector spaces (over the same field of scalars). Then $V$ is isomorphic to $W$ IFF \(\text{dim }V=\text{dim }W\). 
-        
+
     \end{outline}
     \subsection{The Matrix of a Linear Transformation}
     \begin{outline}
-        \1 
+        \1 Let $V$ and $W$ be two finite-dimensional vector spaces with bases \(\mathcal B\) and \(\mathcal C\), respectively, where \(\mathcal B=\{\vb v_1,\ldots,\vb v_n\}\). If \(T:V\to W\) is a linear transformation, then the \(m\times n\) matrix $A$ defined by \[A=[[T(\vb v_1)]_\mathcal C|[T(\vb v_2)]_\mathcal C|\cdots|[T(\vb v_n)]_\mathcal C]\] satisfies \[A[\vb v]_\mathcal B=[T(\vb v)]_\mathcal C\] for every vector \(\vb v\) in $V$. 
+        \1 \([T]_{\mathcal C\leftarrow\mathcal B}[\vb v]_\mathcal B=[T(\vb v)]_\mathcal C\)
+        \1 \([T]_\mathcal B[\vb v]_\mathcal B=[T(\vb v)]_\mathcal B\)
+        \1 Let $U$, $V$, and $W$ be finite-dimensional vector spaces with bases \(\mathcal B\), \(\mathcal C\), and \(\mathcal D\), respectively. Let \(T:U\to V\) and \(S:V\to W\) be linear transformations. Then \[[S\circ T]_{\mathcal D\leftarrow\mathcal B}=[S]_{\mathcal D\leftarrow\mathcal C}[T]_{\mathcal C\leftarrow\mathcal B}\]
+        \1 Let \(T:V\to W\) be a linear transformation between $n$-dimensional vector spaces $V$ and $W$ and let \(\mathcal B\) and \(\mathcal C\) be bases for $V$ and $W$, respectively. Then $T$ is invertible IFF the matrix \([T]_{\mathcal C\leftarrow\mathcal B}\) is invertible. In this case, \[([T]_{\mathcal C\leftarrow\mathcal B})^{-1}=[T^{-1}]_{\mathcal B\leftarrow\mathcal C}\]
+        \1 Let $V$ be a finite dimensional vector space with bases \(\mathcal B\) and \(\mathcal C\) and let \(T:V\to V\) be a linear transformation. Then \[[T]_\mathcal C=P^{-1}[T]_\mathcal BP\] where $P$ is the change-of-basis matrix from \(\mathcal C\) to \(\mathcal B\). 
+        \1 Let $V$ be a finite-dimensional vector space and let \(T:V\to V\) be a linear transformation. Then $T$ is called diagonalizable if there is a basis \(\mathcal C\) for $V$ such that the matrix \([T]_\mathcal C\) is a diagonal matrix. 
+        \1 The Fundamental Theorem of invertible matrices: version 4. 
+            \2 $A$ is invertible
+            \2 $A\vb x=\vb b$ has a unique solution for every \(\vb b\) in \(\mathbb R^n\)
+            \2 \(A\vb x=\vb 0\) has only the trivial solution. 
+            \2 The reduced row echelon form of $A$ is \(I_n\). 
+            \2 $A$ is the product of elementary matrices. 
+            \2 \(\rank (A)=n\)
+            \2 nullity\((A)=0\)
+            \2 The column vectors of $A$ are linearly independent
+            \2 The column vectors of $A$ span \(\mathbb R^n\)
+            \2 The column vectors of $A$ form a basis for \(\mathbb R^n\)
+            \2 The row vectors of $A$ are linearly independent
+            \2 The row vectors of $A$ span \(\mathbb R^n\)
+            \2 The row vectors of $A$ form a basis for \(\mathbb R^n\)
+            \2 \(\det A\neq 0\)
+            \2 $0$ is not an eigenvalue of $A$
+            \2 $T$ is invertible. 
+            \2 $T$ is one-to-one. 
+            \2 $T$ is onto. 
+            \2 \(\text{ker}(T)=\{\vb 0\}\)
+            \2 \(\text{range}(T)=W\)
     \end{outline}
     \subsection{Applications}
     \begin{outline}
-        \1 
+        \1 The set $S$ of all solutions to \(y'+ay=0\) is a subspace of \(\mathscr F\)
+        \1 If $S$ is the solution space of \(y'+ay=0\), then \(\text{dim }S=1\) and \(\{e^{-at}\}\) is a basis for $S$. 
+        \1 Let $S$ be the solution space of \[y''+ay'+by=0\] and let \(\lambda_1\) and \(\lambda_2\) be the roots of the characteristic equation \(\lambda^2+a\lambda+b=0\). 
+            \2 If \(\lambda_1\neq\lambda_2\), then \(\{e^{\lambda_1t},e^{\lambda_2t}\}\) is a basis for $S$. 
+            \2 If \(\lambda_1=\lambda_2\), then \(\{e^{\lambda_1t},te^{\lambda_1t}\}\) is a basis for $S$. 
+            
     \end{outline}
 \end{document}
