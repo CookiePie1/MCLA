@@ -1,0 +1,68 @@
+\documentclass{article}
+\title{Chapter 7 Notes - LA} % title - chapter number
+\author{John Yang}
+\usepackage{amsmath}
+\usepackage[margin=1in, letterpaper]{geometry}
+\usepackage{outlines}
+\setcounter{section}{+6} % chapter number minus 1
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{stackrel}
+\DeclarePairedDelimiter\set\{\}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+\usepackage{tocloft}
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand\cftsecpagefont{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand\cftsecdotsep{\cftdot}
+\renewcommand\cftsubsecdotsep{\cftdot}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \section{Distance and Approximation} % chapter title
+    \subsection{Inner Product Spaces} 
+    \begin{outline}
+        \1 An inner product on a vector space $V$ is an operation that assigns to every pair of vectors \(\vb u\) and \(\vb v\) in $V$ a real number \(\langle\vb u,\vb v\rangle\) such that the following properties hold for all vectors \(\vb u\), \(\vb v\), and \(\vb w\) in $V$ and all scalars $c$:
+            \2 \(\langle\vb u,\vb v\rangle=\langle\vb v,\vb u\rangle\)
+            \2 \(\langle\vb u,\vb v+\vb w\rangle=\langle\vb u,\vb v\rangle+\langle\vb u,\vb w\rangle\)
+            \2 \(\langle c\vb u,\vb v\rangle=c\langle\vb u,\vb v\rangle\)
+            \2 \(\langle\vb u,\vb u\rangle\geq 0\) and \(\langle\vb u,\vb u\rangle=0\) IFF \(\vb u=\vb 0\)
+        \1 A vector space with an inner product is called an inner product space. 
+        \1 Let \(\vb u\), \(\vb v\), and \(\vb w\) be vectors in an inner product space $V$ and let \(c\) be a scalar. 
+            \2 \(\langle\vb u+\vb v,\vb w\rangle=\langle\vb u,\vb w\rangle+\langle\vb v+\vb w\rangle\)
+            \2 \(\langle\vb u,c\vb v\rangle=c\langle\vb u,\vb v\rangle\)
+            \2 \(\langle\vb u,\vb 0\rangle=\langle\vb 0,\vb v\rangle=0\)
+        \1 Let \(\vb u\) and \(\vb v\) be vectors in an inner product space $V$. 
+            \2 The length (or norm) of \(\vb v\) is \(||\vb v||=\sqrt{\langle\vb v,\vb v\rangle}\). 
+            \2 The distance between \(\vb u\) and \(\vb v\) is \(d(\vb u,\vb v)=||\vb u-\vb v||\)
+            \2 \(\vb u\) and \(\vb v\) are orthogonal if \(\langle\vb u,\vb v\rangle=0\). 
+        \1 Pythagoras' Theorem: Let \(\vb u\) and \(\vb v\) be vectors in an inner product space $V$. Then \(\vb u\) and \(\vb v\) are orthogonal IFF \[||\vb u+\vb v||^2=||\vb u||^2+||\vb v||^2\]
+        \1 The Cauchy-Schwarz Inequality: Let \(\vb u\) and \(\vb v\) be vectors in an inner product space $V$. 
+    \end{outline}
+    \subsection{Norms and Distance Functions} 
+    \begin{outline}
+        \1 
+    \end{outline}
+    \subsection{Least Squares Approximation} 
+    \begin{outline}
+        \1 
+    \end{outline}
+    \subsection{The Singular Value Decomposition} 
+    \begin{outline}
+        \1 
+    \end{outline}
+    \subsection{Applications} 
+    \begin{outline}
+        \1 
+    \end{outline}
+    
+\end{document}
