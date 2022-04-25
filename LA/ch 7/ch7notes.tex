@@ -46,11 +46,20 @@
             \2 The distance between \(\vb u\) and \(\vb v\) is \(d(\vb u,\vb v)=||\vb u-\vb v||\)
             \2 \(\vb u\) and \(\vb v\) are orthogonal if \(\langle\vb u,\vb v\rangle=0\). 
         \1 Pythagoras' Theorem: Let \(\vb u\) and \(\vb v\) be vectors in an inner product space $V$. Then \(\vb u\) and \(\vb v\) are orthogonal IFF \[||\vb u+\vb v||^2=||\vb u||^2+||\vb v||^2\]
-        \1 The Cauchy-Schwarz Inequality: Let \(\vb u\) and \(\vb v\) be vectors in an inner product space $V$. 
+        \1 The Cauchy-Schwarz Inequality: Let \(\vb u\) and \(\vb v\) be vectors in an inner product space $V$. Then \[|\langle\vb u,\vb v\rangle|\leq||\vb u||||\vb v||\] with equality holding IFF $\vb u$ and $\vb v$ are scalar multiples of each other. 
+	\1 The triangle inequality: Let $\vb u$ and $\vb v$ be vectors in an inner product space $V$. Then \[||\vb u+\vb v||\leq||\vb u||+||\vb v||\]
     \end{outline}
     \subsection{Norms and Distance Functions} 
     \begin{outline}
-        \1 
+        \1 A norm on a vector space $V$ is a mapping that associates with each vector $\vb v$ a real number $||\vb v||$, called the norm of $\vb v$, such that the following properties are satisfied for all vectors $\vb u$ and $\vb v$ and all scalars $c$:
+		\2 \(||\vb v||\geq 0\), and \(||\vb v||=0\) IFF \(\vb v=\vb 0\)
+		\2 \(||c\vb v||=|c|||\vb v||\)
+		\2 \(||\vb u+\vb v||\leq||\vb u||+||\vb v||\)
+	\1 A vector space with a norm is called a normed vector space. 
+	\1 We define a distance function for any norm as: \[d(\vb u,\vb v)=||\vb u-\vb v||\]
+	\1 Let $d$ be a distance function defined on a normed linear space $V$. The following properties hold for all vectors $\vb u$, $\vb v$, and $\vb w$ in $V$:
+		\2 \(d(\vb u,\vb v)\geq 0\), and \(d(\vb u,\vb v)=0\) IFF \(\vb u=\vb v\)
+		\2 
     \end{outline}
     \subsection{Least Squares Approximation} 
     \begin{outline}
