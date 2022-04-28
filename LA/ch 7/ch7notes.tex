@@ -59,19 +59,99 @@
 	\1 We define a distance function for any norm as: \[d(\vb u,\vb v)=||\vb u-\vb v||\]
 	\1 Let $d$ be a distance function defined on a normed linear space $V$. The following properties hold for all vectors $\vb u$, $\vb v$, and $\vb w$ in $V$:
 		\2 \(d(\vb u,\vb v)\geq 0\), and \(d(\vb u,\vb v)=0\) IFF \(\vb u=\vb v\)
-		\2 
+		\2 \(d(\vb u,\vb v)=d(\vb v,\vb u)\) 
+        \2 \(d(\vb u,\vb w)\leq d(\vb u,\vb v)+d(\vb v,\vb w)\)
+    \1 A matrix norm on \(M_{nn}\) is a mapping that associates with each \(n\times n\) matrix $A$ a real number $||A||$, called the norm of $A$, such that the following properties are satisfied for all \(n\times n\) matrices $A$ and $B$ and all scalars $c$. 
+        \2 \(||A||\geq 0\) and \(||A||=0\) IFF \(A=O\). 
+        \2 \(||cA||=|c|||A||\)
+        \2 \(||A+B||\leq||A||+||B||\)
+        \2 \(||AB||\leq||A||||B||\)
+    \1 A matrix norm on $M_{nn}$ is said to be compatible with a vector norm on \(||\vb x||\) on \(\mathbb R^n\) if, for all \(n\times n\) matrices $A$ and all vectors $\vb x$ in \(\mathbb R^n\), we have \[||A\vb x||\leq||A||||\vb x||\]
+    \1 The Frobenius norm is given by \[||A||_F=\sqrt{\sum^n_{i,j=1}a^2_{ij}}\]
+    \1 If \(||\vb x||\) is a vector norm on \(\mathbb R^n\), then \(||A||=\max_{||\vb x||=1}||A\vb x||\) defines a matrix norm on $M_{nn}$ that is compatible with the vector norm that induces it. 
+    \1 The matrix norm $||A||$ in the previous is called the operator norm induced by the vector norm \(||\vb x||\)
+    \1 Let $A$ be an \(n\times n\) matrix with column vectors \(\vb a_i\) and row vectors $\vb A_i$ for \(i=1,\ldots,n\). \[\text{a. \|A\|_{1}=\max _{j=1, \ldots, n}\left\{\left\|\mathbf{a}_{j}\right\|_{s}\right\}=\max _{j=1, \ldots, n}\left\{\sum_{i=1}^{n}\left|a_{i j}\right|\right\}}\]\[\text{b. \|A\|_{\infty}=\max _{i=1, \ldots, n}\left\{\left\|\mathbf{A}_{i}\right\|_{s}\right\}=\max _{i=1, \ldots, n}\left\{\sum_{j=1}^{n}\left|a_{i j}\right|\right\}}\]
+    \1 A matrix $A$ is ill-conditioned if small changes in its entries can produce large changes in the solutions to $A \mathbf{x}=\mathbf{b}$. If small changes in the entries of $A$ produce only small changes in the solutions to $A \mathbf{x}=\mathbf{b}$, then $A$ is called well-conditioned.
+
     \end{outline}
     \subsection{Least Squares Approximation} 
     \begin{outline}
-        \1 
+        \1 If $A$ is an $m \times n$ matrix and $\mathbf{b}$ is in $\mathbb{R}^{m}$, a least squares solution of $\overline{A \mathbf{x}}=\mathbf{b}$ is a vector $\overline{\mathbf{x}}$ in $\mathbb{R}^{n}$ such that \[\|\mathbf{b}-A \overline{\mathbf{x}}\| \leq\|\mathbf{b}-A \mathbf{x}\|\] for all $\mathbf{x}$ in $\mathbb{R}^{n}$.
+        \1 The Least Squares Theorem: Let $A$ be an $m \times n$ matrix and let $\mathbf{b}$ be in $\mathbb{R}^{m}$. Then $A \mathbf{x}=\mathbf{b}$ always has at least one least squares solution $\overline{\mathbf{x}}$. Moreover:
+            \2 $\overline{\mathbf{x}}$ is a least squares solution of $A \mathbf{x}=\mathbf{b}$ if and only if $\overline{\mathbf{x}}$ is a solution of the normal equations $A^{T} A \overline{\mathbf{x}}=A^{T} \mathbf{b}$.
+            \2 A has linearly independent columns if and only if $A^{T} A$ is invertible. In this case, the least squares solution of $A \mathbf{x}=\mathbf{b}$ is unique and is given by
+            \[\overline{\mathbf{x}}=\left(A^{T} A\right)^{-1} A^{T} \mathbf{b}\]
+        \1 Let $A$ be an $m \times n$ matrix with linearly independent columns and let $\mathbf{b}$ be in $\mathbb{R}^{m}$. If $A=Q R$ is a $Q R$ factorization of $A$, then the unique least squares solution $\overline{\mathbf{x}}$ of $A \mathbf{x}=\mathbf{b}$ is
+        \[\overline{\mathbf{x}}=R^{-1} Q^{T} \mathbf{b}\]
+        \1 Let $W$ be a subspace of $\mathbb{R}^{m}$ and let $A$ be an $m \times n$ matrix whose columns form a basis for $W$. If $\mathbf{v}$ is any vector in $\mathbb{R}^{m}$, then the orthogonal projection of $\mathbf{v}$ onto $W$ is the vector
+        \[\operatorname{proj}_{W}(\mathbf{v})=A\left(A^{T} A\right)^{-1} A^{T} \mathbf{v}\]
+        The linear transformation $P: \mathbb{R}^{m} \rightarrow \mathbb{R}^{m}$ that projects $\mathbb{R}^{m}$ onto $W$ has $A\left(A^{T} A\right)^{-1} A^{T}$ as its standard matrix.
+        \1 If $A$ is a matrix with linearly independent columns, then the pseudoinverse of $A$ is the matrix $A^{+}$defined by
+        \[A^{+}=\left(A^{T} A\right)^{-1} A^{T}\]
+        \1 Let $A$ be a matrix with linearly independent columns. Then the pseudoinverse $A^{+}$of $A$ satisfies the following properties, called the Penrose conditions for $A$:
+            \2 $A A^{+} A=A$
+            \2 $A^{+} A A^{+}=A^{+}$
+            \2 $A A^{+}$and $A^{+} A$ are symmetric.
     \end{outline}
     \subsection{The Singular Value Decomposition} 
     \begin{outline}
-        \1 
+        \1 If $A$ is an $m \times n$ matrix, the singular values of $A$ are the square roots of the eigenvalues of $A^{T} A$ and are denoted by $\sigma_{1}, \ldots, \sigma_{n}$. It is conventional to arrange the singular values so that $\sigma_{1} \geq \sigma_{2} \geq \cdots \geq \sigma_{n}$.
+        \1 The Singular Value Decomposition: Let $A$ be an $m \times n$ matrix with singular values $\sigma_{1} \geq \sigma_{2} \geq \cdots \geq \sigma_{r}>0$ and $\sigma_{r+1}=\sigma_{r+2}=\cdots=\sigma_{n}=0$. Then there exist an $m \times m$ orthogonal matrix $U$, an $n \times n$ orthogonal matrix $V$, and an $m \times n$ matrix $\Sigma$ of the form shown in Equation (1) such that
+        \[A=U \Sigma V^{T}\]
+        \1 The Outer Product Form of the SVD: Let $A$ be an $m \times n$ matrix with singular values $\sigma_{1} \geq \sigma_{2} \geq \cdots \geq \sigma_{r}>0$ and $\sigma_{r+1}=$ $\sigma_{r+2}=\cdots=\sigma_{n}=0$. Let $\mathbf{u}_{1}, \ldots, \mathbf{u}_{r}$ be left singular vectors and let $\mathbf{v}_{1}, \ldots, \mathbf{v}_{r}$ be right singular vectors of $A$ corresponding to these singular values. Then
+        \[A=\sigma_{1} \mathbf{u}_{1} \mathbf{v}_{1}^{T}+\cdots+\sigma_{r} \mathbf{u}_{r} \mathbf{v}_{r}^{T}\]
+        \1 Let $A=U \Sigma V^{T}$ be a singular value decomposition of an $m \times n$ matrix $A$. Let $\sigma_{1}, \ldots$, $\sigma_{r}$ be all the nonzero singular values of $A$. Then:
+            \2 The rank of $A$ is $r$.
+            \2 $\left\{\mathbf{u}_{1}, \ldots, \mathbf{u}_{r}\right\}$ is an orthonormal basis for $\operatorname{col}(A)$.
+            \2 $\left\{\mathbf{u}_{r+1}, \ldots, \mathbf{u}_{m}\right\}$ is an orthonormal basis for $\operatorname{null}\left(A^{T}\right)$.
+            \2 $\left\{\mathbf{v}_{1}, \ldots, \mathbf{v}_{r}\right\}$ is an orthonormal basis for $\operatorname{row}(A)$.
+            \2 $\left\{\mathbf{v}_{r+1}, \ldots, \mathbf{v}_{n}\right\}$ is an orthonormal basis for $\operatorname{null}(A)$.
+        \1 Let $A$ be an $m \times n$ matrix with rank $r$. Then the image of the unit sphere in $\mathbb{R}^{n}$ under the matrix transformation that maps $\mathbf{x}$ to $A \mathbf{x}$ is
+            \2 the surface of an ellipsoid in $\mathbb{R}^{m}$ if $r=n$.
+            \2 a solid ellipsoid in $\mathbb{R}^{m}$ if $r<n$.
+        \1 Let $A$ be an $m \times n$ matrix and let $\sigma_{1}, \ldots, \sigma_{r}$ be all the nonzero singular values of A. Then
+        \[\|A\|_{F}=\sqrt{\sigma_{1}^{2}+\cdots+\sigma_{r}^{2}}\]
+        \1 If $A$ is an $m \times n$ matrix and $Q$ is an $m \times m$ orthogonal matrix, then
+        \[\|Q A\|_{F}=\|A\|_{F}\]
+        \1 Let $A=U \Sigma V^{T}$ be an SVD for an $m \times n$ matrix $A$, where $\Sigma=$ $\left[\begin{array}{ll}D & O \\ O & O\end{array}\right]$ and $D$ is an $r \times r$ diagonal matrix containing the nonzero singular values $\sigma_{1} \geq \sigma_{2} \geq \cdots \geq \sigma_{r}>0$ of $A$. The pseudoinverse (or Moore-Penrose inverse) of $A$ is the $n \times m$ matrix $A^{+}$defined by
+        \[A^{+}=V \Sigma^{+} U^{T}\]
+        where $\Sigma^{+}$is the $n \times m$ matrix \[\Sigma^{+}=\left[\begin{array}{cc}
+        D^{-1} & O \\
+        O & O
+        \end{array}\right]\]
+        \1 The least squares problem $A \mathbf{x}=\mathbf{b}$ has a unique least squares solution $\overline{\mathbf{x}}$ of minimal length that is given by \[\overline{\mathbf{x}}=A^{+} \mathbf{b}\]
+        \1 The Fundamental Theorem of invertible matrices: Final Version. 
+            \2 $A$ is invertible
+            \2 $A\vb x=\vb b$ has a unique solution for every \(\vb b\) in \(\mathbb R^n\)
+            \2 \(A\vb x=\vb 0\) has only the trivial solution. 
+            \2 The reduced row echelon form of $A$ is \(I_n\). 
+            \2 $A$ is the product of elementary matrices. 
+            \2 \(\rank (A)=n\)
+            \2 nullity\((A)=0\)
+            \2 The column vectors of $A$ are linearly independent
+            \2 The column vectors of $A$ span \(\mathbb R^n\)
+            \2 The column vectors of $A$ form a basis for \(\mathbb R^n\)
+            \2 The row vectors of $A$ are linearly independent
+            \2 The row vectors of $A$ span \(\mathbb R^n\)
+            \2 The row vectors of $A$ form a basis for \(\mathbb R^n\)
+            \2 \(\det A\neq 0\)
+            \2 $0$ is not an eigenvalue of $A$
+            \2 $T$ is invertible. 
+            \2 $T$ is one-to-one. 
+            \2 $T$ is onto. 
+            \2 \(\text{ker}(T)=\{\vb 0\}\)
+            \2 \(\text{range}(T)=W\)
+            \2 $0$ is not a singular value of $A$. 
+
     \end{outline}
     \subsection{Applications} 
     \begin{outline}
-        \1 
+        \1 General problem of approximating functions can be stated as: Given a continuous function $f$ on an interval $[a, b]$ and a subspace $W$ of $\mathscr{C}[a, b]$, find the function "closest" to $f$ in $W$.
+        \1 The n'th order Fourier approximation to $f$ on \([-\pi,\pi]\): \[\begin{aligned}
+            &a_{0}=\frac{\langle 1, f\rangle}{\langle 1,1\rangle}=\frac{1}{2 \pi} \int_{-\pi}^{\pi} f(x) d x \\
+            &a_{k}=\frac{\langle\cos k x, f\rangle}{\langle\cos k x, \cos k x\rangle}=\frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos k x d x \\
+            &b_{k}=\frac{\langle\sin k x, f\rangle}{\langle\sin k x, \sin k x\rangle}=\frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin k x d x
+        \end{aligned}\]
     \end{outline}
     
 \end{document}
