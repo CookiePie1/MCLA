@@ -2,7 +2,7 @@
 \title{Linear Algebra Concise Review} % title - chapter number
 \author{John Yang}
 \usepackage{amsmath}
-\usepackage[margin=1in, letterpaper]{geometry}
+\usepackage[margin=0.775in, letterpaper]{geometry}
 \usepackage{outlines}
 \setcounter{section}{+0} % chapter number minus 1
 \usepackage{mathtools}
@@ -25,9 +25,18 @@
 \renewcommand\cftsecdotsep{\cftdot}
 \renewcommand\cftsubsecdotsep{\cftdot}
 
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{John Yang}
+\lhead{LA Concise Review}
+\rfoot{Pg. \thepage}
+
 \begin{document}
     \maketitle
     \tableofcontents
+    \newpage
     \section{Vectors} % chapter title
         \subsection{The Geometry and Algebra of Vectors}
         \begin{outline}
@@ -62,13 +71,13 @@
                 \2 \(\mathbf{u\cdot}(\mathbf{v+w})=\mathbf{u\cdot v+u\cdot w}\)
                 \2 \((c\mathbf u)\mathbf{\cdot v}=c(\mathbf{u\cdot v})\)
                 \2 \(\mathbf{u\cdot u\geq 0}\) and \(\mathbf{u\cdot u}=0\) IFF \(\mathbf u=\mathbf 0\)
-                \2 Length or norm of a vector \(\mathbf v=\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}\) in \(\mathbb R^n\) is the nonnegative scalar \(||\mathbf v||\) defined by \[||\mathbf v||=\sqrt{\mathbf{v\cdot v}}=\sqrt{v_1^2+v_2^2+\cdots+v_n^2}\]
+                \2 Length or norm of a vector \(\mathbf v=\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}\) in \(\mathbb R^n\) is the nonnegative scalar \(\|\mathbf v\|\) defined by \[\|\mathbf v\|=\sqrt{\mathbf{v\cdot v}}=\sqrt{v_1^2+v_2^2+\cdots+v_n^2}\]
             \1 Normalizing a vector means finding the unit vector. 
-            \1 Cauchy-Schwarz Inequality: For all vectors \(\mathbf u\) and \(\mathbf v\) in \(\mathbb R^n\), \[|\mathbf{u\cdot v}|\leq ||\mathbf u||||\mathbf v||\]
-            \1 Triangle inequality: for all vectors \(\mathbf u\) and \(\mathbf v\) and \(\mathbb R^n\), \[||\mathbf u+\mathbf v||\leq||\mathbf u||+||\mathbf v||\]
-            \1 Distance between two vectors is defined by \[d(\mathbf u,\mathbf v)=||\mathbf u-\mathbf v||\]
+            \1 Cauchy-Schwarz Inequality: For all vectors \(\mathbf u\) and \(\mathbf v\) in \(\mathbb R^n\), \[|\mathbf{u\cdot v}|\leq \|\mathbf u\|\|\mathbf v\|\]
+            \1 Triangle inequality: for all vectors \(\mathbf u\) and \(\mathbf v\) and \(\mathbb R^n\), \[\|\mathbf u+\mathbf v\|\leq\|\mathbf u\|+\|\mathbf v\|\]
+            \1 Distance between two vectors is defined by \[d(\mathbf u,\mathbf v)=\|\mathbf u-\mathbf v\|\]
             \1 Two vectors are orthogonal if \(\mathbf u\cdot\mathbf v=0\)
-            \1 For all vectors \(\mathbf u\) and \(\mathbf v\) in \(\mathbb R^n\), \(||\mathbf u+\mathbf v||^2=||\mathbf u||^2+||\mathbf v||^2\) IFF \(\mathbf u\) and \(\mathbf v\) are orthogonal. 
+            \1 For all vectors \(\mathbf u\) and \(\mathbf v\) in \(\mathbb R^n\), \(\|\mathbf u+\mathbf v\|^2=\|\mathbf u\|^2+\|\mathbf v\|^2\) IFF \(\mathbf u\) and \(\mathbf v\) are orthogonal. 
             \1 If \(\mathbf u\) and \(\mathbf v\) are vectors in \(\mathbb R^n\) and \(\mathbf u\neq\mathbf 0\), then the projection of \(\mathbf v\) onto \(\mathbf u\) is the vector defined by \[\text{proj}_{\mathbf u}(\mathbf v)=\left(\dfrac{\mathbf{u\cdot v}}{\mathbf{u\cdot u}}\right)\mathbf u\]
 
         \end{outline}
@@ -548,7 +557,7 @@
             \1 A square matrix \(Q\) is orthogonal IFF \(Q^{-1}=Q^T\)
             \1 Let $Q$ be an \(n\times n\) matrix. The following are equivalent:
                 \2 $Q$ is orthogonal. 
-                \2 \(||Q\vb x||=||\vb x||\) for every \(\vb x\) in \(\mathbb R^n\)
+                \2 \(\|Q\vb x\|=\|\vb x\|\) for every \(\vb x\) in \(\mathbb R^n\)
                 \2 \(Q\vb x\cdot Q\vb y=\vb x\cdot\vb y\) for every \(\vb x\) and \(\vb y\) in \(\mathbb R^n\)
             \1 If $Q$ is an orthogonal matrix, then its rows form an orthonormal set. 
             \1 Let $Q$ be an orthogonal matrix. 
@@ -609,7 +618,7 @@
                 \2 negative definite IFF all eigenvalues are negative
                 \2 negative semidefinite IFF all eigenvalues are nonpositive. 
                 \2 indefinite IFF $A$ has both positive and negative eigenvalues. 
-            \1 Let \(f(\vb x)=\vb x^TA\vb x\) be a quadratic form with associated \(n\times n\) symmetric matrix $A$. Let the eigenvalues of $A$ be \(\lambda_1\geq\lambda_2\geq\cdots\geq\lambda_n\). Then the following are true, with the constraint of \(||\vb x||=1\): 
+            \1 Let \(f(\vb x)=\vb x^TA\vb x\) be a quadratic form with associated \(n\times n\) symmetric matrix $A$. Let the eigenvalues of $A$ be \(\lambda_1\geq\lambda_2\geq\cdots\geq\lambda_n\). Then the following are true, with the constraint of \(\|\vb x\|=1\): 
                 \2 \(\lambda_1\geq f(\vb x)\geq\lambda_n\)
                 \2 The max value of \(f(\vb x)\) is \(\lambda_1\) and occurs when \(\vb x\) is a unit eigenvector corresponding to \(\lambda_1\)
                 \2 The min value of \(f(\vb x)\) is \(\lambda_n\) and occurs when \(\vb x\) is a unit eigenvector corresponding to \(\lambda_n\)
@@ -787,37 +796,37 @@
                 \2 \(\langle\vb u,c\vb v\rangle=c\langle\vb u,\vb v\rangle\)
                 \2 \(\langle\vb u,\vb 0\rangle=\langle\vb 0,\vb v\rangle=0\)
             \1 Let \(\vb u\) and \(\vb v\) be vectors in an inner product space $V$. 
-                \2 The length (or norm) of \(\vb v\) is \(||\vb v||=\sqrt{\langle\vb v,\vb v\rangle}\). 
-                \2 The distance between \(\vb u\) and \(\vb v\) is \(d(\vb u,\vb v)=||\vb u-\vb v||\)
+                \2 The length (or norm) of \(\vb v\) is \(\|\vb v\|=\sqrt{\langle\vb v,\vb v\rangle}\). 
+                \2 The distance between \(\vb u\) and \(\vb v\) is \(d(\vb u,\vb v)=\|\vb u-\vb v\|\)
                 \2 \(\vb u\) and \(\vb v\) are orthogonal if \(\langle\vb u,\vb v\rangle=0\). 
-            \1 Pythagoras' Theorem: Let \(\vb u\) and \(\vb v\) be vectors in an inner product space $V$. Then \(\vb u\) and \(\vb v\) are orthogonal IFF \[||\vb u+\vb v||^2=||\vb u||^2+||\vb v||^2\]
-            \1 The Cauchy-Schwarz Inequality: Let \(\vb u\) and \(\vb v\) be vectors in an inner product space $V$. Then \[|\langle\vb u,\vb v\rangle|\leq||\vb u||||\vb v||\] with equality holding IFF $\vb u$ and $\vb v$ are scalar multiples of each other. 
-      \1 The triangle inequality: Let $\vb u$ and $\vb v$ be vectors in an inner product space $V$. Then \[||\vb u+\vb v||\leq||\vb u||+||\vb v||\]
+            \1 Pythagoras' Theorem: Let \(\vb u\) and \(\vb v\) be vectors in an inner product space $V$. Then \(\vb u\) and \(\vb v\) are orthogonal IFF \[\|\vb u+\vb v\|^2=\|\vb u\|^2+\|\vb v\|^2\]
+            \1 The Cauchy-Schwarz Inequality: Let \(\vb u\) and \(\vb v\) be vectors in an inner product space $V$. Then \[|\langle\vb u,\vb v\rangle|\leq\|\vb u\\\|\vb v\|\] with equality holding IFF $\vb u$ and $\vb v$ are scalar multiples of each other. 
+        \1 The triangle inequality: Let $\vb u$ and $\vb v$ be vectors in an inner product space $V$. Then \[\|\vb u+\vb v\|\leq\|\vb u\|+\|\vb v\|\]
         \end{outline}
         \subsection{Norms and Distance Functions} 
         \begin{outline}
-            \1 A norm on a vector space $V$ is a mapping that associates with each vector $\vb v$ a real number $||\vb v||$, called the norm of $\vb v$, such that the following properties are satisfied for all vectors $\vb u$ and $\vb v$ and all scalars $c$:
-        \2 \(||\vb v||\geq 0\), and \(||\vb v||=0\) IFF \(\vb v=\vb 0\)
-        \2 \(||c\vb v||=|c|||\vb v||\)
-        \2 \(||\vb u+\vb v||\leq||\vb u||+||\vb v||\)
-      \1 A vector space with a norm is called a normed vector space. 
-      \1 We define a distance function for any norm as: \[d(\vb u,\vb v)=||\vb u-\vb v||\]
-      \1 Let $d$ be a distance function defined on a normed linear space $V$. The following properties hold for all vectors $\vb u$, $\vb v$, and $\vb w$ in $V$:
-        \2 \(d(\vb u,\vb v)\geq 0\), and \(d(\vb u,\vb v)=0\) IFF \(\vb u=\vb v\)
-        \2 \(d(\vb u,\vb v)=d(\vb v,\vb u)\) 
+            \1 A norm on a vector space $V$ is a mapping that associates with each vector $\vb v$ a real number $\|\vb v\|$, called the norm of $\vb v$, such that the following properties are satisfied for all vectors $\vb u$ and $\vb v$ and all scalars $c$:
+            \2 \(\|\vb v\|\geq 0\), and \(\|\vb v\|=0\) IFF \(\vb v=\vb 0\)
+            \2 \(\|c\vb v\|=|c\\|\vb v\|\)
+            \2 \(\|\vb u+\vb v\|\leq\|\vb u\|+\|\vb v\|\)
+        \1 A vector space with a norm is called a normed vector space. 
+        \1 We define a distance function for any norm as: \[d(\vb u,\vb v)=\|\vb u-\vb v\|\]
+        \1 Let $d$ be a distance function defined on a normed linear space $V$. The following properties hold for all vectors $\vb u$, $\vb v$, and $\vb w$ in $V$:
+            \2 \(d(\vb u,\vb v)\geq 0\), and \(d(\vb u,\vb v)=0\) IFF \(\vb u=\vb v\)
+            \2 \(d(\vb u,\vb v)=d(\vb v,\vb u)\) 
             \2 \(d(\vb u,\vb w)\leq d(\vb u,\vb v)+d(\vb v,\vb w)\)
-        \1 A matrix norm on \(M_{nn}\) is a mapping that associates with each \(n\times n\) matrix $A$ a real number $||A||$, called the norm of $A$, such that the following properties are satisfied for all \(n\times n\) matrices $A$ and $B$ and all scalars $c$. 
-            \2 \(||A||\geq 0\) and \(||A||=0\) IFF \(A=O\). 
-            \2 \(||cA||=|c|||A||\)
-            \2 \(||A+B||\leq||A||+||B||\)
-            \2 \(||AB||\leq||A||||B||\)
-        \1 A matrix norm on $M_{nn}$ is said to be compatible with a vector norm on \(||\vb x||\) on \(\mathbb R^n\) if, for all \(n\times n\) matrices $A$ and all vectors $\vb x$ in \(\mathbb R^n\), we have \[||A\vb x||\leq||A||||\vb x||\]
-        \1 The Frobenius norm is given by \[||A||_F=\sqrt{\sum^n_{i,j=1}a^2_{ij}}\]
-        \1 If \(||\vb x||\) is a vector norm on \(\mathbb R^n\), then \(||A||=\max_{||\vb x||=1}||A\vb x||\) defines a matrix norm on $M_{nn}$ that is compatible with the vector norm that induces it. 
-        \1 The matrix norm $||A||$ in the previous is called the operator norm induced by the vector norm \(||\vb x||\)
-        \1 Let $A$ be an \(n\times n\) matrix with column vectors \(\vb a_i\) and row vectors $\vb A_i$ for \(i=1,\ldots,n\). \[\text{a. \|A\|_{1}=\max _{j=1, \ldots, n}\left\{\left\|\mathbf{a}_{j}\right\|_{s}\right\}=\max _{j=1, \ldots, n}\left\{\sum_{i=1}^{n}\left|a_{i j}\right|\right\}}\]\[\text{b. \|A\|_{\infty}=\max _{i=1, \ldots, n}\left\{\left\|\mathbf{A}_{i}\right\|_{s}\right\}=\max _{i=1, \ldots, n}\left\{\sum_{j=1}^{n}\left|a_{i j}\right|\right\}}\]
+        \1 A matrix norm on \(M_{nn}\) is a mapping that associates with each \(n\times n\) matrix $A$ a real number $\|A\|$, called the norm of $A$, such that the following properties are satisfied for all \(n\times n\) matrices $A$ and $B$ and all scalars $c$. 
+            \2 \(\|A\|\geq 0\) and \(\|A\|=0\) IFF \(A=O\). 
+            \2 \(\|cA\|=|c\\|A\|\)
+            \2 \(\|A+B\|\leq\|A\|+\|B\|\)
+            \2 \(\|AB\|\leq\|A\|\|B\|\)
+        \1 A matrix norm on $M_{nn}$ is said to be compatible with a vector norm on \(\|\vb x\|\) on \(\mathbb R^n\) if, for all \(n\times n\) matrices $A$ and all vectors $\vb x$ in \(\mathbb R^n\), we have \[\|A\vb x\|\leq\|A\|\|\vb x\|\]
+        \1 The Frobenius norm is given by \[\|A\|_F=\sqrt{\sum^n_{i,j=1}a^2_{ij}}\]
+        \1 If \(\|\vb x\|\) is a vector norm on \(\mathbb R^n\), then \(\|A\|=\max_{\|\vb x\|=1}\|A\vb x\|\) defines a matrix norm on $M_{nn}$ that is compatible with the vector norm that induces it. 
+        \1 The matrix norm $\|A\|$ in the previous is called the operator norm induced by the vector norm \(\|\vb x\|\)
+        \1 Let $A$ be an \(n\times n\) matrix with column vectors \(\vb a_i\) and row vectors $\vb A_i$ for \(i=1,\ldots,n\). \[\text{a. }\|A\|_{1}=\max _{j=1, \ldots, n}\left\{\left\|\mathbf{a}_{j}\right\|_{s}\right\}=\max _{j=1, \ldots, n}\left\{\sum_{i=1}^{n}\left|a_{i j}\right|\right\}\]\[\text{b. }\|A\|_{\infty}=\max _{i=1, \ldots, n}\left\{\left\|\mathbf{A}_{i}\right\|_{s}\right\}=\max _{i=1, \ldots, n}\left\{\sum_{j=1}^{n}\left|a_{i j}\right|\right\}\]
         \1 A matrix $A$ is ill-conditioned if small changes in its entries can produce large changes in the solutions to $A \mathbf{x}=\mathbf{b}$. If small changes in the entries of $A$ produce only small changes in the solutions to $A \mathbf{x}=\mathbf{b}$, then $A$ is called well-conditioned.
-
+    
         \end{outline}
         \subsection{Least Squares Approximation} 
         \begin{outline}
@@ -887,7 +896,7 @@
                 \2 \(\text{ker}(T)=\{\vb 0\}\)
                 \2 \(\text{range}(T)=W\)
                 \2 $0$ is not a singular value of $A$. 
-
+    
         \end{outline}
         \subsection{Applications} 
         \begin{outline}

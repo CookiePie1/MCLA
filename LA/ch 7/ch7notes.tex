@@ -42,35 +42,35 @@
             \2 \(\langle\vb u,c\vb v\rangle=c\langle\vb u,\vb v\rangle\)
             \2 \(\langle\vb u,\vb 0\rangle=\langle\vb 0,\vb v\rangle=0\)
         \1 Let \(\vb u\) and \(\vb v\) be vectors in an inner product space $V$. 
-            \2 The length (or norm) of \(\vb v\) is \(||\vb v||=\sqrt{\langle\vb v,\vb v\rangle}\). 
-            \2 The distance between \(\vb u\) and \(\vb v\) is \(d(\vb u,\vb v)=||\vb u-\vb v||\)
+            \2 The length (or norm) of \(\vb v\) is \(\|\vb v\|=\sqrt{\langle\vb v,\vb v\rangle}\). 
+            \2 The distance between \(\vb u\) and \(\vb v\) is \(d(\vb u,\vb v)=\|\vb u-\vb v\|\)
             \2 \(\vb u\) and \(\vb v\) are orthogonal if \(\langle\vb u,\vb v\rangle=0\). 
-        \1 Pythagoras' Theorem: Let \(\vb u\) and \(\vb v\) be vectors in an inner product space $V$. Then \(\vb u\) and \(\vb v\) are orthogonal IFF \[||\vb u+\vb v||^2=||\vb u||^2+||\vb v||^2\]
-        \1 The Cauchy-Schwarz Inequality: Let \(\vb u\) and \(\vb v\) be vectors in an inner product space $V$. Then \[|\langle\vb u,\vb v\rangle|\leq||\vb u||||\vb v||\] with equality holding IFF $\vb u$ and $\vb v$ are scalar multiples of each other. 
-	\1 The triangle inequality: Let $\vb u$ and $\vb v$ be vectors in an inner product space $V$. Then \[||\vb u+\vb v||\leq||\vb u||+||\vb v||\]
+        \1 Pythagoras' Theorem: Let \(\vb u\) and \(\vb v\) be vectors in an inner product space $V$. Then \(\vb u\) and \(\vb v\) are orthogonal IFF \[\|\vb u+\vb v\|^2=\|\vb u\|^2+\|\vb v\|^2\]
+        \1 The Cauchy-Schwarz Inequality: Let \(\vb u\) and \(\vb v\) be vectors in an inner product space $V$. Then \[|\langle\vb u,\vb v\rangle|\leq\|\vb u\\||\vb v\|\] with equality holding IFF $\vb u$ and $\vb v$ are scalar multiples of each other. 
+	\1 The triangle inequality: Let $\vb u$ and $\vb v$ be vectors in an inner product space $V$. Then \[\|\vb u+\vb v\|\leq\|\vb u\|+\|\vb v\|\]
     \end{outline}
     \subsection{Norms and Distance Functions} 
     \begin{outline}
-        \1 A norm on a vector space $V$ is a mapping that associates with each vector $\vb v$ a real number $||\vb v||$, called the norm of $\vb v$, such that the following properties are satisfied for all vectors $\vb u$ and $\vb v$ and all scalars $c$:
-		\2 \(||\vb v||\geq 0\), and \(||\vb v||=0\) IFF \(\vb v=\vb 0\)
-		\2 \(||c\vb v||=|c|||\vb v||\)
-		\2 \(||\vb u+\vb v||\leq||\vb u||+||\vb v||\)
+        \1 A norm on a vector space $V$ is a mapping that associates with each vector $\vb v$ a real number $\|\vb v\|$, called the norm of $\vb v$, such that the following properties are satisfied for all vectors $\vb u$ and $\vb v$ and all scalars $c$:
+		\2 \(\|\vb v\|\geq 0\), and \(\|\vb v\|=0\) IFF \(\vb v=\vb 0\)
+		\2 \(\|c\vb v\|=|c\||\vb v\|\)
+		\2 \(\|\vb u+\vb v\|\leq\|\vb u\|+\|\vb v\|\)
 	\1 A vector space with a norm is called a normed vector space. 
-	\1 We define a distance function for any norm as: \[d(\vb u,\vb v)=||\vb u-\vb v||\]
+	\1 We define a distance function for any norm as: \[d(\vb u,\vb v)=\|\vb u-\vb v\|\]
 	\1 Let $d$ be a distance function defined on a normed linear space $V$. The following properties hold for all vectors $\vb u$, $\vb v$, and $\vb w$ in $V$:
 		\2 \(d(\vb u,\vb v)\geq 0\), and \(d(\vb u,\vb v)=0\) IFF \(\vb u=\vb v\)
 		\2 \(d(\vb u,\vb v)=d(\vb v,\vb u)\) 
         \2 \(d(\vb u,\vb w)\leq d(\vb u,\vb v)+d(\vb v,\vb w)\)
-    \1 A matrix norm on \(M_{nn}\) is a mapping that associates with each \(n\times n\) matrix $A$ a real number $||A||$, called the norm of $A$, such that the following properties are satisfied for all \(n\times n\) matrices $A$ and $B$ and all scalars $c$. 
-        \2 \(||A||\geq 0\) and \(||A||=0\) IFF \(A=O\). 
-        \2 \(||cA||=|c|||A||\)
-        \2 \(||A+B||\leq||A||+||B||\)
-        \2 \(||AB||\leq||A||||B||\)
-    \1 A matrix norm on $M_{nn}$ is said to be compatible with a vector norm on \(||\vb x||\) on \(\mathbb R^n\) if, for all \(n\times n\) matrices $A$ and all vectors $\vb x$ in \(\mathbb R^n\), we have \[||A\vb x||\leq||A||||\vb x||\]
-    \1 The Frobenius norm is given by \[||A||_F=\sqrt{\sum^n_{i,j=1}a^2_{ij}}\]
-    \1 If \(||\vb x||\) is a vector norm on \(\mathbb R^n\), then \(||A||=\max_{||\vb x||=1}||A\vb x||\) defines a matrix norm on $M_{nn}$ that is compatible with the vector norm that induces it. 
-    \1 The matrix norm $||A||$ in the previous is called the operator norm induced by the vector norm \(||\vb x||\)
-    \1 Let $A$ be an \(n\times n\) matrix with column vectors \(\vb a_i\) and row vectors $\vb A_i$ for \(i=1,\ldots,n\). \[\text{a. \|A\|_{1}=\max _{j=1, \ldots, n}\left\{\left\|\mathbf{a}_{j}\right\|_{s}\right\}=\max _{j=1, \ldots, n}\left\{\sum_{i=1}^{n}\left|a_{i j}\right|\right\}}\]\[\text{b. \|A\|_{\infty}=\max _{i=1, \ldots, n}\left\{\left\|\mathbf{A}_{i}\right\|_{s}\right\}=\max _{i=1, \ldots, n}\left\{\sum_{j=1}^{n}\left|a_{i j}\right|\right\}}\]
+    \1 A matrix norm on \(M_{nn}\) is a mapping that associates with each \(n\times n\) matrix $A$ a real number $\|A\|$, called the norm of $A$, such that the following properties are satisfied for all \(n\times n\) matrices $A$ and $B$ and all scalars $c$. 
+        \2 \(\|A\|\geq 0\) and \(\|A\|=0\) IFF \(A=O\). 
+        \2 \(\|cA\|=|c\||A\|\)
+        \2 \(\|A+B\|\leq\|A\|+\|B\|\)
+        \2 \(\|AB\|\leq\|A\|\|B\|\)
+    \1 A matrix norm on $M_{nn}$ is said to be compatible with a vector norm on \(\|\vb x\|\) on \(\mathbb R^n\) if, for all \(n\times n\) matrices $A$ and all vectors $\vb x$ in \(\mathbb R^n\), we have \[\|A\vb x\|\leq\|A\|\|\vb x\|\]
+    \1 The Frobenius norm is given by \[\|A\|_F=\sqrt{\sum^n_{i,j=1}a^2_{ij}}\]
+    \1 If \(\|\vb x\|\) is a vector norm on \(\mathbb R^n\), then \(\|A\|=\max_{\|\vb x\|=1}\|A\vb x\|\) defines a matrix norm on $M_{nn}$ that is compatible with the vector norm that induces it. 
+    \1 The matrix norm $\|A\|$ in the previous is called the operator norm induced by the vector norm \(\|\vb x\|\)
+    \1 Let $A$ be an \(n\times n\) matrix with column vectors \(\vb a_i\) and row vectors $\vb A_i$ for \(i=1,\ldots,n\). \[\text{a. }\|A\|_{1}=\max _{j=1, \ldots, n}\left\{\left\|\mathbf{a}_{j}\right\|_{s}\right\}=\max _{j=1, \ldots, n}\left\{\sum_{i=1}^{n}\left|a_{i j}\right|\right\}\]\[\text{b. }\|A\|_{\infty}=\max _{i=1, \ldots, n}\left\{\left\|\mathbf{A}_{i}\right\|_{s}\right\}=\max _{i=1, \ldots, n}\left\{\sum_{j=1}^{n}\left|a_{i j}\right|\right\}\]
     \1 A matrix $A$ is ill-conditioned if small changes in its entries can produce large changes in the solutions to $A \mathbf{x}=\mathbf{b}$. If small changes in the entries of $A$ produce only small changes in the solutions to $A \mathbf{x}=\mathbf{b}$, then $A$ is called well-conditioned.
 
     \end{outline}
@@ -153,5 +153,5 @@
             &b_{k}=\frac{\langle\sin k x, f\rangle}{\langle\sin k x, \sin k x\rangle}=\frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin k x d x
         \end{aligned}\]
     \end{outline}
-    
+
 \end{document}
