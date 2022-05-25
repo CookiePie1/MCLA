@@ -12,6 +12,10 @@
 \usepackage{esint}
 \usepackage{stackrel}
 \DeclarePairedDelimiter\set\{\}
+
+\usepackage{graphicx}
+\graphicspath{ {./} }
+
 \usepackage{hyperref}
 \hypersetup{
 	colorlinks=true,
@@ -434,11 +438,12 @@
     \subsection{Arc Length and Curvature}
     \begin{outline}
         \1 Length of a curve in 3D space: \[L=\int^b_a\sqrt{[f'(t)]^2+[g'(t)]^2+[h'(t)]^2}dt=\int^b_a\sqrt{\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2+\left(\dfrac{dx}{dt}\right)^2}dt=\int^b_a|\mathbf r'(t)|dt\]
+        \1 Path length visualized: \\\includegraphics[scale=0.1]{path-length.jpg}
         \1 curvature of a curve is defined as: \[\kappa=\left|\dfrac{d\mathbf T}{ds}\right|\] where $\mathbf T$ is the unit tangent vector. 
         \1 \[\kappa(t)=\dfrac{|\mathbf T'(t)|}{|\mathbf r'(t)|}\]
         \1 The curvature of the curve given by the vector function $\mathbf r$ is \[\kappa(t)=\dfrac{|\mathbf r'(t)\times\mathbf r''(t)|}{|\mathbf r'(t)|^3}\]
         \1 Equations for unit tangent, unit normal and binormal vectors, and curvature: \[\mathbf T(t)=\dfrac{\mathbf r'(t)}{|\mathbf r'(t)|}\qquad \mathbf N(t)=\dfrac{\mathbf T'(t)}{|\mathbf T'(t)|}\qquad \mathbf B(t)=\mathbf T(t)\times\mathbf N(t)\]\[\kappa=\left|\dfrac{d\mathbf T}{ds}\right|=\dfrac{|\mathbf T'(t)|}{|\mathbf r'(t)|}=\dfrac{|\mathbf r'(t)\times r''(t)|}{|\mathbf r'(t)|^3}\]
-
+        \1 Visual representation of the vectors: \\\includegraphics[scale=0.1]{visual-vectors.jpg}
     \end{outline}
     
     \subsection{Motion in Space: Velocity and Acceleration}
@@ -789,7 +794,9 @@
     \begin{outline}
         \1 Cartesian Coordinates: \(x,y,z\)\[dA_x=dydz\qquad dA_y=dzdx \qquad dA_z=dxdy\]\[dV=dxdydz\]
         \1 Cylindrical Coordinates: \(r,\theta,z\)\[dA_r=rd\theta dz\qquad dA_\theta=dzdr\qquad dA_z=rdrd\theta\]\[dV=rdrd\theta dz\]
+        \1 Visualized: \\\includegraphics[scale=0.11]{cylindrical.jpg}
         \1 Spherical coordinates: \(\rho,\theta,\phi\)\[dA_\rho=\rho^2\sin\phi d\phi d\theta\qquad dA_\theta=\rho d\rho d\phi\qquad dA_\phi=\rho\sin\phi d\rho d\theta\]\[dV=\rho^2\sin\phi d\phi d\theta d\rho \]
+        \1 Visualized: \\\includegraphics[scale=0.11]{spherical.jpg}
 
     \end{outline}
 \end{document}
